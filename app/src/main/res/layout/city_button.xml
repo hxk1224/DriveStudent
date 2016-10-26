@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content">
+
+    <com.scaleview.ScaleButton
+        android:id="@+id/city_bt"
+        android:layout_width="@dimen/dimen_180dp"
+        android:layout_height="@dimen/dimen_80dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@color/green_color"
+        android:gravity="center"
+        android:padding="@dimen/dimen_10dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_32sp"/>
+
+</com.scaleview.ScaleLinearLayout>

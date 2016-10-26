@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_home"/>
+
+    <com.scaleview.ScaleScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.scaleview.ScaleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.scaleview.ScaleRelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <com.scaleview.ScaleViewPager
+                    android:id="@+id/vPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_200dp"
+                    android:layout_gravity="center"
+                    android:flipInterval="30"
+                    android:persistentDrawingCache="animation"/>
+
+                <com.scaleview.ScaleLinearLayout
+                    android:id="@+id/dot_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/vPager"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="8dp"/>
+            </com.scaleview.ScaleRelativeLayout>
+
+            <include layout="@layout/line_gray_1dp"/>
+
+        </com.scaleview.ScaleLinearLayout>
+    </com.scaleview.ScaleScrollView>
+
+</com.scaleview.ScaleLinearLayout>

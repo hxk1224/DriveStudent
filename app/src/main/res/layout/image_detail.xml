@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleRelativeLayout android:id="@+id/rl_container"
+                                   xmlns:android="http://schemas.android.com/apk/res/android"
+                                   android:layout_width="fill_parent"
+                                   android:layout_height="fill_parent"
+                                   android:background="@color/white"
+                                   android:clickable="true"
+                                   android:focusable="true">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleFrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/linearLayout_image_detail"
+        android:layout_below="@+id/header">
+
+        <com.scaleview.ScaleRelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <com.scaleview.ScaleImageView
+                android:id="@+id/detail_img_srcImage"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="fitCenter"/>
+
+            <com.scaleview.ScaleButton
+                android:id="@+id/save_gallery_bt"
+                android:layout_width="@dimen/dimen_100dp"
+                android:layout_height="@dimen/dimen_70dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:layout_marginRight="@dimen/dimen_10dp"
+                android:background="@drawable/rect_blue_button_selector"
+                android:gravity="center"
+                android:text="@string/save"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_32sp"
+                android:visibility="gone"/>
+        </com.scaleview.ScaleRelativeLayout>
+
+        <com.scaleview.ScaleProgressBar
+            android:id="@+id/detail_img_progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </com.scaleview.ScaleFrameLayout>
+
+    <com.scaleview.ScaleLinearLayout
+        android:id="@+id/linearLayout_image_detail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <com.scaleview.ScaleImageButton
+            android:id="@+id/btn_turn_left"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_weight="1.0"
+            android:background="@drawable/selector_image_detail_turn"
+            android:padding="4.0dip"
+            android:src="@drawable/button_turn_left"/>
+
+        <com.scaleview.ScaleImageButton
+            android:id="@+id/btn_delete"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center"
+            android:layout_weight="1.0"
+            android:background="@drawable/selector_image_detail_turn"
+            android:padding="4.0dip"
+            android:src="@drawable/button_del"
+            android:visibility="gone"/>
+
+        <com.scaleview.ScaleImageButton
+            android:id="@+id/btn_turn_right"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_weight="1.0"
+            android:background="@drawable/selector_image_detail_turn"
+            android:padding="4.0dip"
+            android:src="@drawable/button_turn_right"/>
+    </com.scaleview.ScaleLinearLayout>
+
+</com.scaleview.ScaleRelativeLayout>

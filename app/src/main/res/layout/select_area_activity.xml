@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                                 android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.scaleview.ScaleListView
+            android:id="@+id/area_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/light_gray_line_color"
+            android:dividerHeight="1dp"
+            android:listSelector="@drawable/edittext_bg_selector"
+            android:scrollbars="vertical"
+            android:scrollingCache="false"/>
+    </com.scaleview.ScaleLinearLayout>
+
+</com.scaleview.ScaleLinearLayout>

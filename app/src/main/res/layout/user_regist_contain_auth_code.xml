@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout
+    android:id="@+id/lr_contain_authcode"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.scaleview.ScaleEditText
+        android:id="@+id/register_et_telephone"
+        style="@style/telephone_et"
+        android:inputType="number"/>
+
+    <com.scaleview.ScaleLinearLayout
+        style="@style/login_et"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_94dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_0dp">
+
+        <com.scaleview.ScaleEditText
+            android:id="@+id/register_et_auth_code"
+            style="@style/telephone_et"
+            android:layout_width="@dimen/dimen_340dp"
+            android:layout_marginLeft="@dimen/dimen_0dp"
+            android:layout_marginRight="@dimen/dimen_0dp"
+            android:layout_marginTop="@dimen/dimen_0dp"
+            android:hint="@string/register_authcode"
+            android:inputType="number"/>
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/register_to_get_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_33dp"
+            android:background="@drawable/user_register_get_authcode_bg"
+            android:text="@string/register_get_authcode"
+            android:textSize="@dimen/dimen_24sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <com.scaleview.ScaleEditText
+        android:id="@+id/register_et_pwd"
+        style="@style/telephone_et"
+        android:hint="@string/login_pwd"
+        android:inputType="textPassword"/>
+
+    <com.scaleview.ScaleTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_24dp"
+        android:gravity="center"
+        android:padding="@dimen/dimen_5dp"
+        android:text="@string/pwd_valide_notice"
+        android:textColor="@color/main_gray_color"
+        android:textSize="@dimen/dimen_28sp"/>
+
+    <com.scaleview.ScaleEditText
+        android:id="@+id/register_et_reinput_pwd"
+        style="@style/telephone_et"
+        android:hint="@string/reinput_pwd"
+        android:inputType="textPassword"/>
+
+    <com.scaleview.ScaleTextView
+        android:id="@+id/register_ib_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_marginLeft="@dimen/dimen_50dp"
+        android:layout_marginRight="@dimen/dimen_50dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:background="@drawable/rect_blue_button_selector"
+        android:gravity="center"
+        android:text="提    交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_42sp"/>
+
+</com.scaleview.ScaleLinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.scaleview.ScaleTextView
+        android:id="@+id/txt_title"
+        style="@style/titleStyle1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_32sp"/>
+
+</com.scaleview.ScaleLinearLayout>

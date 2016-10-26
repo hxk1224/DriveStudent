@@ -1,0 +1,1054 @@
+<root>
+
+    <!-- 银行简码 银行名称 支持卡种 -->
+
+    <card
+        cardCode="0001"
+        cardName="工商银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0002"
+        cardName="农业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0003"
+        cardName="中国银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0004"
+        cardName="建设银行"
+        cardSupport="储蓄卡、贷记卡" />
+
+    <card
+        cardCode="0005"
+        cardName="招商银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0006"
+        cardName="浦发银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0007"
+        cardName="广发银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0008"
+        cardName="交通银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0009"
+        cardName="中信银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0010"
+        cardName="民生银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0011"
+        cardName="兴业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0012"
+        cardName="光大银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0013"
+        cardName="华夏银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0014"
+        cardName="上海银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0015"
+        cardName="上海农商银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0016"
+        cardName="邮政储蓄银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0017"
+        cardName=" 北京银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0018"
+        cardName="北京农商银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0019"
+        cardName="平安银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0020"
+        cardName="包商银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0021"
+        cardName="深圳发展银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0022"
+        cardName="恒丰银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0023"
+        cardName="渤海银行"
+        cardSupport="储蓄卡" />
+
+    <!--
+         <card
+        cardCode="0024"
+        cardName="浙商银行"
+        cardSupport="暂不支持" />
+    -->
+
+
+    <card
+        cardCode="0025"
+        cardName="花旗银行"
+        cardSupport="储蓄卡、信用卡(个人卡)" />
+
+    <card
+        cardCode="0026"
+        cardName="东亚银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0027"
+        cardName="渣打银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0028"
+        cardName="法兴银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0029"
+        cardName="大华银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0030"
+        cardName="新韩银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0031"
+        cardName="韩亚银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0032"
+        cardName="韩国中小企业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0033"
+        cardName="南洋商行"
+        cardSupport=" 储蓄卡" />
+
+    <card
+        cardCode="0034"
+        cardName="安顺市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0035"
+        cardName="安徽省农村信用社"
+        cardSupport=" 储蓄卡" />
+
+    <card
+        cardCode="0036"
+        cardName="安阳银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0037"
+        cardName="保定银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0038"
+        cardName="北京农商银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0039"
+        cardName="成都农村商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0040"
+        cardName="成都银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0041"
+        cardName="重庆农村商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0042"
+        cardName="重庆北碚稠州村镇银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0043"
+        cardName="重庆三峡银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0044"
+        cardName="重庆南川石银村镇银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0045"
+        cardName="重庆忠县稠州村镇银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0046"
+        cardName="常熟农村商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0047"
+        cardName="长沙银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0048"
+        cardName="承德银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0049"
+        cardName="沧州银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0050"
+        cardName="重庆银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0051"
+        cardName="长安银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0052"
+        cardName="长治市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0053"
+        cardName="大连银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0054"
+        cardName="德州市商业银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0055"
+        cardName="德阳银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0056"
+        cardName="东莞银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0057"
+        cardName="东莞农村商业银行"
+        cardSupport="储蓄卡" />
+
+    <!--
+         <card
+        cardCode="0058"
+        cardName="东营莱商村镇银行"
+        cardSupport="暂不支持" />
+    -->
+
+
+    <card
+        cardCode="0059"
+        cardName="东营银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0060"
+        cardName="鄂尔多斯银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0061"
+        cardName="福建省农村信用社"
+        cardSupport=" 信用卡" />
+
+    <card
+        cardCode="0062"
+        cardName="福建海峡银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0063"
+        cardName="抚顺银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0064"
+        cardName="富滇银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0065"
+        cardName="广西北部湾银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0066"
+        cardName="广西农村信用社"
+        cardSupport=" 储蓄卡" />
+
+    <card
+        cardCode="0067"
+        cardName="广州银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0068"
+        cardName="广东农村信用社"
+        cardSupport=" 储蓄卡" />
+
+    <card
+        cardCode="0069"
+        cardName="广东南粤银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0070"
+        cardName="广州农村商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0071"
+        cardName="广州花都稠州村镇银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0072"
+        cardName="广元市贵商村镇银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0073"
+        cardName="赣州银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0074"
+        cardName="桂林银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0075"
+        cardName="贵阳银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0076"
+        cardName="甘肃省农村信用社联合社"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0077"
+        cardName="杭州银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0078"
+        cardName="哈密市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0079"
+        cardName="河北银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0080"
+        cardName="河北省农村信用社"
+        cardSupport=" 储蓄卡" />
+
+    <card
+        cardCode="0081"
+        cardName="徽商银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0082"
+        cardName="鹤壁银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0083"
+        cardName="衡水市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0084"
+        cardName="哈尔滨银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0085"
+        cardName="海南省农村信用社联合社"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0086"
+        cardName="汉口银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0087"
+        cardName="湖南省农村信用社联合社"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0088"
+        cardName="湖北省农村信用社联合社"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0089"
+        cardName="湖北银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0090"
+        cardName="华融湘江银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0091"
+        cardName="葫芦岛银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0092"
+        cardName="邯郸银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0093"
+        cardName="嘉兴银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0094"
+        cardName="晋城银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0095"
+        cardName="江西农村信用联合社"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0096"
+        cardName="江苏省农村信用社联合社"
+        cardSupport="所有卡" />
+
+    <!--
+         <card
+        cardCode="0097"
+        cardName="江苏锡州农村商业银行"
+        cardSupport="暂不支持" />
+    -->
+
+    <card
+        cardCode="0098"
+        cardName="江苏银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0099"
+        cardName="江阴农村商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0100"
+        cardName="江南农村商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0101"
+        cardName="江苏长江商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0102"
+        cardName="吉林省农村信用社"
+        cardSupport=" 储蓄卡" />
+
+    <card
+        cardCode="0103"
+        cardName="吉林银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0104"
+        cardName="晋中市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0105"
+        cardName="晋商银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0106"
+        cardName="锦州银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0107"
+        cardName="金华银行"
+        cardSupport="所有卡" />
+
+    <!--
+         <card
+        cardId="0108"
+        cardName="济宁银行"
+        cardSupport="暂不支持" />
+    -->
+
+
+    <card
+        cardId="0109"
+        cardName="九江银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0110"
+        cardName="昆山农村商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0111"
+        cardName="库尔勒市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0112"
+        cardName="昆仑银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0113"
+        cardName="龙江银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0114"
+        cardName="凉山州商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0115"
+        cardName="乐山市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0116"
+        cardName="临商银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0117"
+        cardName="柳州银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0118"
+        cardName="漯河银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0119"
+        cardName="莱商银行股份有限公司"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0120"
+        cardName="洛阳银行"
+        cardSupport="储蓄卡" />
+
+    <!--
+         <card
+        cardCode="0121"
+        cardName="六盘水市商业银行"
+        cardSupport="暂不支持" />
+    -->
+
+
+    <card
+        cardCode="0122"
+        cardName="兰州银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0123"
+        cardName="泸州市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0124"
+        cardName="梅县客家村镇银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0125"
+        cardName="内蒙古银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0126"
+        cardName="内蒙古农村信用社"
+        cardSupport=" 储蓄卡" />
+
+    <card
+        cardCode="0127"
+        cardName="宁波银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0128"
+        cardName="宁波东海银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0129"
+        cardName="宁夏银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0130"
+        cardName="宁夏黄河农商银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0131"
+        cardName="南昌银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0132"
+        cardName="南京银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0133"
+        cardName="南充市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0134"
+        cardName="平顶山银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0135"
+        cardName="盘锦市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0136"
+        cardName="攀枝花市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0137"
+        cardName="青海银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0138"
+        cardName="齐鲁银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0139"
+        cardName="秦皇岛银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0140"
+        cardName="泉州银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0141"
+        cardName="曲靖市商业银行"
+        cardSupport="储蓄卡" />
+
+    <!--
+         <card
+        cardCode="0142"
+        cardName="齐商银行"
+        cardSupport="暂不支持" />
+    -->
+
+    <card
+        cardCode="0143"
+        cardName="青海省农村信用社"
+        cardSupport=" 所有卡" />
+
+    <card
+        cardCode="0144"
+        cardName="青岛银行"
+        cardSupport="所有卡" />
+
+    <!--
+         <card
+        cardCode="0145"
+        cardName="日照银行"
+        cardSupport="暂不支持" />
+    -->
+
+    <!--
+         <card
+        cardCode="0146"
+        cardName="盛京银行"
+        cardSupport="暂不支持" />
+    -->
+
+
+    <card
+        cardCode="0147"
+        cardName="三门峡银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0148"
+        cardName="上饶银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0149"
+        cardName="深圳福田银座村镇银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0150"
+        cardName="商丘银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0151"
+        cardName="深圳农商银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0152"
+        cardName="深圳龙岗鼎业村镇银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0153"
+        cardName="苏州银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0154"
+        cardName="绍兴银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0155"
+        cardName="遂宁市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0156"
+        cardName="石嘴山银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0157"
+        cardName="顺德农村商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0158"
+        cardName="四川省农村信用合作社"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0159"
+        cardName="陕西省农村信用社"
+        cardSupport=" 储蓄卡" />
+
+    <card
+        cardCode="0160"
+        cardName="山东省农村信用社"
+        cardSupport=" 储蓄卡" />
+
+    <card
+        cardCode="0161"
+        cardName="山西尧都农村商业银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0162"
+        cardName="山西省农村信用社联合社"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0163"
+        cardName="泰安市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0164"
+        cardName="太仓农村商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0165"
+        cardName="唐山市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0166"
+        cardName="天津滨海农村商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0167"
+        cardName="天津静海新华村镇银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0168"
+        cardName="天津农商银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0169"
+        cardName="天津银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0170"
+        cardName="台州银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0171"
+        cardName="潍坊银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0172"
+        cardName="威海市商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0173"
+        cardName="乌海银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0174"
+        cardName="吴江农商银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0175"
+        cardName="无锡农村商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0176"
+        cardName="温州银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0177"
+        cardName="乌鲁木齐市商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0178"
+        cardName="厦门银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0179"
+        cardName="许昌银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0180"
+        cardName="西安银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0181"
+        cardName="新疆汇和银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0182"
+        cardName="新疆农信"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0183"
+        cardName="邢台银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0184"
+        cardName="宜宾市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0185"
+        cardName="雅安市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0186"
+        cardName="阳泉市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0187"
+        cardName="玉溪市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0188"
+        cardName="云南省农村信用社"
+        cardSupport=" 储蓄卡" />
+
+    <card
+        cardCode="0189"
+        cardName="鄞州银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0190"
+        cardName="烟台银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0191"
+        cardName="营口银行"
+        cardSupport="储蓄卡" />
+
+    <!--
+         <card
+        cardCode="0192"
+        cardName="浙江省农村信用社(合作银行)"
+        cardSupport="暂不支持" />
+    -->
+
+
+    <card
+        cardCode="0193"
+        cardName="浙江稠州商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0194"
+        cardName="浙江民泰商业银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0195"
+        cardName="浙江泰隆商业银行"
+        cardSupport="信用卡" />
+
+    <card
+        cardCode="0196"
+        cardName="朝阳银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0197"
+        cardName="珠海华润银行"
+        cardSupport="所有卡" />
+
+    <card
+        cardCode="0198"
+        cardName="郑州银行"
+        cardSupport="储蓄卡(不支持96828、940056开头的卡)" />
+
+    <card
+        cardCode="0199"
+        cardName="张家港农村商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0200"
+        cardName="张家口市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0201"
+        cardName="自贡市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0202"
+        cardName="周口银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0203"
+        cardName="遵义市商业银行"
+        cardSupport="储蓄卡" />
+
+    <card
+        cardCode="0204"
+        cardName="中银通支付商务有限公司"
+        cardSupport="储值卡" />
+
+    <card
+        cardCode="0205"
+        cardName="中铁银通"
+        cardSupport="储值卡" />
+
+</root>

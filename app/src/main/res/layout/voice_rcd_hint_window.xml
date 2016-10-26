@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="fill_parent"
+                                 android:layout_height="fill_parent"
+                                 android:gravity="center">
+
+    <com.scaleview.ScaleLinearLayout
+        android:id="@+id/voice_rcd_hint_rcding"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_280dp"
+        android:background="@drawable/voice_rcd_hint_bg"
+        android:gravity="center"
+        android:minWidth="@dimen/dimen_280dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_50dp">
+
+        <com.scaleview.ScaleImageView
+            android:id="@+id/imageView1"
+            android:layout_width="@dimen/dimen_58dp"
+            android:layout_height="@dimen/dimen_175dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:src="@drawable/voice_rcd_hint"/>
+
+        <com.scaleview.ScaleImageView
+            android:id="@+id/volume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/dimen_15dp"
+            android:src="@drawable/amp1"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <com.scaleview.ScaleLinearLayout
+        android:id="@+id/voice_rcd_hint_loading"
+        android:layout_width="@dimen/dimen_280dp"
+        android:layout_height="@dimen/dimen_280dp"
+        android:background="@drawable/voice_rcd_hint_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <com.scaleview.ScaleProgressBar
+            android:id="@+id/progressBar1"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <com.scaleview.ScaleLinearLayout
+        android:id="@+id/voice_rcd_hint_tooshort"
+        android:layout_width="@dimen/dimen_280dp"
+        android:layout_height="@dimen/dimen_280dp"
+        android:background="@drawable/voice_rcd_hint_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.scaleview.ScaleImageView
+            android:layout_width="@dimen/dimen_150dp"
+            android:layout_height="@dimen/dimen_150dp"
+            android:src="@drawable/voice_to_short"/>
+
+        <com.scaleview.ScaleTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_30dp"
+            android:text="时间太短"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/dimen_32sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+</com.scaleview.ScaleLinearLayout>

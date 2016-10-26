@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:orientation="vertical">
+
+    <com.scaleview.ScaleRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="@color/main_blue_color">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/header_tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_22dp"
+            android:background="@drawable/title_back_bg_selector"
+            android:clickable="true"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:paddingLeft="@dimen/dimen_40dp"
+            android:paddingRight="@dimen/dimen_10dp"
+            android:text="返回"
+            android:textColor="@color/skin_bar_btn"
+            android:textSize="@dimen/dimen_38sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/header_tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_100dp"
+            android:layout_toRightOf="@+id/header_tv_back"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#fff"
+            android:textSize="@dimen/dimen_42sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/header_tv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="5dip"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dip"
+            android:clickable="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text=""
+            android:textColor="#fff"
+            android:textSize="@dimen/dimen_38sp"/>
+    </com.scaleview.ScaleRelativeLayout>
+
+</com.scaleview.ScaleLinearLayout>

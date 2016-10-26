@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/info_item_bg_normal"
+              android:orientation="vertical"
+              android:padding="10dip">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dip"
+        android:gravity="center"
+        android:text="新版本正在下载"
+        android:textColor="@color/main_blue_color"
+        android:textSize="20sp"/>
+
+    <View
+        android:id="@+id/fengexian"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginBottom="10dip"
+        android:background="@color/view_bg"/>
+
+    <ProgressBar
+        android:id="@+id/down_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="5dip"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/barcolor"/>
+    <!-- #00aaa9 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/id_tv_loadingmsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="none"
+            android:lineSpacingExtra="5dip"
+            android:maxLines="100"
+            android:scrollHorizontally="false"
+            android:textColor="@color/mycenter"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+</LinearLayout>

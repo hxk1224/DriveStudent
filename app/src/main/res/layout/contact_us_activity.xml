@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="fill_parent"
+                                 android:layout_height="fill_parent"
+                                 android:background="#FFFFFFFF"
+                                 android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleFrameLayout
+        android:id="@+id/frame_box"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/loading_box"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/view_loding"
+            android:visibility="visible"/>
+    </com.scaleview.ScaleFrameLayout>
+
+</com.scaleview.ScaleLinearLayout>

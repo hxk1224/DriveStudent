@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:background="@color/white"
+                                 android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header_mine"/>
+
+    <com.scaleview.ScaleScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbars="none">
+
+        <com.scaleview.ScaleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.scaleview.ScaleRelativeLayout
+                android:id="@+id/user_info_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_bg_selector"
+                android:padding="@dimen/dimen_20dp">
+
+                <com.scaleview.ScaleCircleImageView
+                    android:id="@+id/user_icon_iv"
+                    android:layout_width="@dimen/dimen_170dp"
+                    android:layout_height="@dimen/dimen_170dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/head_default_icon"
+                    app:border_color="@color/black"
+                    app:border_width="1px"/>
+
+                <com.scaleview.ScaleLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dimen_20dp"
+                    android:layout_toRightOf="@+id/user_icon_iv"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <com.scaleview.ScaleTextView
+                        android:id="@+id/user_name_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@drawable/car_state_text_selector"
+                        android:textSize="@dimen/dimen_32sp"/>
+
+                    <com.scaleview.ScaleTextView
+                        android:id="@+id/user_home_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_20dp"
+                        android:textColor="@drawable/car_state_text_selector"
+                        android:textSize="@dimen/dimen_32sp"/>
+                </com.scaleview.ScaleLinearLayout>
+
+                <com.scaleview.ScaleImageView
+                    android:id="@+id/header_arrow_iv"
+                    android:layout_width="@dimen/dimen_24dp"
+                    android:layout_height="@dimen/dimen_45dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="@dimen/dimen_20dp"
+                    android:paddingRight="@dimen/dimen_20dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/arrow_right"/>
+            </com.scaleview.ScaleRelativeLayout>
+
+            <include layout="@layout/line_9dp"/>
+
+            <com.scaleview.ScaleLinearLayout
+                android:id="@+id/user_account_ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100dp"
+                android:background="@drawable/edittext_bg_selector"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp">
+
+                <com.scaleview.ScaleImageView
+                    android:layout_width="@dimen/dimen_60dp"
+                    android:layout_height="@dimen/dimen_60dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/bank_card"/>
+
+                <com.scaleview.ScaleTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:gravity="center_vertical"
+                    android:text="我的账户"
+                    android:textColor="@drawable/car_state_text_selector"
+                    android:textSize="@dimen/dimen_36sp"/>
+            </com.scaleview.ScaleLinearLayout>
+
+            <include layout="@layout/line_gray_1dp"/>
+
+            <com.scaleview.ScaleLinearLayout
+                android:id="@+id/feedback_ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100dp"
+                android:background="@drawable/edittext_bg_selector"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp">
+
+                <com.scaleview.ScaleImageView
+                    android:layout_width="@dimen/dimen_60dp"
+                    android:layout_height="@dimen/dimen_60dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/feedback_iv"/>
+
+                <com.scaleview.ScaleTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:gravity="center_vertical"
+                    android:text="意见反馈"
+                    android:textColor="@drawable/car_state_text_selector"
+                    android:textSize="@dimen/dimen_36sp"/>
+            </com.scaleview.ScaleLinearLayout>
+
+            <include layout="@layout/line_gray_1dp"/>
+
+            <com.scaleview.ScaleLinearLayout
+                android:id="@+id/guide_ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100dp"
+                android:background="@drawable/edittext_bg_selector"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp">
+
+                <com.scaleview.ScaleImageView
+                    android:layout_width="@dimen/dimen_60dp"
+                    android:layout_height="@dimen/dimen_60dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/kefu"/>
+
+                <com.scaleview.ScaleTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:gravity="center_vertical"
+                    android:text="操作指南"
+                    android:textColor="@drawable/car_state_text_selector"
+                    android:textSize="@dimen/dimen_36sp"/>
+            </com.scaleview.ScaleLinearLayout>
+
+            <include layout="@layout/line_gray_1dp"/>
+
+            <com.scaleview.ScaleLinearLayout
+                android:id="@+id/about_ll"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100dp"
+                android:background="@drawable/edittext_bg_selector"
+                android:paddingLeft="@dimen/dimen_10dp"
+                android:paddingRight="@dimen/dimen_10dp">
+
+                <com.scaleview.ScaleImageView
+                    android:layout_width="@dimen/dimen_60dp"
+                    android:layout_height="@dimen/dimen_60dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/about"/>
+
+                <com.scaleview.ScaleTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dimen_30dp"
+                    android:gravity="center_vertical"
+                    android:text="关于我们"
+                    android:textColor="@drawable/car_state_text_selector"
+                    android:textSize="@dimen/dimen_36sp"/>
+            </com.scaleview.ScaleLinearLayout>
+
+            <include layout="@layout/line_gray_1dp"/>
+        </com.scaleview.ScaleLinearLayout>
+    </com.scaleview.ScaleScrollView>
+
+</com.scaleview.ScaleLinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="match_parent">
+
+    <com.scaleview.ScaleRelativeLayout
+        android:layout_width="@dimen/dimen_233dp"
+        android:layout_height="@dimen/dimen_233dp">
+
+        <com.scaleview.ScaleRoundRectImageView
+            android:id="@+id/pic_iv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_default"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/pic_tag_tv"
+            android:layout_width="@dimen/dimen_56dp"
+            android:layout_height="@dimen/dimen_64dp"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@null"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dimen_10dp"
+            android:scaleType="centerCrop"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_18sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/upload_state_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_233dp"
+            android:background="@color/trans_light_gray_color"
+            android:gravity="center"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_32sp"
+            android:visibility="gone"/>
+    </com.scaleview.ScaleRelativeLayout>
+
+</com.scaleview.ScaleRelativeLayout>

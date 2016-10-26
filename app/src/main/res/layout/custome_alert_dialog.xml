@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:background="@color/white"
+                                 android:orientation="vertical">
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:orientation="vertical">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="@dimen/dimen_15dp"
+            android:text="@string/prompt"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_36sp"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10dp"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="@dimen/dimen_5dp"
+            android:minHeight="@dimen/dimen_100dp"
+            android:padding="@dimen/dimen_20dp"
+            android:textColor="@color/main_gray_color"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <com.scaleview.ScaleCheckBox
+        android:id="@+id/check_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:checked="false"
+        android:padding="@dimen/dimen_15dp"
+        android:text="不再提示"
+        android:textColor="@color/main_blue_color"
+        android:textSize="@dimen/dimen_32sp"
+        android:visibility="gone"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/dimen_30dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/confirm_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/rect_blue_selector"
+            android:minWidth="@dimen/dimen_200dp"
+            android:padding="@dimen/dimen_10dp"
+            android:text="@string/confirm"
+            android:textSize="@dimen/dimen_34sp"/>
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/cancel_bt"
+            android:layout_width="@dimen/dimen_200dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_100dp"
+            android:background="@drawable/rect_blue_selector"
+            android:text="@string/cancel"
+            android:textSize="@dimen/dimen_34sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+</com.scaleview.ScaleLinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="@dimen/dimen_100dp"
+                                   android:background="@color/main_blue_color">
+
+    <com.scaleview.ScaleTextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/mine"
+        android:textColor="#fff"
+        android:textSize="@dimen/dimen_42sp"/>
+
+</com.scaleview.ScaleRelativeLayout>

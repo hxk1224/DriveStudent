@@ -1,0 +1,146 @@
+<resources>
+    <string name="app_name">考驾照</string>
+    <string name="prompt">提示</string>
+    <string name="exit_app_message">确定要退出吗?</string>
+    <string name="hint_login">账号登录</string>
+    <!-- 导向界面 -->
+    <string name="guide_start">开启体验</string>
+    <!-- 下拉刷新和上拉加载更多的文本 -->
+    <string name="pull_to_refresh_header_hint_normal">@string/pushmsg_center_pull_down_text</string>
+    <string name="pull_to_refresh_header_hint_normal2">上拉可以刷新</string>
+    <string name="pull_to_refresh_header_hint_ready">松开后刷新</string>
+    <string name="pull_to_refresh_header_last_time">@string/pushmsg_center_pull_down_update_time</string>
+    <string name="pull_to_refresh_network_error">网络不给力，请检查网络</string>
+    <string name="pushmsg_center_pull_down_text">下拉可以刷新</string>
+    <string name="pushmsg_center_pull_release_text">松开获取更多</string>
+    <string name="pushmsg_center_pull_down_update_time">最后更新时间 : </string>
+    <string name="pushmsg_center_load_more_ongoing_text">正在加载中</string>
+    <string name="xsearch_loading">正在加载中…</string>
+    <!-- 版本更新 -->
+    <string name="update_new_hint">版本更新</string>
+    <string name="version_new_hint">有新版本啦！更新内容如下：</string>
+    <string name="check_new_hint">拍照或文字回答</string>
+    <string name="no_update_hint">暂不更新</string>
+    <string name="update_now_hint">更新</string>
+    <string name="update_desc_hint">描述:</string>
+    <string name="update_new_version">发现新版本v</string>
+
+    <!-- 网络和内存卡提示 -->
+    <string name="check_connection">网络又调皮了，检查一下吧~</string>
+    <string name="server_net_error">请求失败,网络或服务器发生异常</string>
+    <string name="server_error">服务器发生异常</string>
+
+    <!-- 友好提示页面 -->
+    <string name="amicable_view_error">哎呀，出错了!</string>
+    <string name="amicable_view_tryagain">轻触屏幕，重新加载试试</string>
+    <string name="service_error_text1">网络不稳定</string>
+    <string name="maybe_reason">可能原因:</string>
+    <string name="service_error_text2">尚未接入互联网</string>
+    <string name="service_error_text3">安全软件禁止访问网络</string>
+    <string name="service_error_text4">服务器发生未知异常</string>
+    <string name="has_no_source">暂无</string>
+    <string name="error_bengkui">很抱歉，程序出现异常，即将退出！</string>
+    <string name="error_getinfo">获取数据失败</string>
+    <string name="nomore_getinfo">没有更多数据</string>
+
+    <!-- 下拉刷新 -->
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载&#8230;</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+    <string name="exit">退出</string>
+    <string name="lost_session">登录失效,请重新登录</string>
+    <string name="relogin">重新登录</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="settings">设置</string>
+    <!-- 文件路径 -->
+    <string name="bind_card_web">/bindCardWeb/</string>
+    <string name="download">/Download/</string>
+    <string name="welcome">/Welcome/</string>
+    <string name="assets_save">/assets/</string>
+    <string name="home_pic_path">/HomePic/</string>
+    <string name="bitmap_cache">/bitmapcache/</string>
+    <string name="dir">/Android/data/com.zasion.supplier</string>
+    <string name="camera_temp">/cameratemp/</string>
+    <string name="audio_cache">/audiocache/</string>
+    <string name="file_cache">/filecache/</string>
+    <string name="http_cache_dir">/httpcache/</string>
+    <string name="headicon">/headicon/</string>
+    <!-- 关于 -->
+    <string name="about_hint_is_new">已是最新版本</string>
+    <string name="function_introduce">功能介绍</string>
+    <string name="help">帮助</string>
+    <string name="hint_version">当前版本:V</string>
+    <string name="version_update">版本更新</string>
+    <string name="version_update_hint">已是最新版本</string>
+    <string name="version_update_new">有新版本</string>
+    <string name="never_notice">不再提示</string>
+    <string name="car_search_hint">请输入搜索条件</string>
+    <string name="current_city">当前定位城市</string>
+    <string name="hot_city">热门城市</string>
+    <string name="all_city">全部城市</string>
+    <string name="beijing">北京</string>
+    <string name="shanghai">上海</string>
+    <string name="guangzhou">广州</string>
+    <string name="shenzhen">深圳</string>
+    <string name="save">保存</string>
+    <string name="leave_message">留言</string>
+    <string name="logout">退出登录</string>
+    <string name="exit_current_account">退出当前账号</string>
+    <string name="exit_app">关闭应用</string>
+    <string name="pwd_valide_notice">密码必须是6–12位的字母或数字</string>
+    <string name="car_student_push_tag">car_student_jpush</string>
+    <string name="next_step">下一步</string>
+    <string name="expire">已过期</string>
+    <string name="invalidate">失效</string>
+    <string name="has_invalid">已失效</string>
+    <!-- 登录界面 -->
+    <string name="login_telephone">手机号</string>
+    <string name="login_pwd">密码</string>
+    <string name="reinput_pwd">再次输入密码</string>
+    <string name="login_forget_pwd">忘记密码？</string>
+    <string name="login_header_register">注册</string>
+    <string name="login_hint_empty">手机号或密码不能为空</string>
+    <string name="login_fail_get_detail">获取用户详细信息失败</string>
+
+    <!-- 注册界面 -->
+    <string name="register_authcode">验证码</string>
+    <string name="register_title">填写注册信息</string>
+    <string name="register_get_authcode">获取验证码</string>
+    <string name="register_again_authcode_before">重新获取验证码（</string>
+    <string name="register_again_authcode_after">）</string>
+    <string name="register_success">恭喜您，注册成功</string>
+    <string name="register_hint_empty_telephone">手机号不能为空哦</string>
+    <string name="register_hint_empty_verity">验证码不能为空哦</string>
+    <string name="register_hint_empty_pwd">密码不能为空哦</string>
+    <string name="register_hint_verify_ilegal">验证码为6位整数哦</string>
+
+    <!-- 找回密码界面 -->
+    <string name="getback_step_one">1、确定账号 > </string>
+    <string name="getback_step_two">2、输入验证码并重置密码</string>
+    <string name="getback_title">找回密码</string>
+    <string name="hint_input_telephone">亲，请输入手机号</string>
+    <string name="hint_input_true_telephone">亲，请输入正确手机号</string>
+    <string name="login_no_net">暂时没有网络了</string>
+    <string name="login_input_count1">请填写帐号</string>
+    <string name="login_input_psw1">请填写密码</string>
+    <string name="login_net_error">解析网络出错</string>
+    <string name="login_cop_error">账号或密码错误</string>
+    <string name="login_server_error">服务器忙</string>
+    <string name="login_server_error1">服务器内部错误</string>
+    <string name="login_net_error1">服务器忙</string>
+    <string name="login_json_error">json解析错误</string>
+    <string name="login_notice">提醒</string>
+    <string name="login_this_will">这将删除  </string>
+    <string name="login_this_will2"> 用户的所有信息</string>
+    <string name="get_msg_error">获取信息失败</string>
+    <string name="get_msg_sucess">获取信息成功</string>
+    <string name="request_sucess">操作成功</string>
+    <string name="request_error">操作失败</string>
+    <string name="home">首页</string>
+    <string name="mine">我的</string>
+    <string name="copy">复制</string>
+</resources>

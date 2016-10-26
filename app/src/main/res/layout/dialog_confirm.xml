@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:layout_margin="@dimen/dimen_20dp"
+                                 android:background="@drawable/rect_gray_bg_normal"
+                                 android:minHeight="@dimen/dimen_200dp"
+                                 android:orientation="vertical">
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:gravity="center"
+            android:text="@string/prompt"
+            android:textColor="@color/step_going"
+            android:textSize="@dimen/dimen_38sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_1dp"
+            android:background="@color/view_bg"/>
+
+        <com.scaleview.ScaleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_15dp">
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="none"
+                android:lineSpacingExtra="@dimen/dimen_10dp"
+                android:maxLines="100"
+                android:minHeight="@dimen/dimen_200dp"
+                android:scrollHorizontally="false"
+                android:textColor="@color/main_gray_color"
+                android:textSize="@dimen/dimen_32sp"/>
+        </com.scaleview.ScaleLinearLayout>
+    </com.scaleview.ScaleLinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_1dp"
+        android:background="@color/view_bg"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_10dp">
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_blue_button_selector"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_34sp"
+            android:visibility="visible"/>
+
+        <View
+            android:id="@+id/bt_fx"
+            android:layout_width="@dimen/dimen_1dp"
+            android:layout_height="fill_parent"
+            android:background="@color/view_bg"
+            android:visibility="gone"/>
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_blue_button_selector"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_34sp"
+            android:visibility="gone"/>
+    </com.scaleview.ScaleLinearLayout>
+
+</com.scaleview.ScaleLinearLayout>

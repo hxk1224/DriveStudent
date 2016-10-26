@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="main_blue_color">#53b3fe</color>
+    <color name="main_blue_color_pressed">#1276e0</color>
+    <color name="main_black_color">#525252</color>
+    <color name="main_gray_color">#868686</color>
+    <color name="light_red_color">#e3a7b1</color>
+    <color name="light_yellow_color">#f5d59d</color>
+    <color name="light_blue_color">#bdd1ef</color>
+    <color name="light_green_color">#c3e9a5</color>
+    <color name="map_notice_bg">#80000000</color>
+    <color name="chose_area_bg">#f5f5f5</color>
+    <color name="vin_key_normal">#fefefe</color>
+    <color name="vin_key_select">#777777</color>
+    <color name="vin_key_bg">#f0f0f0</color>
+    <!-- 分割线背景色-深灰色 -->
+    <color name="main_gray_dark">#a4a2a2</color>
+    <!-- 登录页面、忘记密码、类似绿色 -->
+    <color name="char_bg">#0abb06</color>
+    <!-- 拍照选择相册弹出层 类似于淡灰 -->
+    <color name="container_bg">#ededed</color>
+    <!-- 找回密码页面、显示用户步骤、类似淡绿 -->
+    <color name="step_bg">#f2f7f6</color>
+    <color name="step_going">#212121</color>
+    <color name="step_undone">#8d8d8d</color>
+    <!-- 滚轴选择省市县，中间的分割线，灰色 -->
+    <color name="province_line_border">#C7C7C7</color>
+    <!-- 搜索页面的背景色  淡蓝色 -->
+    <color name="search_bg">#f7fafa</color>
+    <!-- 分割线  灰色 -->
+    <color name="line_bg">#e5e5e5</color>
+    <!-- 企业页面背景 灰色 -->
+    <color name="welcome_bg">#f0f0f0</color>
+    <!-- 整个app的背景色 -->
+    <color name="app_bg">#eeeeee</color>
+    <!-- 欢迎页底部背景色 -->
+    <color name="welcome_bottom_bg">#facc39</color>
+    <!-- 按钮字体背景色 -->
+    <color name="btn_font_bg">#ffffff</color>
+    <!-- 分割线背景色 -->
+    <color name="view_bg">#a4a2a2</color>
+    <!-- 字体灰颜色 -->
+    <color name="text_gray">#a2a2a2</color>
+    <!-- 字体深灰颜色 -->
+    <color name="text_shen_gray">#787878</color>
+    <!-- 深灰色  验证码的背景色 -->
+    <color name="btn_code_bg">#c2bfbc</color>
+    <color name="silver1">#ffcccaca</color>
+    <color name="main_view_text_normal">#ffaaaaab</color>
+    <color name="main_view_text_pressed">#ff3f4144</color>
+    <!-- 字体黑颜色 -->
+    <color name="text_black">#000000</color>
+    <!-- 半透明 -->
+    <color name="transparent">#e0000000</color>
+    <color name="transparent1">#00000000</color>
+    <color name="mycenter">#333333</color>
+    <color name="dark_slate_gray">#2F4F4F</color>
+    <color name="gray_2">#AFAFAF</color>
+    <color name="gray_1">#C0C0C0</color>
+    <color name="black">#ff000000</color>
+    <color name="dark_gray">#ff747474</color>
+
+    <!-- 类似红色 -->
+    <color name="red">#ff1d77</color>
+    <color name="red_d">#e60012</color>
+    <color name="red_s">#d50011</color>
+    <!-- 白色 -->
+    <color name="white">#ffffff</color>
+    <color name="white2">#dddddd</color>
+    <color name="white3">#EEEEFF</color>
+
+    <!-- 透明 -->
+    <color name="transparent_background">#70000000</color>
+
+    <!-- 主应用程序 -->
+    <color name="title_icon">#ff000000</color>
+    <color name="text_minor">#ff666666</color>
+    <color name="application_backcolor">#fff6eade</color>
+    <color name="login_font">#3D3E40</color>
+    <color name="gray">#808080</color>
+    <!-- 浅绿色 -->
+    <color name="light_green">#a3d7d7</color>
+    <color name="text_light_black">#333333</color>
+    <color name="line_color">#eeeeee</color>
+    <!-- 点击列表背景色 -->
+    <color name="background_gray">#f7f7f7</color>
+    <!-- 背景白色 -->
+    <color name="white_bg_color">#fff</color>
+    <!-- 背景白色1 -->
+    <color name="white_bg_color1">#e5e5e5</color>
+    <!-- 背景白色2 -->
+    <color name="white_bg_color2">#f2f7f6</color>
+    <!-- 背景白色3 -->
+    <color name="white_bg_color3">#f7fafa</color>
+    <!-- 背景白色4 -->
+    <color name="white_bg_color4">#ffffff</color>
+    <!-- 背景白色5 -->
+    <color name="white_bg_color5">#eaeded</color>
+    <!-- 背景灰色1 -->
+    <color name="gray_bg_color1">#f3f3f3</color>
+    <!-- 背景黑色1 -->
+    <color name="black_bg_color1">#434343</color>
+    <!-- 黑色 -->
+    <color name="black_color">#212121</color>
+    <!-- 绿色 -->
+    <color name="green_color">#0d9dc0</color>
+    <!-- 灰色 -->
+    <color name="gray_color">#8d8d8d</color>
+    <!-- 灰色 -->
+    <color name="gray_color2">#f3f3f5</color>
+    <!-- 灰色下划线 -->
+    <color name="slid_gray_color">#8d8d8d</color>
+    <color name="slid_gray_color3">#b2b2b2</color>
+    <!-- 红色 -->
+    <color name="red_color">#ff0000</color>
+
+    <!-- 下拉刷新背景 -->
+    <color name="refresh_bg">#abf9fc</color>
+
+    <!-- edittext背景 -->
+    <color name="edittext_bgc">#ffffff</color>
+    <!-- edittext边框 -->
+    <color name="edittext_border">#e4e4e4</color>
+    <!-- edittext hint -->
+    <color name="edittext_hint">#8d8d8d</color>
+    <!-- label text -->
+    <color name="class_label_text_color">#212121</color>
+    <!-- 分隔线 -->
+    <color name="light_gray_line_color">#e5e5e5</color>
+    <color name="trans_black_color">#90000000</color>
+    <color name="trans_gray_line_color">#aae5e5e5</color>
+    <color name="light_gray_color">#f5f5f5</color>
+    <color name="trans_light_gray_color">#60f5f5f5</color>
+    <!-- 绿色文本 -->
+    <color name="class_green_text">#0dad51</color>
+    <color name="about_icon_bg">#f6f6f3</color>
+    <color name="about_version_color">#989898</color>
+    <!-- Tab页-浅灰色 -->
+    <color name="light_gray_tab_color">#e9e8e8</color>
+
+</resources>

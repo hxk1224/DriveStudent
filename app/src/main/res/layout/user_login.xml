@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                   android:layout_width="match_parent"
+                                   android:layout_height="match_parent"
+                                   android:background="@color/white">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:orientation="vertical">
+
+        <com.scaleview.ScaleEditText
+            android:id="@+id/login_et_name"
+            style="@style/login_et"
+            android:layout_width="match_parent"
+            android:background="@drawable/user_login_edit_bg"
+            android:drawableLeft="@drawable/user_login_username"
+            android:drawablePadding="@dimen/dimen_10dp"
+            android:hint="@string/login_telephone"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textColor="@color/step_going"
+            android:textSize="@dimen/dimen_30sp"/>
+
+        <com.scaleview.ScaleEditText
+            android:id="@+id/login_et_pwd"
+            style="@style/login_et"
+            android:layout_width="match_parent"
+            android:background="@drawable/user_login_edit_bg"
+            android:drawableLeft="@drawable/user_login_password"
+            android:drawablePadding="@dimen/dimen_12dp"
+            android:hint="@string/login_pwd"
+            android:inputType="textPassword"
+            android:singleLine="true"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/login_tv_forget_pwd"
+            style="@style/login_et"
+            android:layout_marginTop="@dimen/dimen_52dp"
+            android:text="@string/login_forget_pwd"
+            android:textColor="@color/main_blue_color"
+            android:textSize="@dimen/dimen_26sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/login_ib_submit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_100dp"
+            android:layout_marginLeft="@dimen/dimen_50dp"
+            android:layout_marginRight="@dimen/dimen_50dp"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            android:background="@drawable/rect_blue_button_selector"
+            android:gravity="center"
+            android:text="登    录"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_42sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+</com.scaleview.ScaleRelativeLayout>

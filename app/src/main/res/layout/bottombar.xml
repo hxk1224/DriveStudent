@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                   android:layout_width="fill_parent"
+                                   android:layout_height="@dimen/dimen_100dp"
+                                   android:layout_alignParentBottom="true"
+                                   android:background="#fffbfbfb">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:layout_alignParentTop="true"
+        android:background="#ffc9cacb"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dimen_3dp"
+        android:paddingTop="@dimen/dimen_3dp">
+
+        <com.scaleview.ScaleLinearLayout
+            android:id="@+id/home_ll"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="top"
+            android:orientation="vertical">
+
+            <com.scaleview.ScaleImageView
+                android:id="@+id/iv_home"
+                style="@style/main_tab_img"
+                android:src="@drawable/home_item"/>
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/tv_home"
+                style="@style/tab_textview"
+                android:text="@string/home"/>
+        </com.scaleview.ScaleLinearLayout>
+
+        <com.scaleview.ScaleLinearLayout
+            android:id="@+id/mine"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="top"
+            android:orientation="vertical">
+
+            <com.scaleview.ScaleImageView
+                android:id="@+id/iv_mine"
+                style="@style/main_tab_img"
+                android:src="@drawable/mine_item"/>
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/tv_mine"
+                style="@style/tab_textview"
+                android:paddingLeft="@dimen/dimen_12dp"
+                android:paddingRight="@dimen/dimen_12dp"
+                android:text="@string/mine"/>
+        </com.scaleview.ScaleLinearLayout>
+    </com.scaleview.ScaleLinearLayout>
+
+</com.scaleview.ScaleRelativeLayout>

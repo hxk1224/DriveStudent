@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                                 android:orientation="vertical">
+
+    <com.scaleview.ScaleTextView
+        android:id="@+id/area_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/main_black_color"
+        android:textSize="@dimen/dimen_32sp"/>
+
+</com.scaleview.ScaleLinearLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout
+    android:id="@+id/ll_container"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.login.FindLoginPwdActivity">
+
+    <include
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.scaleview.ScaleEditText
+        android:id="@+id/phone_et"
+        style="@style/telephone_et"
+        android:hint="login_telephone"
+        android:inputType="text"/>
+
+    <com.scaleview.ScaleLinearLayout
+        style="@style/login_et"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_94dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_0dp">
+
+        <com.scaleview.ScaleEditText
+            android:id="@+id/auth_code_et"
+            style="@style/telephone_et"
+            android:layout_width="@dimen/dimen_340dp"
+            android:layout_marginLeft="@dimen/dimen_0dp"
+            android:layout_marginRight="@dimen/dimen_0dp"
+            android:layout_marginTop="@dimen/dimen_0dp"
+            android:hint="@string/register_authcode"
+            android:inputType="number"/>
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/get_code_bt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_33dp"
+            android:background="@drawable/user_register_get_authcode_bg"
+            android:text="@string/register_get_authcode"
+            android:textSize="@dimen/dimen_24sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <com.scaleview.ScaleTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_24dp"
+        android:gravity="center"
+        android:padding="@dimen/dimen_5dp"
+        android:text="验证码将发送到绑定的手机号"
+        android:textColor="@color/main_gray_color"
+        android:textSize="@dimen/dimen_28sp"/>
+
+    <!-- 密码 -->
+
+    <com.scaleview.ScaleEditText
+        android:id="@+id/new_pwd_et"
+        style="@style/telephone_et"
+        android:hint="输入新密码"
+        android:inputType="textPassword"/>
+
+    <com.scaleview.ScaleTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_24dp"
+        android:gravity="center"
+        android:padding="@dimen/dimen_5dp"
+        android:text="@string/pwd_valide_notice"
+        android:textColor="@color/main_gray_color"
+        android:textSize="@dimen/dimen_28sp"/>
+
+    <com.scaleview.ScaleEditText
+        android:id="@+id/reinput_new_pwd_et"
+        style="@style/telephone_et"
+        android:hint="再次输入新密码"
+        android:inputType="textPassword"/>
+
+    <com.scaleview.ScaleTextView
+        android:id="@+id/submit_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_marginLeft="@dimen/dimen_50dp"
+        android:layout_marginRight="@dimen/dimen_50dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:background="@drawable/rect_blue_button_selector"
+        android:gravity="center"
+        android:text="提    交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen_42sp"/>
+
+</com.scaleview.ScaleLinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="invoice_array">
+        <item>不支持</item>
+        <item>支持</item>
+    </string-array>
+
+</resources>

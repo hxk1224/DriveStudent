@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="fill_parent"
+                                 android:layout_height="wrap_content"
+                                 android:background="@color/white">
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_30dp"
+        android:layout_marginLeft="@dimen/dimen_20dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_marginTop="@dimen/dimen_30dp"
+        android:orientation="vertical">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/logout_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_100dp"
+            android:background="@drawable/edittext_bg_selector"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp"
+            android:text="@string/exit_current_account"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_38sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/light_gray_line_color"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/exit_app_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_100dp"
+            android:background="@drawable/edittext_bg_selector"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="@dimen/dimen_10dp"
+            android:paddingRight="@dimen/dimen_10dp"
+            android:text="@string/exit_app"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_38sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+</com.scaleview.ScaleLinearLayout>
