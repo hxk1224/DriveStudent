@@ -14,11 +14,11 @@ public class InstallOpenActivity extends ActivitySupport {
 
         // 打开调试模式（debug）后，数据实时发送，不受发送策略控制
         // MobclickAgent.setDebugMode(false);
-//		SDK在统计Fragment时，需要关闭Activity自带的页面统计，
-//		然后在每个页面中重新集成页面统计的代码(包括调用了 onResume 和 onPause 的Activity)。
+		/* SDK在统计Fragment时，需要关闭Activity自带的页面统计，
+		然后在每个页面中重新集成页面统计的代码(包括调用了 onResume 和 onPause 的Activity)。*/
         // MobclickAgent.openActivityDurationTrack(false);
-//		MobclickAgent.setAutoLocation(true);
-//		MobclickAgent.setSessionContinueMillis(1000);
+		// MobclickAgent.setAutoLocation(true);
+		// MobclickAgent.setSessionContinueMillis(1000);
 
         // MobclickAgent.updateOnlineConfig(this);
 
