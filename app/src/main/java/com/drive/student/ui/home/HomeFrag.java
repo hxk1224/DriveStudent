@@ -28,7 +28,6 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
     private ArrayList<ImageView> mImageViews = new ArrayList<>();
     private View mainView;
     private LinearLayout dot_ll;
-    private MainActivity mActivity;
     private CommonHandler mHandler = new CommonHandler(this);
     private int mCurrAd = 0;
 
@@ -42,7 +41,6 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mActivity = (MainActivity) getActivity();
         setAdPics();
         vPager.setCurrentItem(mCurrAd);
         new ViewPagerScroller(getActivity()).initViewPagerScroll(vPager);

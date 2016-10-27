@@ -90,7 +90,6 @@ public class WelcomeActivity extends ActivitySupport {
      * 离开欢迎页面,去登录
      */
     private void goToLogin() {
-        autoLogin();
         if (isFirstlogin) {
             /** 如果用户是首次登录 **/
             long currenttime = System.currentTimeMillis();

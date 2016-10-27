@@ -69,6 +69,7 @@ public class AutoLogin {
     }
 
     public void submitLogin() {
+        toLogin();
 //        if (StringUtil.isBlank(spUtil.getToken()) || StringUtil.isBlank(userCode)) {
 //            toLogin();
 //            return;

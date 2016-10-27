@@ -73,6 +73,7 @@ public class CheckVersionTask extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
+        checkVersionListener.toGuidOrAutoLoginHandle();
 //        CommonBean<VersionBean> common = null;
 //        try {
 //            common = JSON.parseObject(result, new TypeReference<CommonBean<VersonBean>>() {

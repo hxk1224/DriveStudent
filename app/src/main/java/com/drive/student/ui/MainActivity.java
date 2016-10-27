@@ -81,7 +81,6 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
         FileUtil.deleteTmpCameraFileInThread(spUtil.getCameraTempPath());
         mIsActive = true;
         initView();
-        InitTextView();
         mPager = (CustomViewPager) findViewById(R.id.vPager);
         fragmentList = new ArrayList<>();
         if (savedInstanceState == null) {
@@ -159,9 +158,6 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
         // 导航文字
         tv_home = (TextView) findViewById(R.id.tv_home);
         tv_mine = (TextView) findViewById(R.id.tv_mine);
-    }
-
-    private void InitTextView() {
         home_ll.setOnClickListener(new MyOnClickListener(0));
         mine_ll.setOnClickListener(new MyOnClickListener(3));
         iv_home.setSelected(true);
