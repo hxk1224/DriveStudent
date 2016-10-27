@@ -31,7 +31,7 @@ public class SoundUtil {
     private void init() {
         if (soundPool == null) {
             LogUtil.e(TAG, "soundPool is null -->>");
-            soundPool = new SoundPool(10, AudioManager.STREAM_SYSTEM, 5);
+            soundPool = new SoundPool(1, AudioManager.STREAM_SYSTEM, 5);
             initSoundMap();
         }
         if (soundMap == null) {
@@ -43,16 +43,6 @@ public class SoundUtil {
         LogUtil.e(TAG, "soundMap is null -->>");
         soundMap = new HashMap<>();
         soundMap.put("Msg", soundPool.load(mContext, R.raw.msg, 1));
-        soundMap.put("0", soundPool.load(mContext, R.raw.voice_0, 1));
-        soundMap.put("1", soundPool.load(mContext, R.raw.voice_1, 1));
-        soundMap.put("2", soundPool.load(mContext, R.raw.voice_2, 1));
-        soundMap.put("3", soundPool.load(mContext, R.raw.voice_3, 1));
-        soundMap.put("4", soundPool.load(mContext, R.raw.voice_4, 1));
-        soundMap.put("5", soundPool.load(mContext, R.raw.voice_5, 1));
-        soundMap.put("6", soundPool.load(mContext, R.raw.voice_6, 1));
-        soundMap.put("7", soundPool.load(mContext, R.raw.voice_7, 1));
-        soundMap.put("8", soundPool.load(mContext, R.raw.voice_8, 1));
-        soundMap.put("9", soundPool.load(mContext, R.raw.voice_9, 1));
     }
 
     /** 播放消息提示音 */

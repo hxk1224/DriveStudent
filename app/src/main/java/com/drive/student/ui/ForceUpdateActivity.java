@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.drive.student.MainApplication;
 import com.drive.student.R;
-import com.drive.student.bean.VersonBean;
+import com.drive.student.bean.VersionBean;
 import com.drive.student.task.CheckVersionTask;
 import com.drive.student.task.CheckVersionTask.CheckVersionListener;
 import com.drive.student.util.BackUtil;
@@ -75,10 +75,10 @@ public class ForceUpdateActivity extends ActivitySupport implements OnClickListe
         checkVersionTask = new CheckVersionTask(this, 1, new CheckVersionListener() {
 
             @Override
-            public void updateNewVersion(VersonBean bean) {
+            public void updateNewVersion(VersionBean bean) {
 
                 // 保证Activity没有被销毁
-                if (null != ForceUpdateActivity.this && !BackUtil.isActivityRunningForground(ForceUpdateActivity.this, VersionUpdateActivity.class.getName())) {
+                if (!BackUtil.isActivityRunningForground(ForceUpdateActivity.this, VersionUpdateActivity.class.getName())) {
                     Intent in = new Intent(ForceUpdateActivity.this, VersionUpdateActivity.class);
                     in.putExtra("bean", bean);
                     startActivity(in);

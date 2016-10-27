@@ -17,6 +17,21 @@ package com.drive.student.xutils;
 import android.text.TextUtils;
 
 import com.drive.student.util.LogUtil;
+import com.drive.student.xutils.exception.HttpException;
+import com.drive.student.xutils.http.HttpCache;
+import com.drive.student.xutils.http.HttpHandler;
+import com.drive.student.xutils.http.RequestParams;
+import com.drive.student.xutils.http.ResponseStream;
+import com.drive.student.xutils.http.SyncHttpHandler;
+import com.drive.student.xutils.http.callback.HttpRedirectHandler;
+import com.drive.student.xutils.http.callback.RequestCallBack;
+import com.drive.student.xutils.http.client.DefaultSSLSocketFactory;
+import com.drive.student.xutils.http.client.HttpRequest;
+import com.drive.student.xutils.http.client.HttpRequest.HttpMethod;
+import com.drive.student.xutils.http.client.RetryHandler;
+import com.drive.student.xutils.http.client.entity.GZipDecompressingEntity;
+import com.drive.student.xutils.task.PriorityExecutor;
+import com.drive.student.xutils.util.OtherUtils;
 
 import org.apache.http.Header;
 import org.apache.http.HeaderElement;
@@ -62,7 +77,6 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -72,11 +86,11 @@ public class HttpUtils {
 
     private static HttpUtils httpUtils = null;
 
-    public final static com.drive.student.xutils.http.HttpCache sHttpCache = new com.drive.student.xutils.http.HttpCache();
+    public final static HttpCache sHttpCache = new HttpCache();
 
     private final DefaultHttpClient httpClient;
 
-    private com.drive.student.xutils.http.callback.HttpRedirectHandler httpRedirectHandler;
+    private HttpRedirectHandler httpRedirectHandler;
 
     /**
      * 当前活动的HttpContext上下文
@@ -90,7 +104,7 @@ public class HttpUtils {
      */
     private String responseTextCharset = HTTP.UTF_8;
 
-    private long currentRequestExpiry = com.drive.student.xutils.http.HttpCache.getDefaultExpiryTime();
+    private long currentRequestExpiry = HttpCache.getDefaultExpiryTime();
     /**
      * 默认请求超时时间
      */
@@ -116,7 +130,7 @@ public class HttpUtils {
      */
     private final static int DEFAULT_POOL_SIZE = 3;
 
-    private final static com.drive.student.xutils.task.PriorityExecutor EXECUTOR = new com.drive.student.xutils.task.PriorityExecutor(DEFAULT_POOL_SIZE);
+    private final static PriorityExecutor EXECUTOR = new PriorityExecutor(DEFAULT_POOL_SIZE);
 
     /**
      * 客户端版本
@@ -138,10 +152,6 @@ public class HttpUtils {
     /**
      *
      * 获取类实例,非单例模式.
-     *
-     * @return
-     * @author 韩新凯
-     * @update 2014年5月30日 上午10:53:21
      */
     public static HttpUtils getInstance() {
         if (httpUtils == null) {
@@ -155,8 +165,6 @@ public class HttpUtils {
      *
      * 校验cookie是否完整.
      * @return true没失效，false失效
-     * @author 韩新凯
-     * @update 2014年7月23日 上午11:52:31
      */
 	/*private synchronized static boolean validateCookie() {
 		CookieStore cookies = (CookieStore) httpContext.getAttribute(ClientContext.COOKIE_STORE);
@@ -182,7 +190,7 @@ public class HttpUtils {
 				httpContext.setAttribute(ClientContext.COOKIE_STORE, MainApplication.getInstance().getCookieStore());
 			}
 		} catch (Exception e) {
-			// NOTE: handle exception
+			// handle exception
 		}
 		return false;
 	}*/
@@ -226,7 +234,7 @@ public class HttpUtils {
         HttpConnectionParams.setConnectionTimeout(params, connTimeout);
 
         if (TextUtils.isEmpty(userAgent)) {
-            userAgent = com.drive.student.xutils.util.OtherUtils.getUserAgent(null);
+            userAgent = OtherUtils.getUserAgent(null);
         }
         HttpProtocolParams.setUserAgent(params, userAgent);
 
@@ -239,11 +247,11 @@ public class HttpUtils {
 
         SchemeRegistry schemeRegistry = new SchemeRegistry();
         schemeRegistry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
-        schemeRegistry.register(new Scheme("https", com.drive.student.xutils.http.client.DefaultSSLSocketFactory.getSocketFactory(), 443));
+        schemeRegistry.register(new Scheme("https", DefaultSSLSocketFactory.getSocketFactory(), 443));
 
         httpClient = new DefaultHttpClient(new ThreadSafeClientConnManager(params, schemeRegistry), params);
 
-        httpClient.setHttpRequestRetryHandler(new com.drive.student.xutils.http.client.RetryHandler(DEFAULT_RETRY_TIMES));
+        httpClient.setHttpRequestRetryHandler(new RetryHandler(DEFAULT_RETRY_TIMES));
 
         httpClient.addRequestInterceptor(new HttpRequestInterceptor() {
             @Override
@@ -265,7 +273,7 @@ public class HttpUtils {
                 if (encoding != null) {
                     for (HeaderElement element : encoding.getElements()) {
                         if (element.getName().equalsIgnoreCase("gzip")) {
-                            response.setEntity(new com.drive.student.xutils.http.client.entity.GZipDecompressingEntity(response.getEntity()));
+                            response.setEntity(new GZipDecompressingEntity(response.getEntity()));
                             return;
                         }
                     }
@@ -287,7 +295,7 @@ public class HttpUtils {
         return this;
     }
 
-    public HttpUtils configHttpRedirectHandler(com.drive.student.xutils.http.callback.HttpRedirectHandler httpRedirectHandler) {
+    public HttpUtils configHttpRedirectHandler(HttpRedirectHandler httpRedirectHandler) {
         this.httpRedirectHandler = httpRedirectHandler;
         return this;
     }
@@ -298,8 +306,8 @@ public class HttpUtils {
     }
 
     public HttpUtils configDefaultHttpCacheExpiry(long defaultExpiry) {
-        com.drive.student.xutils.http.HttpCache.setDefaultExpiryTime(defaultExpiry);
-        currentRequestExpiry = com.drive.student.xutils.http.HttpCache.getDefaultExpiryTime();
+        HttpCache.setDefaultExpiryTime(defaultExpiry);
+        currentRequestExpiry = HttpCache.getDefaultExpiryTime();
         return this;
     }
 
@@ -343,7 +351,7 @@ public class HttpUtils {
     }
 
     public HttpUtils configRequestRetryCount(int count) {
-        this.httpClient.setHttpRequestRetryHandler(new com.drive.student.xutils.http.client.RetryHandler(count));
+        this.httpClient.setHttpRequestRetryHandler(new RetryHandler(count));
         return this;
     }
 
@@ -354,16 +362,16 @@ public class HttpUtils {
 
     /***************************************** send request *******************************************/
 
-    public <T> com.drive.student.xutils.http.HttpHandler<T> send(HttpRequest.HttpMethod method, String url, com.drive.student.xutils.http.callback.RequestCallBack<T> callBack) {
+    public <T> HttpHandler<T> send(HttpRequest.HttpMethod method, String url, RequestCallBack<T> callBack) {
         return send(method, url, null, callBack);
     }
 
-    public <T> com.drive.student.xutils.http.HttpHandler<T> send(HttpRequest.HttpMethod method, String url, com.drive.student.xutils.http.RequestParams params, RequestCallBack<T> callBack) {
+    public <T> HttpHandler<T> send(HttpRequest.HttpMethod method, String url, RequestParams params, RequestCallBack<T> callBack) {
         if (url == null) {
             throw new IllegalArgumentException("url may not be null");
         }
         if (params == null) {
-            params = new com.drive.student.xutils.http.RequestParams();
+            params = new RequestParams();
         }
         buildHttpHeaderForHP(params);// 添加请求头
         if (method == HttpMethod.GET) {// 随机数参数过滤缓存
@@ -373,16 +381,16 @@ public class HttpUtils {
         return sendRequest(request, params, callBack);
     }
 
-    public com.drive.student.xutils.http.ResponseStream sendSync(HttpRequest.HttpMethod method, String url) throws HttpException {
+    public ResponseStream sendSync(HttpRequest.HttpMethod method, String url) throws HttpException {
         return sendSync(method, url, null);
     }
 
-    public com.drive.student.xutils.http.ResponseStream sendSync(HttpRequest.HttpMethod method, String url, com.drive.student.xutils.http.RequestParams params) throws HttpException {
+    public ResponseStream sendSync(HttpRequest.HttpMethod method, String url, RequestParams params) throws HttpException {
         if (url == null) {
             throw new IllegalArgumentException("url may not be null");
         }
         if (params == null) {
-            params = new com.drive.student.xutils.http.RequestParams();
+            params = new RequestParams();
         }
         buildHttpHeaderForHP(params);// 添加请求头
         if (method == HttpMethod.GET) {// 随机数参数过滤缓存
@@ -394,39 +402,39 @@ public class HttpUtils {
 
     /***************************************** download *******************************************/
 
-    public com.drive.student.xutils.http.HttpHandler<File> download(String url, String target, com.drive.student.xutils.http.callback.RequestCallBack<File> callback) {
-        return download(com.drive.student.xutils.http.client.HttpRequest.HttpMethod.GET, url, target, null, false, false, callback);
+    public HttpHandler<File> download(String url, String target, RequestCallBack<File> callback) {
+        return download(HttpRequest.HttpMethod.GET, url, target, null, false, false, callback);
     }
 
-    public com.drive.student.xutils.http.HttpHandler<File> download(String url, String target, boolean autoResume, com.drive.student.xutils.http.callback.RequestCallBack<File> callback) {
-        return download(com.drive.student.xutils.http.client.HttpRequest.HttpMethod.GET, url, target, null, autoResume, false, callback);
+    public HttpHandler<File> download(String url, String target, boolean autoResume, RequestCallBack<File> callback) {
+        return download(HttpRequest.HttpMethod.GET, url, target, null, autoResume, false, callback);
     }
 
-    public com.drive.student.xutils.http.HttpHandler<File> download(String url, String target, boolean autoResume, boolean autoRename, com.drive.student.xutils.http.callback.RequestCallBack<File> callback) {
-        return download(com.drive.student.xutils.http.client.HttpRequest.HttpMethod.GET, url, target, null, autoResume, autoRename, callback);
+    public HttpHandler<File> download(String url, String target, boolean autoResume, boolean autoRename, RequestCallBack<File> callback) {
+        return download(HttpRequest.HttpMethod.GET, url, target, null, autoResume, autoRename, callback);
     }
 
-    public com.drive.student.xutils.http.HttpHandler<File> download(String url, String target, com.drive.student.xutils.http.RequestParams params, com.drive.student.xutils.http.callback.RequestCallBack<File> callback) {
-        return download(com.drive.student.xutils.http.client.HttpRequest.HttpMethod.GET, url, target, params, false, false, callback);
+    public HttpHandler<File> download(String url, String target, RequestParams params, RequestCallBack<File> callback) {
+        return download(HttpRequest.HttpMethod.GET, url, target, params, false, false, callback);
     }
 
-    public com.drive.student.xutils.http.HttpHandler<File> download(String url, String target, com.drive.student.xutils.http.RequestParams params, boolean autoResume, com.drive.student.xutils.http.callback.RequestCallBack<File> callback) {
-        return download(com.drive.student.xutils.http.client.HttpRequest.HttpMethod.GET, url, target, params, autoResume, false, callback);
+    public HttpHandler<File> download(String url, String target, RequestParams params, boolean autoResume, RequestCallBack<File> callback) {
+        return download(HttpRequest.HttpMethod.GET, url, target, params, autoResume, false, callback);
     }
 
-    public com.drive.student.xutils.http.HttpHandler<File> download(String url, String target, com.drive.student.xutils.http.RequestParams params, boolean autoResume, boolean autoRename, com.drive.student.xutils.http.callback.RequestCallBack<File> callback) {
-        return download(com.drive.student.xutils.http.client.HttpRequest.HttpMethod.GET, url, target, params, autoResume, autoRename, callback);
+    public HttpHandler<File> download(String url, String target, RequestParams params, boolean autoResume, boolean autoRename, RequestCallBack<File> callback) {
+        return download(HttpRequest.HttpMethod.GET, url, target, params, autoResume, autoRename, callback);
     }
 
-    public com.drive.student.xutils.http.HttpHandler<File> download(HttpRequest.HttpMethod method, String url, String target, com.drive.student.xutils.http.RequestParams params, RequestCallBack<File> callback) {
+    public HttpHandler<File> download(HttpRequest.HttpMethod method, String url, String target, RequestParams params, RequestCallBack<File> callback) {
         return download(method, url, target, params, false, false, callback);
     }
 
-    public com.drive.student.xutils.http.HttpHandler<File> download(HttpRequest.HttpMethod method, String url, String target, com.drive.student.xutils.http.RequestParams params, boolean autoResume, com.drive.student.xutils.http.callback.RequestCallBack<File> callback) {
+    public HttpHandler<File> download(HttpRequest.HttpMethod method, String url, String target, RequestParams params, boolean autoResume, RequestCallBack<File> callback) {
         return download(method, url, target, params, autoResume, false, callback);
     }
 
-    public com.drive.student.xutils.http.HttpHandler<File> download(HttpRequest.HttpMethod method, String url, String target, com.drive.student.xutils.http.RequestParams params, boolean autoResume, boolean autoRename, com.drive.student.xutils.http.callback.RequestCallBack<File> callback) {
+    public HttpHandler<File> download(HttpRequest.HttpMethod method, String url, String target, RequestParams params, boolean autoResume, boolean autoRename, RequestCallBack<File> callback) {
 
         if (url == null) {
             throw new IllegalArgumentException("url may not be null");
@@ -437,7 +445,7 @@ public class HttpUtils {
 
         HttpRequest request = new HttpRequest(method, url);
 
-        com.drive.student.xutils.http.HttpHandler<File> handler = new com.drive.student.xutils.http.HttpHandler<File>(httpClient, httpContext, responseTextCharset, callback);
+        HttpHandler<File> handler = new HttpHandler<File>(httpClient, httpContext, responseTextCharset, callback);
 
         handler.setExpiry(currentRequestExpiry);
         handler.setHttpRedirectHandler(httpRedirectHandler);
@@ -451,9 +459,9 @@ public class HttpUtils {
     }
 
     // //////////////////////////////////////////////////////////////////////////////////////////////
-    private <T> com.drive.student.xutils.http.HttpHandler<T> sendRequest(HttpRequest request, com.drive.student.xutils.http.RequestParams params, RequestCallBack<T> callBack) {
+    private <T> HttpHandler<T> sendRequest(HttpRequest request, RequestParams params, RequestCallBack<T> callBack) {
 
-        com.drive.student.xutils.http.HttpHandler<T> handler = new HttpHandler<T>(httpClient, httpContext, responseTextCharset, callBack);
+        HttpHandler<T> handler = new HttpHandler<T>(httpClient, httpContext, responseTextCharset, callBack);
 
         handler.setExpiry(currentRequestExpiry);
         handler.setHttpRedirectHandler(httpRedirectHandler);
@@ -466,9 +474,9 @@ public class HttpUtils {
         return handler;
     }
 
-    private com.drive.student.xutils.http.ResponseStream sendSyncRequest(HttpRequest request, com.drive.student.xutils.http.RequestParams params) throws HttpException {
+    private ResponseStream sendSyncRequest(HttpRequest request, RequestParams params) throws HttpException {
 
-        com.drive.student.xutils.http.SyncHttpHandler handler = new SyncHttpHandler(httpClient, httpContext, responseTextCharset);
+        SyncHttpHandler handler = new SyncHttpHandler(httpClient, httpContext, responseTextCharset);
 
         handler.setExpiry(currentRequestExpiry);
         handler.setHttpRedirectHandler(httpRedirectHandler);
@@ -480,11 +488,6 @@ public class HttpUtils {
     /**
      *
      * 使用HttpClient发送一个get方式的超链接请求.
-     *
-     * @param urlpath
-     * @return
-     * @author 韩新凯
-     * @update 2012-6-29 上午11:58:14
      */
     public HttpResponse sendHttpGet(String urlpath, boolean isGzip) {
         HttpClient httpclient = new DefaultHttpClient();
@@ -496,8 +499,7 @@ public class HttpUtils {
             }
             httpclient.getParams().setParameter(CoreConnectionPNames.CONNECTION_TIMEOUT, HttpUtils.DEFAULT_CONN_TIMEOUT); // 设置请求超时时间
             httpclient.getParams().setParameter(CoreConnectionPNames.SO_TIMEOUT, HttpUtils.DEFAULT_SO_TIMEOUT); // 读取超时
-            HttpResponse response = httpclient.execute(request, httpContext);
-            return response;
+            return httpclient.execute(request, httpContext);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -506,10 +508,6 @@ public class HttpUtils {
 
     /**
      * 使用HttpClient发送一个get方式的超链接请求.
-     *
-     * @param url
-     * @param params
-     * @return
      */
     public HttpResponse sendHttpGet(String url, Map params, boolean isGzip) {
         HttpClient httpclient = new DefaultHttpClient();
@@ -519,9 +517,8 @@ public class HttpUtils {
 		/* 建立HTTPGet对象 */
         String paramStr = "";
         if (params != null) {
-            Iterator iter = params.entrySet().iterator();
-            while (iter.hasNext()) {
-                Map.Entry entry = (Map.Entry) iter.next();
+            for (Object o : params.entrySet()) {
+                Entry entry = (Entry) o;
                 Object key = entry.getKey();
                 Object val = entry.getValue();
                 paramStr += paramStr = "&" + key + "=" + val;
@@ -552,20 +549,12 @@ public class HttpUtils {
     /**
      *
      * 使用HttpClient发送一个post方式的请求.
-     *
-     * @param url
-     * @param params
-     * @return
-     * @author 韩新凯
-     * @update 2012-6-29 上午11:58:30
      */
     public HttpResponse sendHttpPost(String url, Map<String, String> params, boolean isGzip) {
         try {
             List<NameValuePair> param = new ArrayList<NameValuePair>(); // 参数
             if (params != null) {
-                Iterator<Entry<String, String>> iterator = params.entrySet().iterator();
-                while (iterator.hasNext()) {
-                    Entry<String, String> entry = iterator.next();
+                for (Entry<String, String> entry : params.entrySet()) {
                     param.add(new BasicNameValuePair(entry.getKey(), entry.getValue()));
                 }
             }
@@ -649,10 +638,6 @@ public class HttpUtils {
     /**
      *
      * 打印返回信息(仅用于测试).
-     *
-     * @param conn
-     * @author 韩新凯
-     * @update Feb 7, 2012 6:18:42 PM
      */
     private String printResponse(HttpURLConnection conn) {
         StringBuilder sb = new StringBuilder();
@@ -660,7 +645,7 @@ public class HttpUtils {
             BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String line;
             while ((line = reader.readLine()) != null) {
-                sb.append("\n" + line);
+                sb.append("\n").append(line);
             }
             // System.out.println("==>" + sb);
         } catch (IOException e) {
@@ -669,7 +654,7 @@ public class HttpUtils {
         return sb.toString();
     }
 
-    private void buildHttpHeaderForHP(com.drive.student.xutils.http.RequestParams params) {
+    private void buildHttpHeaderForHP(RequestParams params) {
 		/*params.addHeader("versionCode", VERSION_CODE);
 		params.addHeader("os", OS);
 		params.addHeader("osVersion", OS_VERSION);*/

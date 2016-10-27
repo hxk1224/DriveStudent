@@ -52,10 +52,6 @@ public class ImageListDetailActivity extends ActivitySupport implements OnClickL
     private TextView title;
     private int mCurrPos;
     private ImagePagerAdapter mAdapter;
-    //是否显示删除
-    private TextView header_tv_right;
-    private ArrayList<String> deletePics = new ArrayList<>();
-    private boolean deletable;
     private LoadingDialog loadingDialog;
 
     @Override
@@ -74,8 +70,6 @@ public class ImageListDetailActivity extends ActivitySupport implements OnClickL
                 finish();
                 return;
             }
-            //是否显示删除
-            deletable = getIntent().getBooleanExtra(Constant.IMAGE_LIST_DETAIL_DELETABLE, true);
             mViews = new ArrayList<>();
             mCurrPos = intent.getIntExtra(Constant.IMAGE_LIST_DETAIL_CUR_POS, 0);
             for (PictureBean bean : pictureBeans) {
@@ -105,9 +99,6 @@ public class ImageListDetailActivity extends ActivitySupport implements OnClickL
         TextView header_tv_back = (TextView) header.findViewById(R.id.header_tv_back);
         header_tv_back.setOnClickListener(this);
         title = (TextView) header.findViewById(R.id.header_tv_title);
-        header_tv_right = (TextView) header.findViewById(R.id.header_tv_right);
-        header_tv_right.setText("删除");
-        header_tv_right.setOnClickListener(this);
 
         btn_turn_left.setOnClickListener(listener);
         btn_turn_right.setOnClickListener(listener);
@@ -118,16 +109,6 @@ public class ImageListDetailActivity extends ActivitySupport implements OnClickL
         vPager.setAdapter(mAdapter);
         vPager.setOnPageChangeListener(new MyOnPageChangeListener());
         vPager.setCurrentItem(mCurrPos);
-        ImageView iv = mViews.get(mCurrPos);
-        if (iv != null && iv.getTag() != null && iv.getTag() instanceof PictureBean) {
-            PictureBean bean = (PictureBean) iv.getTag();
-            // 处理第一次打开图片是否显示删除
-            if (deletable && (PictureBean.DEFAULT == bean.uploadState || PictureBean.FAIL == bean.uploadState)) {
-                header_tv_right.setVisibility(View.VISIBLE);
-            } else {
-                header_tv_right.setVisibility(View.GONE);
-            }
-        }
         title.setText("查看图片 ( " + (mCurrPos + 1) + "/" + mViews.size() + " )");
     }
 
@@ -140,15 +121,6 @@ public class ImageListDetailActivity extends ActivitySupport implements OnClickL
         @Override
         public void onPageSelected(int i) {
             mCurrPos = i;
-            ImageView iv = mViews.get(mCurrPos);
-            if (iv != null && iv.getTag() != null && iv.getTag() instanceof PictureBean) {
-                PictureBean bean = (PictureBean) iv.getTag();
-                if (deletable && (PictureBean.DEFAULT == bean.uploadState || PictureBean.FAIL == bean.uploadState)) {
-                    header_tv_right.setVisibility(View.VISIBLE);
-                } else {
-                    header_tv_right.setVisibility(View.GONE);
-                }
-            }
             title.setText("查看图片 ( " + (i + 1) + "/" + mViews.size() + " )");
         }
 
@@ -193,10 +165,7 @@ public class ImageListDetailActivity extends ActivitySupport implements OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.header_tv_back:
-                handleBack();
-                break;
-            case R.id.header_tv_right:
-                showDeleteDialog();
+                finish();
                 break;
         }
     }
@@ -269,42 +238,5 @@ public class ImageListDetailActivity extends ActivitySupport implements OnClickL
         } else {
             showToastInThread("图片保存失败!");
         }
-    }
-
-    private void showDeleteDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("确定删除图片?").setPositiveButton("确定", (dialog, which) -> {
-            // 删除照片
-            dialog.dismiss();
-            ImageView iv = mViews.remove(mCurrPos);
-            if (iv != null && iv.getTag() != null && iv.getTag() instanceof PictureBean) {
-                PictureBean bean = (PictureBean) iv.getTag();
-                deletePics.add(bean.picUrl);
-            }
-            if (mViews.size() <= 0) {
-                handleBack();
-            } else {
-                mAdapter.notifyDataSetChanged();
-                title.setText("查看图片 ( " + (mCurrPos + 1) + "/" + mViews.size() + " )");
-            }
-        }).setNegativeButton("取消", (dialog, which) -> {
-            dialog.dismiss();
-        }).show();
-    }
-
-    @Override
-    public void onBackPressed() {
-        handleBack();
-    }
-
-    private void handleBack() {
-        if (deletePics.size() <= 0) {
-            finish();
-            return;
-        }
-        Intent data = new Intent();
-        data.putExtra(Constant.DELETE_PIC_LIST_URL, deletePics);
-        setResult(Activity.RESULT_OK, data);
-        finish();
     }
 }

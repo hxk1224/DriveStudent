@@ -20,12 +20,8 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.drive.student.R;
-import com.drive.student.bean.Head;
 import com.drive.student.config.Constant;
 import com.drive.student.config.UrlConfig;
-import com.drive.student.dto.CommonDTO;
-import com.drive.student.http.HttpTransferCallBack;
-import com.drive.student.http.HttpTransferUtil;
 import com.drive.student.util.BitmapHelp;
 import com.drive.student.util.BitmapIncise;
 import com.drive.student.util.CustomToast;
@@ -68,9 +64,6 @@ public class ImageDetailActivity extends ActivitySupport implements OnViewTapLis
     private Button save_gallery_bt;
 
     private String mImageUrl;
-    private int fromType;
-    private String mPicId;
-    private int mDeleteRequestCode;
     private LoadingDialog loadingDialog;
 
     @Override
@@ -82,11 +75,7 @@ public class ImageDetailActivity extends ActivitySupport implements OnViewTapLis
         BitmapUtils bitmapUtils = BitmapHelp.getPhotoBitmap(getApplicationContext());
         Intent intent = getIntent();
         mImageUrl = intent.getStringExtra(Constant.IMAGE_DETAIL_PATH);
-        mPicId = intent.getStringExtra(Constant.IMAGE_DETAIL_ID);
-        fromType = intent.getIntExtra(Constant.IMAGE_DETAIL_FROM_TYPE, 0);
-        mDeleteRequestCode = intent.getIntExtra(Constant.IMAGE_DETAIL_DELETE_REQUEST_CODE, 0);
-        boolean showDelete = intent.getBooleanExtra(Constant.IMAGE_DETAIL_SHOW_DELETE, false);
-        initViews(showDelete);
+        initViews();
         if (mImageUrl != null) {
             detail_img_progressBar.setVisibility(View.VISIBLE);
             bitmapUtils.display(detail_img_srcImage, mImageUrl, new DefaultBitmapLoadCallBack<ImageView>() {
@@ -113,7 +102,7 @@ public class ImageDetailActivity extends ActivitySupport implements OnViewTapLis
         }
     }
 
-    private void initViews(boolean showDelete) {
+    private void initViews() {
         View header = findViewById(R.id.header);
         TextView header_tv_back = (TextView) header.findViewById(R.id.header_tv_back);
         header_tv_back.setOnClickListener(new OnClickListener() {
@@ -125,20 +114,6 @@ public class ImageDetailActivity extends ActivitySupport implements OnViewTapLis
         });
         TextView header_tv_title = (TextView) header.findViewById(R.id.header_tv_title);
         header_tv_title.setText("查看图片");
-        TextView header_tv_right = (TextView) header.findViewById(R.id.header_tv_right);
-        header_tv_right.setText("删除");
-        if (showDelete) {
-            header_tv_right.setVisibility(View.VISIBLE);
-        } else {
-            header_tv_right.setVisibility(View.GONE);
-        }
-        header_tv_right.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                showDeleteDialog();
-            }
-        });
 
         detail_img_srcImage = (ImageView) findViewById(R.id.detail_img_srcImage);
         btn_turn_left.setOnClickListener(listener);
@@ -212,34 +187,6 @@ public class ImageDetailActivity extends ActivitySupport implements OnViewTapLis
         }
     }
 
-    private void showDeleteDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("确定删除图片?").setPositiveButton("确定", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (Constant.IMAGE_DETAIL_FROM_TAKE_PHOTO == fromType) {
-                    if (!StringUtil.isBlank(mPicId) && mDeleteRequestCode > 0) {
-                        deleteImage();
-                    } else {
-                        Intent data = new Intent();
-                        data.putExtra(Constant.DELETE_PIC_URL, mImageUrl);
-                        setResult(Activity.RESULT_OK, data);
-                        ImageDetailActivity.this.finish();
-                    }
-                } else if (Constant.IMAGE_DETAIL_FROM_IMAGE_WATCHER == fromType) {
-                    deleteImage();
-                }
-            }
-        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        }).show();
-    }
-
     @Override
     public void onBackPressed() {
         finish();
@@ -251,53 +198,5 @@ public class ImageDetailActivity extends ActivitySupport implements OnViewTapLis
     @Override
     public void onViewTap(View arg0, float arg1, float arg2) {
         ImageDetailActivity.this.finish();
-    }
-
-    private void deleteImage() {
-        if (!hasInternetConnected()) {
-            return;
-        }
-        CommonDTO dto = new CommonDTO(mDeleteRequestCode);
-        dto.addParam("picId", mPicId);
-        String content = JSON.toJSONString(dto);
-        new HttpTransferUtil().sendHttpPost(UrlConfig.ZASION_HOST, content, new HttpTransferCallBack() {
-
-            @Override
-            public void onStart() {
-                loadingDialog.show();
-            }
-
-            @Override
-            public void onSuccess(String json) {
-                loadingDialog.dismiss();
-                if (!validateToken(json)) {
-                    return;
-                }
-                try {
-                    Head head = checkHead(json);
-                    if (head.returnCode == Constant.RETURN_CODE_OK) {
-                        CustomToast.showToast(ImageDetailActivity.this, "删除成功", 0);
-                        Intent data = new Intent();
-                        data.putExtra(Constant.DELETE_PIC_URL, mImageUrl);
-                        setResult(Activity.RESULT_OK, data);
-                        ImageDetailActivity.this.finish();
-                    } else {
-                        CustomToast.showToast(ImageDetailActivity.this, head.message, 0);
-                    }
-                } catch (JSONException e) {
-                    CustomToast.showToast(ImageDetailActivity.this, "删除失败", 0);
-                    e.printStackTrace();
-                }
-
-            }
-
-            @Override
-            public void onFailure() {
-                loadingDialog.dismiss();
-                CustomToast.showToast(ImageDetailActivity.this, getString(R.string.server_net_error), 0);
-            }
-
-        });
-
     }
 }

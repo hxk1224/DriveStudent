@@ -18,6 +18,7 @@ package com.drive.student.xutils.http;
 import android.os.SystemClock;
 
 import com.drive.student.xutils.HttpUtils;
+import com.drive.student.xutils.exception.HttpException;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

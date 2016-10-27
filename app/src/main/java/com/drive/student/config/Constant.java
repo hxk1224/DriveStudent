@@ -152,28 +152,6 @@ public interface Constant {
 
     /** 推送升级消息 */
     String PUSH_UPDATE = "001";
-    /** 推送新的询价单 */
-    String PUSH_NEW_INQUIQY = "101";
-    /** 推送买家新的回复 */
-    String PUSH_INQUIRY_CHAT = "102";
-    /** 推送新的订单 */
-    String PUSH_NEW_ORDER = "201";
-    /** 推送订单付款 */
-    String PUSH_ORDER_PAY = "202";
-    /** 推送订单聊天消息 */
-    String PUSH_ORDER_CHAT = "206";
-    /** 推送退换货申请 */
-    String PUSH_NEW_POST_SALE = "301";
-    /** 推送退换货受理有新的动态 */
-    String PUSH_POST_SALE_NEW_STATUS = "302";
-    /** 推送退换货受理有新的消息 */
-    String PUSH_POST_SALE_NEW_MESSGE = "303";
-    /** 推送-给后台发消息重置系统消息 */
-    String PUSH_SYS_MSG_BACK = "901";
-    /** 推送-给后台发消息重置聊天 */
-    String PUSH_MSG_BACK = "902";
-    /** 推送商圈聊天消息 */
-    String PUSH_BUSINESS_CHAT = "501";//TODO
     /*********************** 版本升级 ********************/
     int UPDATE_NEEDLESS = 1;
     int UPDATE_RECOMMEND = 2;
@@ -341,14 +319,10 @@ public interface Constant {
     int IMAGE_DETAIL_FROM_TAKE_PHOTO = 2;
     int IMAGE_DETAIL_WATCHER = 10;
     int IMAGE_DETAIL_TAKE_PHOTO = 11;
-    String IMAGE_DETAIL_SHOW_DELETE = "IMAGE_DETAIL_SHOW_DELETE";
-    String IMAGE_DETAIL_DELETE_REQUEST_CODE = "IMAGE_DETAIL_DELETE_REQUEST_CODE";
     String IMAGE_DETAIL_FROM_TYPE = "IMAGE_DETAIL_FROM_TYPE";
     String IMAGE_DETAIL_PATH = "IMAGE_DETAIL_PATH";
     String DELETE_PIC_URL = "DELETE_PIC_URL";
     String IMAGE_DETAIL_ID = "IMAGE_DETAIL_ID";
-    /** 删除图片list地址 */
-    String DELETE_PIC_LIST_URL = "DELETE_PIC_LIST_URL";
     /** 传递的图片list地址 */
     String IMAGE_LIST_DETAIL_PATH = "IMAGE_LIST_DETAIL_PATH";
     /** 传递的图片list，点击的图片位置 */

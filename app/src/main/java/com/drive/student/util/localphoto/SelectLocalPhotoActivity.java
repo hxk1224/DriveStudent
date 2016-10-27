@@ -24,7 +24,7 @@ import java.util.List;
  *
  * @author 韩新凯
  */
-public class SelectLocalPhotoActivity extends ActivitySupport implements OnPageLodingClickListener, OnPhotoSelectClickListener {
+public class SelectLocalPhotoActivity extends ActivitySupport implements PhotoFolderFragment.OnPageLodingClickListener, PhotoFragment.OnPhotoSelectClickListener {
     private PhotoFolderFragment photoFolderFragment;
     private TextView tv_title, tv_back, tv_finish;
     //	private List<PhotoInfo> hasList;

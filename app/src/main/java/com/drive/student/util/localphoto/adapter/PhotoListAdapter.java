@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import com.drive.student.MainApplication;
 import com.drive.student.R;
 import com.drive.student.util.BitmapHelp;
+import com.drive.student.xutils.BitmapUtils;
 
 import java.util.List;
 

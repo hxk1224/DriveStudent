@@ -25,8 +25,8 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
 
-import com.zasion.supplier.R;
-import com.zasion.supplier.view.XListView;
+import com.drive.student.R;
+import com.drive.student.view.XListView;
 
 import se.emilsjolander.stickylistheaders.WrapperViewList.LifeCycleListener;
 

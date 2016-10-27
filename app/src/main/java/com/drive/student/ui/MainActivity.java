@@ -25,8 +25,6 @@ import com.drive.student.callback.CommonHandlerCallback;
 import com.drive.student.common.CommonHandler;
 import com.drive.student.config.Constant;
 import com.drive.student.manager.NoticeManager;
-import com.drive.student.task.LoadCommonTextTask;
-import com.drive.student.task.LoadHomeImageTask;
 import com.drive.student.ui.home.HomeFrag;
 import com.drive.student.ui.user.UserFrag;
 import com.drive.student.util.FileUtil;
@@ -82,8 +80,6 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
         /**清除临时图片缓存*/
         FileUtil.deleteTmpCameraFileInThread(spUtil.getCameraTempPath());
         mIsActive = true;
-        new LoadHomeImageTask(getApplicationContext()).execute();
-        new LoadCommonTextTask(getApplicationContext()).execute();
         initView();
         InitTextView();
         mPager = (CustomViewPager) findViewById(R.id.vPager);

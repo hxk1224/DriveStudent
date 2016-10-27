@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 
-import com.drive.student.bean.VersonBean;
+import com.drive.student.bean.VersionBean;
 import com.drive.student.task.AutoLogin;
 import com.drive.student.task.CheckVersionTask;
 import com.drive.student.task.CheckVersionTask.CheckVersionListener;
@@ -34,7 +34,6 @@ public class WelcomeActivity extends ActivitySupport {
     /** 进首页开始时间 **/
     private long starttime;
     private SharePreferenceUtil spUtil;
-    private Bitmap welBitmap;
     private Handler mHandler = new Handler();
     private ImageView wel_iv;
 
@@ -51,7 +50,7 @@ public class WelcomeActivity extends ActivitySupport {
         /** 先初始化存储 获得存储路径 **/
         if (checkStoragePathAndSetBaseApp()) {
             /** 再初始化数据 **/
-            initdata();
+            starttime = System.currentTimeMillis();
             if (validateInternet()) {
                 checkVersionTask = new CheckVersionTask(this, 0, new CheckVersionListener() {
                     @Override
@@ -60,7 +59,7 @@ public class WelcomeActivity extends ActivitySupport {
                     }
 
                     @Override
-                    public void updateNewVersion(VersonBean bean) {
+                    public void updateNewVersion(VersionBean bean) {
                         if (!BackUtil.isActivityRunningForground(WelcomeActivity.this, VersionUpdateActivity.class.getName())) {
                             Intent in = new Intent(WelcomeActivity.this, VersionUpdateActivity.class);
                             in.putExtra("bean", bean);
@@ -133,42 +132,9 @@ public class WelcomeActivity extends ActivitySupport {
         autoLogin.submitLogin();
     }
 
-    /**
-     * 初始化操作.
-     */
-    private void initdata() {
-        if (!isFirstlogin && !StringUtil.equalsNull(spUtil.getWelPictureId())) {
-            String welDir = spUtil.getWelcomePath();
-            if (!StringUtil.equalsNull(welDir)) {
-                File dir = new File(welDir);
-                if (dir.isDirectory()) {
-                    File[] files = dir.listFiles();
-                    if (files != null && files.length > 0) {
-                        for (File file : files) {
-                            if (file != null && FileUtil.isPicture(file)) {
-                                welBitmap = BitmapCompressUtil.getSmallBitmap(file.getAbsolutePath());
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        if (null != welBitmap) {
-            wel_iv.setImageBitmap(welBitmap);
-        } else {
-            wel_iv.setImageResource(R.drawable.welcome_bg);
-        }
-        starttime = System.currentTimeMillis();
-    }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (welBitmap != null && !welBitmap.isRecycled()) {
-            welBitmap.recycle();
-            welBitmap = null;
-        }
         if (checkVersionTask != null) {
             checkVersionTask.cancel(true);
         }

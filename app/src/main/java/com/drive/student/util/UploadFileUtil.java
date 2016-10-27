@@ -3,15 +3,11 @@ package com.drive.student.util;
 import android.content.Context;
 
 import com.drive.student.MainApplication;
-import com.drive.student.bean.Head;
 import com.drive.student.config.UrlConfig;
 import com.drive.student.xutils.HttpUtils;
 import com.drive.student.xutils.http.RequestParams;
 import com.drive.student.xutils.http.callback.RequestCallBack;
 import com.drive.student.xutils.http.client.HttpRequest;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
 
@@ -53,23 +49,6 @@ public class UploadFileUtil {
             HttpUtils http = HttpUtils.getInstance();
             http.send(HttpRequest.HttpMethod.POST, UrlConfig.ZASION_UPLOAD, params, callback);
         }
-    }
-
-    public static Head checkHead(String json) throws JSONException {
-        JSONObject jsonObj = new JSONObject(json);
-        JSONObject obj = jsonObj.getJSONObject("head");
-        int returnCode = obj.getInt("returnCode");
-        String message = obj.getString("message");
-        String userCode = obj.getString("userCode");
-        int requestCode = obj.getInt("requestCode");
-        String requestTime = obj.getString("requestTime");
-        Head head = new Head();
-        head.returnCode = returnCode;
-        head.message = message;
-        head.requestTime = requestTime;
-        head.userCode = userCode;
-        head.requestCode = requestCode;
-        return head;
     }
 
 }

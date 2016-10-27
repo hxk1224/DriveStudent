@@ -5,7 +5,7 @@ import java.util.List;
 public class CityModel {
     private String name;
     private String code;
-    private List<com.drive.student.view.wheelview.model.DistrictModel> districtList;
+    private List<DistrictModel> districtList;
 
     public String getCode() {
         return code;

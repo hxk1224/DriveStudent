@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.drive.student.R;
-import com.drive.student.bean.VersonBean;
+import com.drive.student.bean.VersionBean;
 import com.drive.student.config.Constant;
 import com.drive.student.service.DownloadService;
 import com.drive.student.service.DownloadService.DownloadBinder;
@@ -47,7 +47,7 @@ public class VersionUpdateActivity extends ActivitySupport implements OnClickLis
     /** 下载进度对话框 信息 **/
     private TextView downBarMsg;
 
-    private VersonBean newVersion;
+    private VersionBean newVersion;
     private View retry_line;
     /** 重试和退出按钮载体 **/
     private LinearLayout retry_layout;
@@ -56,7 +56,7 @@ public class VersionUpdateActivity extends ActivitySupport implements OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.version_update);
-        newVersion = (VersonBean) getIntent().getSerializableExtra("bean");
+        newVersion = (VersionBean) getIntent().getSerializableExtra("bean");
         initViews();
         initDataAndListener();
     }

@@ -21,16 +21,8 @@ import com.igexin.sdk.PushManager;
 import com.drive.student.MainApplication;
 import com.drive.student.R;
 import com.drive.student.bean.BaseBean;
-import com.drive.student.bean.ChatBean;
-import com.drive.student.bean.CommonBean;
-import com.drive.student.bean.CommonListBean;
-import com.drive.student.bean.Head;
 import com.drive.student.config.Constant;
 import com.drive.student.config.UrlConfig;
-import com.drive.student.http.exception.EmptyResultDataAccessException;
-import com.drive.student.http.exception.ServerIOException;
-import com.drive.student.http.exception.ServerStatusException;
-import com.drive.student.http.exception.UnknownException;
 import com.drive.student.manager.NoticeManager;
 import com.drive.student.ui.ActivitySupport.SetText;
 import com.drive.student.util.BackUtil;
@@ -91,23 +83,6 @@ public class BaseFragment extends Fragment {
         return false;
     }
 
-    protected Head checkHead(String json) throws JSONException {
-        JSONObject jsonObj = new JSONObject(json);
-        JSONObject obj = jsonObj.getJSONObject("head");
-        int returnCode = obj.getInt("returnCode");
-        String message = obj.getString("message");
-        String userCode = obj.getString("userCode");
-        int requestCode = obj.getInt("requestCode");
-        String requestTime = obj.getString("requestTime");
-        Head head = new Head();
-        head.returnCode = returnCode;
-        head.message = message;
-        head.requestTime = requestTime;
-        head.userCode = userCode;
-        head.requestCode = requestCode;
-        return head;
-    }
-
     /** 打电话 */
     protected void callPhone(String phone) {
         if (!StringUtil.equalsNull(phone)) {
@@ -131,22 +106,21 @@ public class BaseFragment extends Fragment {
         result = StringUtil.doEmpty(result);
         if (!StringUtil.equalsNull(result) && result.contains("returnCode")) {
             try {
-                Head head = checkHead(result);
-                if (Constant.TOKEN_INVALIDATE == head.returnCode) {
-                    LogUtil.e(TAG, "CheckToken--TOKEN_INVALIDATE-->>");
-                    invalidToken(head.message);
-                    return false;
-                } else if (Constant.UPDATE_FORCE_RETURN_CODE == head.returnCode) {// 强制用户升级
+//                if (Constant.TOKEN_INVALIDATE == head.returnCode) {
+//                    LogUtil.e(TAG, "CheckToken--TOKEN_INVALIDATE-->>");
+//                    invalidToken(head.message);
+//                    return false;
+//                } else if (Constant.UPDATE_FORCE_RETURN_CODE == head.returnCode) {// 强制用户升级
                     stopJpush();
                     // 清除通知栏，防止通过通知越过登陆进入系统
                     NoticeManager.getInstance(getActivity()).clearAllNotifation();
                     if (!BackUtil.isActivityRunningForground(getActivity(), ForceUpdateActivity.class.getName())) {
                         Intent intent = new Intent(mainApplication, ForceUpdateActivity.class);
-                        intent.putExtra("message", head.message);
+//                        intent.putExtra("message", head.message);
                         startActivity(intent);
                     }
                     return false;
-                }
+//                }
             } catch (Throwable e) {
                 e.printStackTrace();
             }
@@ -156,13 +130,11 @@ public class BaseFragment extends Fragment {
 
     protected void invalidToken(String msg) {
         stopJpush();
-        stopGetui();
         // token失效时，清除通知栏，防止通过通知越过登陆进入系统
         NoticeManager.getInstance(getActivity()).clearAllNotifation();
         mainApplication.setUser(null);
         SharePreferenceUtil spUtil = new SharePreferenceUtil(getActivity());
         spUtil.setToken("");
-        spUtil.setCartPop(0);
         if (!BackUtil.isActivityRunningForground(getActivity(), TokenInvalidateActivity.class.getName())) {
             Intent intent = new Intent(mainApplication, TokenInvalidateActivity.class);
             intent.putExtra("message", msg);
@@ -268,51 +240,6 @@ public class BaseFragment extends Fragment {
         return lodingDialog;
     }
 
-    /** 验证接口数据 */
-    protected Object verifyResponse(BaseBean models) throws ServerStatusException, EmptyResultDataAccessException, UnknownException, ServerIOException {
-        return this.verifyResponse("", models);
-    }
-
-    /** 验证接口数据 */
-    protected <T> Object verifyResponse(String request, BaseBean models) throws ServerStatusException, EmptyResultDataAccessException, UnknownException, ServerIOException {
-        List<T> commonList;
-        T commonData;
-        if (null != models && models.head != null) {
-            if (models.head.returnCode == Constant.RETURN_CODE_OK) {
-                // 返回正常
-                if (models instanceof CommonListBean) { // CommonListResponse
-                    commonList = ((CommonListBean<T>) models).data;
-                    if (null != commonList) {
-                        return commonList;
-                    } else { // 空数据异常
-                        return null;
-                    }
-                } else if (models instanceof CommonBean) {// CommonResponse
-                    commonData = ((CommonBean<T>) models).data;
-                    if (null != commonData) {
-                        return commonData;
-                    } else { // 空数据异常
-                        return null;
-                    }
-                } else if (models instanceof BaseBean) {
-                    return true;
-                } else { // 用于扩展
-                    throw new UnknownException(request);
-                }
-            } else {
-                // 服务器状态异常
-                int code = models.head.returnCode;
-                String message = models.head.message;
-                if (code == 0) {// code 没有配置0 返回0说明没有返回code值
-                    throw new ServerIOException(request); // 服务器IO异常
-                }
-                throw new ServerStatusException(code + ":" + message);
-            }
-        } else { // 服务器IO异常
-            throw new ServerIOException(request);
-        }
-    }
-
     /** 显示键盘事件 */
     protected void showKeyboard(EditText et) {
         InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -358,39 +285,6 @@ public class BaseFragment extends Fragment {
         JPushInterface.setAliasAndTags(mainApplication, "-", tags);
         JPushInterface.stopPush(mainApplication);
         LogUtil.e("Jpush", "stopPush-->>");
-    }
-
-    /** 停止个推推送消息 */
-    protected void stopGetui() {
-        if (PushManager.getInstance().isPushTurnedOn(mainApplication)) {
-            PushManager.getInstance().turnOffPush(mainApplication);
-            if (!StringUtil.equalsNull(mainApplication.getSupplierId())) {
-                String alias = mainApplication.getSupplierId();
-                switch (UrlConfig.DOMAIN) {
-                    case UrlConfig.DOMAIN_OFFICIAL:
-                        //正式环境
-                        break;
-                    case UrlConfig.DOMAIN_CESHI:
-                        //58测试环境
-                        alias = "ceshi_" + alias;
-                        break;
-                    case UrlConfig.DOMAIN_JIXIAN:
-                        //基线环境
-                        alias = "jixian_" + alias;
-                        break;
-                    case UrlConfig.DOMAIN_DITUI:
-                        //地推环境
-                        alias = "ditui_" + alias;
-                        break;
-                }
-                PushManager.getInstance().unBindAlias(mainApplication, alias, true);
-            }
-            LogUtil.e("GeTui", "stopPush-->>");
-        }
-    }
-
-    public void sendMessage(final ChatBean bean) {
-
     }
 
 }

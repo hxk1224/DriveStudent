@@ -1,5 +1,6 @@
 package com.drive.student.manager;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -34,9 +35,6 @@ public class NoticeManager {
     // 默认显示的的Notification
     public void showDefaultNotification(String title, String content, Intent intent, int notifactionid) {
         SharePreferenceUtil spUtil = new SharePreferenceUtil(context);
-        if (!spUtil.showNotification()) {
-            return;
-        }
         NotificationCompat.Builder builder = new NotificationCompat.Builder(
                 context);
         builder.setWhen(System.currentTimeMillis());
@@ -48,7 +46,7 @@ public class NoticeManager {
         builder.setContentText(content);
         builder.setSmallIcon(R.drawable.app_icon);
         // 添加声音效果
-        // builder.setDefaults(Notification.DEFAULT_SOUND);
+         builder.setDefaults(Notification.DEFAULT_SOUND);
         // 使用消息声音
         SoundUtil.getInstance().playMsgSound();
         // 将该通知显示为默认View

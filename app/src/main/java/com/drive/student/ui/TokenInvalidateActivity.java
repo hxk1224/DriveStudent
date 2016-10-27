@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.drive.student.R;
-import com.drive.student.ui.user.login.LoginActivity;
+import com.drive.student.ui.login.LoginActivity;
 
 /**
  * 会话超时.

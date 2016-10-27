@@ -21,6 +21,7 @@ import com.drive.student.util.BitmapCompressUtil;
 import com.drive.student.util.CustomToast;
 import com.drive.student.util.LogUtil;
 import com.drive.student.util.SharePreferenceUtil;
+import com.drive.student.view.LoadingDialog;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;

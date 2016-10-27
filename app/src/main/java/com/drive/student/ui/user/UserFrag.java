@@ -34,8 +34,6 @@ public class UserFrag extends BaseFragment implements OnClickListener {
     private TextView user_name_tv;
     private ImageView user_icon_iv;
     private TextView user_home_tv;
-    /** 售后有新的消息 */
-    private ImageView new_msg_iv;
     private LinearLayout user_account_ll;
 
     @Override

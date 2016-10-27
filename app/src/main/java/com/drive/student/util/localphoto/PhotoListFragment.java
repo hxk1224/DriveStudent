@@ -12,6 +12,8 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.drive.student.R;
+import com.drive.student.util.localphoto.adapter.PhotoListAdapter;
+import com.drive.student.util.localphoto.bean.PhotoSerializable;
 
 import java.util.ArrayList;
 import java.util.List;
