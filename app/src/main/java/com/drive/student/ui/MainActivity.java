@@ -38,7 +38,6 @@ import java.util.HashMap;
 
 /** 主菜单页面. */
 public class MainActivity extends ActivitySupport implements CommonHandlerCallback {
-    private static final int REFRESH_GLOBAL_NOTIFICATION = 0x1;
     /** 按返回键 */
     private static final int PRESS_KEY_BACK = 0x2;
     /** 按返回键2秒后更新isQuit状态 */
@@ -106,12 +105,6 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
     @Override
     public void commonHandleMessage(Message msg) {
         switch (msg.what) {
-            case REFRESH_GLOBAL_NOTIFICATION:
-                // 隔5秒刷新一次在状态栏显示系统,防止应用被kill
-                // Log.e("MainActivity", "REFRESH_GLOBAL_NOTIFICATION--->>>");
-                NoticeManager.getInstance(getApplicationContext()).showGlobalNotification();
-                mHandler.sendEmptyMessageDelayed(REFRESH_GLOBAL_NOTIFICATION, 5000);
-                break;
             case PRESS_KEY_BACK:
                 if (!isQuit) {
                     isQuit = true;
