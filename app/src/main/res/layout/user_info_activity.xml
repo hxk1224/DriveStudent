@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                                 android:background="@color/white"
+                                 android:orientation="vertical">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_180dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_10dp">
+
+        <com.scaleview.ScaleCircleImageView
+            android:id="@+id/header_icon_iv"
+            android:layout_width="@dimen/dimen_150dp"
+            android:layout_height="@dimen/dimen_150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/head_default_icon"
+            app:border_color="@color/black"
+            app:border_width="@dimen/dimen_1dp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/user_phone_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:text="158xxxxxxxx"
+            android:textColor="@color/main_gray_color"
+            android:textSize="@dimen/dimen_32sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <include layout="@layout/line_gray_1dp"/>
+
+    <com.scaleview.ScaleRelativeLayout
+        android:id="@+id/user_tel_rl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="@drawable/edittext_bg_selector"
+        android:paddingLeft="@dimen/dimen_10dp"
+        android:paddingRight="@dimen/dimen_10dp"
+        android:visibility="gone">
+
+        <com.scaleview.ScaleTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="店铺编码"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/shop_code_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:textColor="@color/main_gray_color"
+            android:textSize="@dimen/dimen_32sp"/>
+    </com.scaleview.ScaleRelativeLayout>
+
+    <include layout="@layout/line_gray_1dp"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_10dp">
+
+        <com.scaleview.ScaleTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="姓        名:"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/user_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:text="xxxx"
+            android:textColor="@color/main_gray_color"
+            android:textSize="@dimen/dimen_32sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <include layout="@layout/line_gray_1dp"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/dimen_10dp">
+
+        <com.scaleview.ScaleTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="性        别:"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/user_sex_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:text="xxxxx"
+            android:textColor="@color/main_gray_color"
+            android:textSize="@dimen/dimen_32sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <include layout="@layout/line_gray_1dp"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/dimen_100dp"
+        android:padding="@dimen/dimen_10dp">
+
+        <com.scaleview.ScaleTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="接送地址:"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/user_address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:text="xxxxxxx"
+            android:textColor="@color/main_gray_color"
+            android:textSize="@dimen/dimen_32sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <include layout="@layout/line_gray_1dp"/>
+
+    <com.scaleview.ScaleTextView
+        android:id="@+id/change_login_pwd_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="@drawable/edittext_bg_selector"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dimen_10dp"
+        android:text="修改登陆密码"
+        android:textColor="@color/main_blue_color"
+        android:textSize="@dimen/dimen_32sp"/>
+
+    <include layout="@layout/line_gray_1dp"/>
+
+    <com.scaleview.ScaleTextView
+        android:id="@+id/logout_tv"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="@drawable/edittext_bg_selector"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dimen_10dp"
+        android:text="退出登录"
+        android:textColor="@color/main_blue_color"
+        android:textSize="@dimen/dimen_32sp"/>
+
+    <include layout="@layout/line_gray_1dp"/>
+
+</com.scaleview.ScaleLinearLayout>

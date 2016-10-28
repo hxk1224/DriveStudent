@@ -12,4 +12,27 @@
         android:textColor="@color/white"
         android:textSize="@dimen/dimen_42sp"/>
 
+    <com.scaleview.ScaleLinearLayout
+        android:id="@+id/location_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/dimen_15dp">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="T北京"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <com.scaleview.ScaleImageView
+            android:layout_width="@dimen/dimen_30dp"
+            android:layout_height="@dimen/dimen_30dp"
+            android:src="@drawable/icon_gcoding"/>
+    </com.scaleview.ScaleLinearLayout>
+
 </com.scaleview.ScaleRelativeLayout>

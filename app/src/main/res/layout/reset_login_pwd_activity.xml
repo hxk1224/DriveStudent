@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                 android:id="@+id/ll_container"
+<com.scaleview.ScaleLinearLayout android:id="@+id/ll_container"
+                                 xmlns:android="http://schemas.android.com/apk/res/android"
                                  android:layout_width="match_parent"
                                  android:layout_height="match_parent"
                                  android:background="@color/white"
                                  android:orientation="vertical">
 
-    <!-- 头部 -->
-
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/header"/>
-
-    <!-- old密码 -->
+    <include layout="@layout/header"/>
 
     <com.scaleview.ScaleEditText
         android:id="@+id/old_pwd_et"
         style="@style/telephone_et"
         android:hint="请输入旧密码"
         android:inputType="textPassword"/>
-    <!-- 密码 -->
 
     <com.scaleview.ScaleEditText
         android:id="@+id/new_pwd_et"
@@ -44,12 +36,10 @@
         android:hint="再次输入新密码"
         android:inputType="textPassword"/>
 
-    <!-- 提交 -->
-
     <com.scaleview.ScaleTextView
         android:id="@+id/submit_tv"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_100dp"
+        android:layout_height="@dimen/dimen_80dp"
         android:layout_marginLeft="@dimen/dimen_50dp"
         android:layout_marginRight="@dimen/dimen_50dp"
         android:layout_marginTop="@dimen/dimen_30dp"

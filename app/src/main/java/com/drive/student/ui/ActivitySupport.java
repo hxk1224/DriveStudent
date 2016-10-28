@@ -54,26 +54,15 @@ import java.util.TreeSet;
 
 import cn.jpush.android.api.JPushInterface;
 
-/**
- * Actity 工具支持类
- */
+/** Actity 工具支持类 */
 public class ActivitySupport extends FragmentActivity implements IActivitySupport {
     private static final String TAG = "ActivitySupport";
-    /**
-     * 共享存储工具类
-     **/
+    /** 共享存储工具类 */
     protected SharePreferenceUtil spUtil;
-    /**
-     * Application
-     **/
     protected MainApplication mainApplication;
-    /**
-     * Notify管理类
-     **/
+    /** Notify管理类 */
     protected NotificationManager notificationManager;
-    /**
-     * 错误提示页面
-     **/
+    /** 错误提示页面 */
     protected View errorView;
 
     @Override
@@ -83,9 +72,7 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         initData();
     }
 
-    /**
-     * 初始化数据.
-     */
+    /** 初始化数据 */
     private void initData() {
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         mainApplication = (MainApplication) getApplication();
@@ -93,9 +80,7 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         mainApplication.addActivity(this);
     }
 
-    /**
-     * 跳转到登陆页面
-     */
+    /** 跳转到登陆页面 */
     public boolean goLogin() {
         if (mainApplication.getUser() == null || StringUtil.isBlank(mainApplication.getUserCode())) {
             Intent loginIntent = new Intent(this, LoginActivity.class);
@@ -203,34 +188,18 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         return true;
     }
 
-    /**
-     * 网络错误
-     *
-     * @param frame
-     * @param setText
-     */
+    /** 网络错误 */
     public void showNetWorkError(FrameLayout frame, final SetText setText) {
         showExceptionView(frame, null, 1, setText);
 
     }
 
-    /**
-     * 功能：数据为空
-     *
-     * @param frame
-     * @param errorMsg
-     * @param settext
-     */
+    /** 数据为空 */
     public void showEmpty(FrameLayout frame, String errorMsg, final SetText settext) {
         showExceptionView(frame, errorMsg, 2, settext);
     }
 
-    /**
-     * 功能：服务器数据错误等
-     *
-     * @param frame
-     * @param settext
-     */
+    /** 服务器数据错误等 */
     public void showServiceError(FrameLayout frame, final SetText settext) {
         showExceptionView(frame, null, 0, settext);
     }
@@ -238,7 +207,7 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
     /**
      * 这个方法作用:服务器错误、网络错误、数据为空等
      *
-     * @param frame
+     * @param frame    frame
      * @param errorMsg 错误信息
      * @param settext  如果只写onclick事件，其他的都有默认的，其他方法可根据需求自定义。
      * @param type     0:服务器数据错误、1：网络不可用、2：数据为空
@@ -277,9 +246,7 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         frame.addView(errorView);
     }
 
-    /**
-     * 这个方法作用:移除错误页面
-     */
+    /** 移除错误页面 */
     public void removeErrorView(FrameLayout frame) {
         if (null != errorView) {
             frame.removeView(errorView);
@@ -289,9 +256,6 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
     }
 
     public interface SetText {
-        /**
-         * 这个方法作用：点击事件
-         */
         void onClick();
     }
 
@@ -415,9 +379,6 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         dialog.show();
     }
 
-    /**
-     * 显示toast
-     */
     @Override
     public void showToast(String text, int longint) {
         CustomToast.showToast(this, text, longint);
@@ -448,17 +409,13 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         });
     }
 
-    /**
-     * 显示键盘事件
-     */
+    /** 显示键盘事件 */
     public void showKeyboard(EditText et) {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.showSoftInput(et, InputMethodManager.SHOW_IMPLICIT);
     }
 
-    /**
-     * 显示键盘事件
-     */
+    /** 显示键盘事件 */
     public void showKeyboard() {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null && getCurrentFocus() != null) {
@@ -466,9 +423,7 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         }
     }
 
-    /**
-     * 显示键盘事件
-     */
+    /** 显示键盘事件 */
     public void showKeyboardForced() {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null && getCurrentFocus() != null) {
@@ -476,9 +431,7 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         }
     }
 
-    /**
-     * 关闭键盘事件
-     */
+    /** 关闭键盘事件 */
     public void hideKeyboard() {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (inputMethodManager != null && getCurrentFocus() != null) {
@@ -486,11 +439,7 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         }
     }
 
-    /**
-     * 强制关闭键盘
-     *
-     * @param et
-     */
+    /** 强制关闭键盘 */
     public void hideKeyboardForced(EditText et) {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (null != et) {
@@ -510,9 +459,6 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         return mainApplication;
     }
 
-    /**
-     * 自定义Alertdialog
-     */
     @Override
     public AlertDialog showAlertDialog(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -530,9 +476,7 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
 
     }
 
-    /***
-     * 设置极光推送，别名，标签等。
-     */
+    /** 设置极光推送，别名，标签等 */
     protected void initJpush() {
         if (!StringUtil.equalsNull(mainApplication.getSupplierId())) {
             String alias = mainApplication.getSupplierId();
@@ -540,12 +484,12 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
             switch (UrlConfig.DOMAIN) {
                 case UrlConfig.DOMAIN_OFFICIAL:
                     //正式环境
-                    tags.add(getString(R.string.car_student_push_tag));
+                    tags.add(getString(R.string.drive_student_push_tag));
                     break;
                 case UrlConfig.DOMAIN_CESHI:
                     //58测试环境
                     alias = "ceshi_" + alias;
-                    tags.add(getString(R.string.car_student_push_tag));
+                    tags.add(getString(R.string.drive_student_push_tag));
                     break;
             }
             JPushInterface.init(mainApplication);

@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/header"
-        layout="@layout/header_home"/>
+        layout="@layout/header_exam"/>
 
     <com.scaleview.ScaleScrollView
         android:layout_width="match_parent"
@@ -18,31 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <com.scaleview.ScaleRelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white">
-
-                <com.scaleview.ScaleViewPager
-                    android:id="@+id/vPager"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimen_200dp"
-                    android:layout_gravity="center"
-                    android:flipInterval="30"
-                    android:persistentDrawingCache="animation"/>
-
-                <com.scaleview.ScaleLinearLayout
-                    android:id="@+id/dot_ll"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/vPager"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="8dp"/>
-            </com.scaleview.ScaleRelativeLayout>
-
-            <include layout="@layout/line_gray_1dp"/>
 
             <com.scaleview.ScaleLinearLayout
                 android:layout_width="match_parent"
@@ -102,24 +77,6 @@
             </com.scaleview.ScaleLinearLayout>
 
             <include layout="@layout/line_gray_1dp"/>
-
-            <com.scaleview.ScaleTextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_80dp"
-                android:layout_weight="1"
-                android:background="@color/light_gray_color"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/dimen_20dp"
-                android:paddingRight="@dimen/dimen_20dp"
-                android:text="热门驾校"
-                android:textColor="@color/main_black_color"
-                android:textSize="@dimen/dimen_32sp"/>
-
-            <com.scaleview.ScaleLinearLayout
-                android:id="@+id/hot_school_ll"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"/>
 
         </com.scaleview.ScaleLinearLayout>
     </com.scaleview.ScaleScrollView>

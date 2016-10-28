@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                                 android:background="@color/white"
+                                 android:orientation="vertical">
+
+    <include layout="@layout/header_teacher"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_90dp"
+        android:orientation="horizontal">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/sort_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/product_tab_bg_selector"
+            android:gravity="center"
+            android:text="默认排序"
+            android:textColor="@drawable/car_state_text_selector"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <View
+            android:layout_width="@dimen/dimen_1dp"
+            android:layout_height="@dimen/dimen_70dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/light_gray_line_color"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/sex_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/product_tab_bg_selector"
+            android:gravity="center"
+            android:text="男女不限"
+            android:textColor="@drawable/car_state_text_selector"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <View
+            android:layout_width="@dimen/dimen_1dp"
+            android:layout_height="@dimen/dimen_70dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/light_gray_line_color"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/show_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/product_tab_bg_selector"
+            android:gravity="center"
+            android:text="全部显示"
+            android:textColor="@drawable/car_state_text_selector"
+            android:textSize="@dimen/dimen_32sp"/>
+
+    </com.scaleview.ScaleLinearLayout>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/sort_bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_weight="1"
+            android:background="@color/main_blue_color"
+            android:visibility="visible"/>
+
+        <View
+            android:id="@+id/sex_bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_weight="1"
+            android:background="@color/main_blue_color"
+            android:visibility="invisible"/>
+
+        <View
+            android:id="@+id/show_bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_2dp"
+            android:layout_weight="1"
+            android:background="@color/main_blue_color"
+            android:visibility="invisible"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <include layout="@layout/line_gray_2dp"/>
+
+    <com.drive.student.view.XListView
+        android:id="@+id/teacher_list_xlv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:divider="@color/light_gray_line_color"
+        android:dividerHeight="@dimen/dimen_2dp"
+        android:listSelector="@drawable/edittext_bg_selector"
+        android:scrollbars="vertical"
+        android:scrollingCache="false"/>
+</com.scaleview.ScaleLinearLayout>

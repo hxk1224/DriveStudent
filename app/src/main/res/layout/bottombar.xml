@@ -41,6 +41,46 @@
         </com.scaleview.ScaleLinearLayout>
 
         <com.scaleview.ScaleLinearLayout
+            android:id="@+id/teacher_ll"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="top"
+            android:orientation="vertical">
+
+            <com.scaleview.ScaleImageView
+                android:id="@+id/iv_teacher"
+                style="@style/main_tab_img"
+                android:src="@drawable/teacher_item"/>
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/tv_teacher"
+                style="@style/tab_textview"
+                android:text="@string/teacher"/>
+        </com.scaleview.ScaleLinearLayout>
+
+        <com.scaleview.ScaleLinearLayout
+            android:id="@+id/exam_ll"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="top"
+            android:orientation="vertical">
+
+            <com.scaleview.ScaleImageView
+                android:id="@+id/iv_exam"
+                style="@style/main_tab_img"
+                android:src="@drawable/teacher_item"/>
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/tv_exam"
+                style="@style/tab_textview"
+                android:text="@string/exam"/>
+        </com.scaleview.ScaleLinearLayout>
+
+        <com.scaleview.ScaleLinearLayout
             android:id="@+id/mine"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

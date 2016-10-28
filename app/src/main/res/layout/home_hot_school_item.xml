@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:background="@drawable/edittext_bg_selector"
+                                 android:orientation="vertical">
+
+    <com.scaleview.ScaleRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_15dp">
+
+        <com.scaleview.ScaleImageView
+            android:id="@+id/school_icon_iv"
+            android:layout_width="@dimen/dimen_120dp"
+            android:layout_height="@dimen/dimen_120dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_default"/>
+
+        <com.scaleview.ScaleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_toLeftOf="@+id/school_location_tv"
+            android:layout_toRightOf="@+id/school_icon_iv"
+            android:orientation="vertical">
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/school_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:singleLine="true"
+                android:text="非常牛逼的驾校"
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_32sp"/>
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/service_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:singleLine="true"
+                android:text="一对一学车/考试包接送"
+                android:textColor="@color/main_gray_dark"
+                android:textSize="@dimen/dimen_28sp"/>
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/cost_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:singleLine="true"
+                android:text="报名费:xxxx, xx人报名"
+                android:textColor="@color/main_gray_dark"
+                android:textSize="@dimen/dimen_28sp"/>
+        </com.scaleview.ScaleLinearLayout>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/school_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:text="西城区"
+            android:textColor="@color/main_gray_color"
+            android:textSize="@dimen/dimen_28sp"/>
+    </com.scaleview.ScaleRelativeLayout>
+
+    <include layout="@layout/line_gray_2dp"/>
+</com.scaleview.ScaleLinearLayout>

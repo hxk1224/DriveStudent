@@ -15,21 +15,20 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.baidu.mobstat.StatService;
 import com.drive.student.MainApplication;
 import com.drive.student.R;
 import com.drive.student.callback.CommonHandlerCallback;
 import com.drive.student.common.CommonHandler;
 import com.drive.student.manager.NoticeManager;
+import com.drive.student.ui.exam.ExamFrag;
 import com.drive.student.ui.home.HomeFrag;
+import com.drive.student.ui.teacher.TeacherFrag;
 import com.drive.student.ui.user.UserFrag;
 import com.drive.student.util.FileUtil;
 import com.drive.student.view.CustomViewPager;
-import com.umeng.analytics.MobclickAgent;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /** 主菜单页面. */
 public class MainActivity extends ActivitySupport implements CommonHandlerCallback {
@@ -39,23 +38,29 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
     private static final int PRESS_KEY_BACK_CANCEL = 0x3;
     // 页卡内容
     private CustomViewPager mPager;
-    private LinearLayout home_ll;
-    private LinearLayout mine_ll;
+
+    // 导航图片
+    private ImageView iv_home;
+    private ImageView iv_teacher;
+    private ImageView iv_exam;
+    private ImageView iv_mine;
+
+    // 导航文字
+    private TextView tv_home;
+    private TextView tv_teacher;
+    private TextView tv_exam;
+    private TextView tv_mine;
 
     // 页面列表
     private ArrayList<Fragment> fragmentList;
     // 主页
     private HomeFrag homeFrag;
+    // 约教练
+    private TeacherFrag teacherFrag;
+    // 考试
+    private ExamFrag examFrag;
     // 个人中心
     private UserFrag userFrag;
-
-    // 导航图片
-    private ImageView iv_home;
-    private ImageView iv_mine;
-
-    // 导航文字
-    private TextView tv_home;
-    private TextView tv_mine;
 
     private int currentIndex = 0;// 当前的界面
     private Boolean isQuit = false;
@@ -79,13 +84,19 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
         fragmentList = new ArrayList<>();
         if (savedInstanceState == null) {
             homeFrag = (HomeFrag) HomeFrag.instantiate(this, HomeFrag.class.getName());
+            teacherFrag = (TeacherFrag) TeacherFrag.instantiate(this, TeacherFrag.class.getName());
+            examFrag = (ExamFrag) ExamFrag.instantiate(this, ExamFrag.class.getName());
             userFrag = (UserFrag) UserFrag.instantiate(this, UserFrag.class.getName());
         } else {
             homeFrag = (HomeFrag) getSupportFragmentManager().getFragment(savedInstanceState, HomeFrag.class.getName());
+            teacherFrag = (TeacherFrag) getSupportFragmentManager().getFragment(savedInstanceState, TeacherFrag.class.getName());
+            examFrag = (ExamFrag) getSupportFragmentManager().getFragment(savedInstanceState, ExamFrag.class.getName());
             userFrag = (UserFrag) getSupportFragmentManager().getFragment(savedInstanceState, UserFrag.class.getName());
         }
 
         fragmentList.add(homeFrag);
+        fragmentList.add(teacherFrag);
+        fragmentList.add(examFrag);
         fragmentList.add(userFrag);
 
         mPager.setAdapter(new MyViewPagerAdapter(getSupportFragmentManager()));
@@ -136,17 +147,27 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
 
     private void initView() {
         mPager = (CustomViewPager) findViewById(R.id.vPager);
-        home_ll = (LinearLayout) findViewById(R.id.home_ll);
-        mine_ll = (LinearLayout) findViewById(R.id.mine);
+
+        LinearLayout home_ll = (LinearLayout) findViewById(R.id.home_ll);
+        LinearLayout teacher_ll = (LinearLayout) findViewById(R.id.teacher_ll);
+        LinearLayout exam_ll = (LinearLayout) findViewById(R.id.exam_ll);
+        LinearLayout mine_ll = (LinearLayout) findViewById(R.id.mine);
 
         // 导航图片
         iv_home = (ImageView) findViewById(R.id.iv_home);
+        iv_teacher = (ImageView) findViewById(R.id.iv_teacher);
+        iv_exam = (ImageView) findViewById(R.id.iv_exam);
         iv_mine = (ImageView) findViewById(R.id.iv_mine);
 
         // 导航文字
         tv_home = (TextView) findViewById(R.id.tv_home);
+        tv_teacher = (TextView) findViewById(R.id.tv_teacher);
+        tv_exam = (TextView) findViewById(R.id.tv_exam);
         tv_mine = (TextView) findViewById(R.id.tv_mine);
+
         home_ll.setOnClickListener(new MyOnClickListener(0));
+        teacher_ll.setOnClickListener(new MyOnClickListener(1));
+        exam_ll.setOnClickListener(new MyOnClickListener(2));
         mine_ll.setOnClickListener(new MyOnClickListener(3));
         iv_home.setSelected(true);
         tv_home.setSelected(true);
@@ -161,8 +182,10 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         try {
-            getSupportFragmentManager().putFragment(outState, UserFrag.class.getName(), userFrag);
             getSupportFragmentManager().putFragment(outState, HomeFrag.class.getName(), homeFrag);
+            getSupportFragmentManager().putFragment(outState, TeacherFrag.class.getName(), teacherFrag);
+            getSupportFragmentManager().putFragment(outState, ExamFrag.class.getName(), examFrag);
+            getSupportFragmentManager().putFragment(outState, UserFrag.class.getName(), userFrag);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -207,9 +230,13 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
     private void resetBottomColor() {
         // // 图片设为非选中状态
         iv_home.setSelected(false);
+        iv_teacher.setSelected(false);
+        iv_exam.setSelected(false);
         iv_mine.setSelected(false);
         // 字体设为非选中状态
         tv_home.setSelected(false);
+        tv_teacher.setSelected(false);
+        tv_exam.setSelected(false);
         tv_mine.setSelected(false);
     }
 
@@ -240,9 +267,9 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
 
         @Override
         public void onClick(View v) {
-            if (index != 0 && goLogin()) {
-                return;
-            }
+//            if (index != 0 && goLogin()) {
+//                return;
+//            }
             mPager.setCurrentItem(index, false);
         }
     }
@@ -251,24 +278,25 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
     public class MyOnPageChangeListener implements OnPageChangeListener {
         @Override
         public void onPageSelected(int index) {
-            if (index != 0 && goLogin()) {
-                return;
-            }
+//            if (index != 0 && goLogin()) {
+//                return;
+//            }
             currentIndex = index;
             resetBottomColor();
-            HashMap<String, String> map = new HashMap<>();
             switch (index) {
                 case 0:
-                    StatService.onEvent(MainActivity.this, "home_click_main", "主页");
-                    map.put("tab_type", "主页");
-                    MobclickAgent.onEvent(MainActivity.this, "home_tab_click", map);
                     iv_home.setSelected(true);
                     tv_home.setSelected(true);
                     break;
                 case 1:
-                    StatService.onEvent(MainActivity.this, "home_click_mine", "我的");
-                    map.put("tab_type", "我的");
-                    MobclickAgent.onEvent(MainActivity.this, "home_tab_click", map);
+                    iv_teacher.setSelected(true);
+                    tv_teacher.setSelected(true);
+                    break;
+                case 2:
+                    iv_exam.setSelected(true);
+                    tv_exam.setSelected(true);
+                    break;
+                case 3:
                     iv_mine.setSelected(true);
                     tv_mine.setSelected(true);
                     break;
