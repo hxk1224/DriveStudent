@@ -47,7 +47,7 @@ public class UploadFileUtil {
             params.addBodyParameter("fileType", extension);
 
             HttpUtils http = HttpUtils.getInstance();
-            http.send(HttpRequest.HttpMethod.POST, UrlConfig.ZASION_UPLOAD, params, callback);
+            http.send(HttpRequest.HttpMethod.POST, UrlConfig.DOMAIN_CESHI, params, callback);
         }
     }
 

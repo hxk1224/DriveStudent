@@ -1,9 +1,6 @@
 package com.drive.student.ui;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.app.Fragment;
@@ -23,12 +20,10 @@ import com.drive.student.MainApplication;
 import com.drive.student.R;
 import com.drive.student.callback.CommonHandlerCallback;
 import com.drive.student.common.CommonHandler;
-import com.drive.student.config.Constant;
 import com.drive.student.manager.NoticeManager;
 import com.drive.student.ui.home.HomeFrag;
 import com.drive.student.ui.user.UserFrag;
 import com.drive.student.util.FileUtil;
-import com.drive.student.util.StringUtil;
 import com.drive.student.view.CustomViewPager;
 import com.umeng.analytics.MobclickAgent;
 
@@ -269,8 +264,6 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
                     MobclickAgent.onEvent(MainActivity.this, "home_tab_click", map);
                     iv_home.setSelected(true);
                     tv_home.setSelected(true);
-                    //NOTE：刷新首页询价单新消息数量
-                    MainActivity.this.sendBroadcast(new Intent(Constant.HOME_REFRESH_NUM_ACTION));
                     break;
                 case 1:
                     StatService.onEvent(MainActivity.this, "home_click_mine", "我的");

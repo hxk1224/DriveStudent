@@ -7,7 +7,6 @@ import android.util.DisplayMetrics;
 import com.drive.student.bean.UserBean;
 import com.drive.student.bean.VersionBean;
 import com.drive.student.common.GlobalThreadPool;
-import com.drive.student.config.Constant;
 import com.drive.student.manager.NoticeManager;
 import com.drive.student.util.FileUtil;
 import com.drive.student.util.LocationUtil;
@@ -174,15 +173,6 @@ public class MainApplication extends Application {
     /** 聊天是否允许联系买家 */
     public boolean isChatShowBuyer() {
         return getUser() != null && getUser().vipSee;
-    }
-
-    public boolean isMainAccount() {
-        if (getUser() == null || StringUtil.equalsNull(getUser().mainFlag)) {
-            return false;
-        } else if (Constant.USER_MAIN_ACCOUNT.equals(getUser().mainFlag)) {
-            return true;
-        }
-        return false;
     }
 
     public String getToken() {

@@ -558,9 +558,7 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
         }
     }
 
-    /**
-     * 停止极光推送消息
-     */
+    /** 停止极光推送消息 */
     protected void stopJpush() {
         Set<String> tags = new TreeSet<>();
         tags.add("-");

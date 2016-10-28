@@ -92,7 +92,7 @@
     <string name="exit_current_account">退出当前账号</string>
     <string name="exit_app">关闭应用</string>
     <string name="pwd_valide_notice">密码必须是6–12位的字母或数字</string>
-    <string name="car_student_push_tag">car_student_jpush</string>
+    <string name="drive_student_push_tag">drive_student_jpush</string>
     <string name="next_step">下一步</string>
     <string name="expire">已过期</string>
     <string name="invalidate">失效</string>

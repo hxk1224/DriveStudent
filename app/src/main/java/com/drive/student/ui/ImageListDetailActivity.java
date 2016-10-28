@@ -1,7 +1,5 @@
 package com.drive.student.ui;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
@@ -51,7 +49,6 @@ public class ImageListDetailActivity extends ActivitySupport implements OnClickL
     private ArrayList<ImageView> mViews;
     private TextView title;
     private int mCurrPos;
-    private ImagePagerAdapter mAdapter;
     private LoadingDialog loadingDialog;
 
     @Override
@@ -105,7 +102,7 @@ public class ImageListDetailActivity extends ActivitySupport implements OnClickL
         save_gallery_bt.setOnClickListener(listener);
 
         ViewPager vPager = (ViewPager) findViewById(R.id.vPager);
-        mAdapter = new ImagePagerAdapter();
+        ImagePagerAdapter mAdapter = new ImagePagerAdapter();
         vPager.setAdapter(mAdapter);
         vPager.setOnPageChangeListener(new MyOnPageChangeListener());
         vPager.setCurrentItem(mCurrPos);

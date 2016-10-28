@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baidu.mobstat.StatService;
-import com.igexin.sdk.PushManager;
 import com.drive.student.MainApplication;
 import com.drive.student.R;
 import com.drive.student.bean.BaseBean;
@@ -111,15 +110,15 @@ public class BaseFragment extends Fragment {
 //                    invalidToken(head.message);
 //                    return false;
 //                } else if (Constant.UPDATE_FORCE_RETURN_CODE == head.returnCode) {// 强制用户升级
-                    stopJpush();
-                    // 清除通知栏，防止通过通知越过登陆进入系统
-                    NoticeManager.getInstance(getActivity()).clearAllNotifation();
-                    if (!BackUtil.isActivityRunningForground(getActivity(), ForceUpdateActivity.class.getName())) {
-                        Intent intent = new Intent(mainApplication, ForceUpdateActivity.class);
+                stopJpush();
+                // 清除通知栏，防止通过通知越过登陆进入系统
+                NoticeManager.getInstance(getActivity()).clearAllNotifation();
+                if (!BackUtil.isActivityRunningForground(getActivity(), ForceUpdateActivity.class.getName())) {
+                    Intent intent = new Intent(mainApplication, ForceUpdateActivity.class);
 //                        intent.putExtra("message", head.message);
-                        startActivity(intent);
-                    }
-                    return false;
+                    startActivity(intent);
+                }
+                return false;
 //                }
             } catch (Throwable e) {
                 e.printStackTrace();
