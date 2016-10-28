@@ -111,7 +111,7 @@ import java.util.List;
 
     public void expand(long headerId) {
         if(isHeaderCollapsed(headerId)){
-            mCollapseHeaderIds.remove((Object) headerId);
+            mCollapseHeaderIds.remove(headerId);
         }
     }
 

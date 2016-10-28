@@ -8,7 +8,7 @@
               android:weightSum="51"
               android:orientation="vertical">
 
-    <com.zasion.supplier.util.cropper.CropImageView
+    <com.drive.student.util.cropper.CropImageView
         android:id="@+id/CropImageView"
         android:layout_width="fill_parent"
         android:layout_height="0dp"

@@ -508,20 +508,14 @@ public class TimestampUtil {
         int currentWeek = calendar.get(Calendar.WEEK_OF_YEAR);
         calendar.setTime(new Date(time));
         int paramWeek = calendar.get(Calendar.WEEK_OF_YEAR);
-        if (paramWeek == currentWeek) {
-            return true;
-        }
-        return false;
+        return paramWeek == currentWeek;
     }
 
     //判断选择的日期是否是今天
     public static boolean isToday(String time) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         String now = sdf.format(new Date());//当前时间
-        if (now.equals(time)) {
-            return true;
-        }
-        return false;
+        return now.equals(time);
     }
 
     //判断选择的日期是否是今天
@@ -539,10 +533,7 @@ public class TimestampUtil {
         SimpleDateFormat sdf = new SimpleDateFormat(pattern, Locale.getDefault());
         String param = sdf.format(date);//参数时间
         String now = sdf.format(new Date());//当前时间
-        if (param.equals(now)) {
-            return true;
-        }
-        return false;
+        return param.equals(now);
     }
 
     public static int getDaysBetween(Calendar d1, Calendar d2) {

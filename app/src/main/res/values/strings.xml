@@ -63,7 +63,7 @@
     <string name="assets_save">/assets/</string>
     <string name="home_pic_path">/HomePic/</string>
     <string name="bitmap_cache">/bitmapcache/</string>
-    <string name="dir">/Android/data/com.zasion.supplier</string>
+    <string name="dir">/Android/data/com.drive.student</string>
     <string name="camera_temp">/cameratemp/</string>
     <string name="audio_cache">/audiocache/</string>
     <string name="file_cache">/filecache/</string>

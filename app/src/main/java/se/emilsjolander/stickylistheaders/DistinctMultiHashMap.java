@@ -16,10 +16,10 @@ class DistinctMultiHashMap<TKey,TItemValue> {
     private IDMapper<TKey, TItemValue> mIDMapper;
 
     interface IDMapper<TKey,TItemValue>{
-        public Object keyToKeyId(TKey key);
-        public TKey keyIdToKey(Object keyId);
-        public Object valueToValueId(TItemValue value);
-        public TItemValue valueIdToValue(Object valueId);
+        Object keyToKeyId(TKey key);
+        TKey keyIdToKey(Object keyId);
+        Object valueToValueId(TItemValue value);
+        TItemValue valueIdToValue(Object valueId);
     }
 
     LinkedHashMap<Object,List<TItemValue>> mKeyToValuesMap = new LinkedHashMap<Object, List<TItemValue>>();
