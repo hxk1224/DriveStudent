@@ -18,10 +18,10 @@
 
     <!-- JPush 需要的权限 -Required  一些系统要求的权限，如访问网络等 -->
     <permission
-        android:name="com.zasion.supplier.permission.JPUSH_MESSAGE"
+        android:name="com.drive.student.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature"/>
 
-    <uses-permission android:name="com.zasion.supplier.permission.JPUSH_MESSAGE"/>
+    <uses-permission android:name="com.drive.student.permission.JPUSH_MESSAGE"/>
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <!-- JPush 需要的权限 -Optional for location -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -89,7 +89,7 @@
 
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="LEZX4UALzfl8nUeDxVq3IljG"/>
+            android:value="API_VALUE"/>
 
         <!-- ======================================== Activity Start ======================================================== -->
         <!-- 系统主界面 -->
@@ -230,11 +230,11 @@
         <!-- Caution! Do not change this app key. It is only for demo usage. -->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="56e7b40967e58ed215001742">
+            android:value="UMENG_APPVALUE">
         </meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="chqp_qp">
+            android:value="drive_student">
         </meta-data>
         <!-- ======================================== 友盟 End ========================================================= -->
 
@@ -243,11 +243,11 @@
         <!-- 您从百度网站获取的APP KEY -->
         <meta-data
             android:name="BaiduMobAd_STAT_ID"
-            android:value="873a9c0ea7"/>
+            android:value="STAT_ID"/>
         <!-- 渠道商编号 修改时修改value/string的值 -->
         <meta-data
             android:name="BaiduMobAd_CHANNEL"
-            android:value="chqp_qp"/>
+            android:value="drive_student"/>
         <!-- 是否开启错误日志统计，默认为false -->
         <meta-data
             android:name="BaiduMobAd_EXCEPTION_LOG"
@@ -287,7 +287,7 @@
                 <action android:name="cn.jpush.android.ui.PushActivity"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="com.zasion.supplier"/>
+                <category android:name="com.drive.student"/>
             </intent-filter>
         </activity>
         <!-- Required  SDK核心功能 -->
@@ -317,7 +317,7 @@
             <intent-filter android:priority="1000">
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY"/>
                 <!-- Required  显示通知栏 -->
-                <category android:name="com.zasion.supplier"/>
+                <category android:name="com.drive.student"/>
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT"/>
@@ -353,119 +353,19 @@
                 <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
                 <action android:name="cn.jpush.android.intent.CONNECTION"/>
                 <!-- 接收网络变化 连接/断开 since 1.6.3 -->
-                <category android:name="com.zasion.supplier"/>
+                <category android:name="com.drive.student"/>
             </intent-filter>
         </receiver>
 
         <!-- Required  . Enable it you can get statistics data with channel -->
         <meta-data
             android:name="JPUSH_CHANNEL"
-            android:value="chqp_qp"/>
+            android:value="drive.student"/>
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="95dcde1ff9a11f48f1111964"/>
+            android:value="JPUSH_APPVALUE"/>
         <!-- </>值来自开发者平台取得的AppKey -->
         <!-- ======================================== JPush end ========================================================= -->
-        <!-- ======================================== 个推SDK配置开始 ======================================== -->
-        <!-- 配置的第三方参数属性 -->
-        <meta-data
-            android:name="PUSH_APPID"
-            android:value="IoGZGq2VwH8EYizdJfGg25"/>
-        <meta-data
-            android:name="PUSH_APPKEY"
-            android:value="5pl2piJhVA6oblDoz3c5I5"/>
-        <meta-data
-            android:name="PUSH_APPSECRET"
-            android:value="thy3jeSoP37T5FUQXmzQY"/>
-        <!-- 配置第三方Receiver -->
-        <receiver
-            android:name=".receiver.GetuiReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.igexin.sdk.action.IoGZGq2VwH8EYizdJfGg25"/>
-            </intent-filter>
-        </receiver>
-
-        <!-- 配置SDK核心服务 -->
-        <service
-            android:name="com.igexin.sdk.PushService"
-            android:exported="true"
-            android:label="NotificationCenter"
-            android:process=":pushservice">
-        </service>
-        <service
-            android:name="com.igexin.sdk.PushServiceUser"
-            android:exported="true"
-            android:label="NotificationCenterUser">
-        </service>
-
-        <receiver android:name="com.igexin.sdk.PushReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-                <action android:name="android.intent.action.USER_PRESENT"/>
-                <action android:name="com.igexin.sdk.action.refreshls"/>
-                <!-- 以下三项为可选的action声明，可大大提高service存活率和消息到达速度 -->
-                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
-                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
-                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
-            </intent-filter>
-        </receiver>
-        <receiver
-            android:name="com.igexin.sdk.PushManagerReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.igexin.sdk.action.pushmanager"/>
-            </intent-filter>
-        </receiver>
-
-        <activity
-            android:name="com.igexin.sdk.PushActivity"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:process=":pushservice"
-            android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-        </activity>
-
-        <service
-            android:name="com.igexin.download.DownloadService"
-            android:process=":pushservice"/>
-
-        <receiver android:name="com.igexin.download.DownloadReceiver">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-            </intent-filter>
-        </receiver>
-
-        <provider
-            android:name="com.igexin.download.DownloadProvider"
-            android:authorities="downloads.com.zasion.supplier"
-            android:exported="true"
-            android:process=":pushservice"/>
-
-        <activity
-            android:name="com.igexin.getuiext.activity.GetuiExtActivity"
-            android:configChanges="orientation|keyboard|keyboardHidden"
-            android:excludeFromRecents="true"
-            android:exported="false"
-            android:process=":pushservice"
-            android:taskAffinity="android.task.myServicetask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
-        <receiver
-            android:name="com.igexin.getuiext.service.PayloadReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.igexin.sdk.action.IoGZGq2VwH8EYizdJfGg25"/>
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name="com.igexin.getuiext.service.GetuiExtService"
-            android:process=":pushservice"/>
-
-        <!-- 个推SDK配置结束 -->
     </application>
 
 </manifest>
