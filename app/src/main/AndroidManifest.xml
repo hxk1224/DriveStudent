@@ -166,14 +166,34 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"/>
-        <!-- 我的账户页面 -->
-        <activity
-            android:name=".ui.user.UserAccountActivity"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"/>
         <!-- 关于页面 -->
         <activity
             android:name=".ui.user.AboutActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!-- 关于联系我们页面 -->
+        <activity
+            android:name=".ui.user.ContactUsActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!-- 意见反馈页面 -->
+        <activity
+            android:name=".ui.user.FeedBackActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!-- 操作指南页面 -->
+        <activity
+            android:name=".ui.user.UserGuideActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!-- 我的账户页面 -->
+        <activity
+            android:name=".ui.user.UserInfoActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <!-- 修改登录密码页面 -->
+        <activity
+            android:name=".ui.user.ResetLoginPwdActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
         <!-- 会话超时页面 -->
