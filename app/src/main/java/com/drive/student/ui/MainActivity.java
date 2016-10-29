@@ -79,7 +79,7 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
         // 在状态栏显示系统,防止应用被kill
         NoticeManager.getInstance(getApplicationContext()).showGlobalNotification();
         // 把练习题保存到数据库
-        new SaveSubjectExcerciseTask(this).saveSubjectExcerciseToDb();
+        new SaveSubjectExcerciseTask(getApplicationContext()).saveSubjectExcerciseToDb();
         initJpush();
         /**清除临时图片缓存*/
         FileUtil.deleteTmpCameraFileInThread(spUtil.getCameraTempPath());

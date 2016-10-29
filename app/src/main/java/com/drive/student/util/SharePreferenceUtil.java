@@ -237,26 +237,31 @@ public class SharePreferenceUtil {
         editor.commit();
     }
 
-    /**
-     * 获取用户head icon
-     */
+    /** 获取用户head icon */
     public String getUserIcon() {
         return sp.getString("user_icon", "");
     }
 
-    /**
-     * 保存token
-     */
+    /** 保存token */
     public void setToken(String token) {
         editor.putString("token", token);
         editor.commit();
     }
 
-    /**
-     * 获取token
-     */
+    /** 获取token */
     public String getToken() {
         return sp.getString("token", "");
+    }
+
+    /** 设置练习题保存到数据库的状态 */
+    public void setSubjectStored(boolean bool) {
+        editor.putBoolean("subject_saved", bool);
+        editor.commit();
+    }
+
+    /** 练习题是否已保存到数据库 */
+    public boolean isSubjectStored() {
+        return sp.getBoolean("subject_saved", false);
     }
 
 }

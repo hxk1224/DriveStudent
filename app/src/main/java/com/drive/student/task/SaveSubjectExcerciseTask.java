@@ -10,6 +10,7 @@ import com.drive.student.bean.SubjectFourBean;
 import com.drive.student.bean.SubjectOneBean;
 import com.drive.student.config.Constant;
 import com.drive.student.util.LogUtil;
+import com.drive.student.util.SharePreferenceUtil;
 import com.drive.student.util.StringUtil;
 import com.drive.student.xutils.DbUtils;
 import com.drive.student.xutils.db.sqlite.Selector;
@@ -30,10 +31,12 @@ public class SaveSubjectExcerciseTask {
 
     private Context mContext;
     private DbUtils mDbUtils;
+    private SharePreferenceUtil spUtil;
 
     public SaveSubjectExcerciseTask(Context context) {
         mContext = context;
         mDbUtils = DbUtils.create(context, Constant.DB_NAME);
+        spUtil = new SharePreferenceUtil(context);
     }
 
     public void saveSubjectExcerciseToDb() {
@@ -43,12 +46,14 @@ public class SaveSubjectExcerciseTask {
                 LogUtil.e(TAG, "科目一没有数据,保存数据到数据库-->>");
                 saveDataTask(Constant.SUBJECT_ONE_TXT);
             } else {
+                queryData();
                 LogUtil.e(TAG, "科目一有数据-->>");
             }
             if (!mDbUtils.tableIsExist(SubjectFourBean.class)) {
                 LogUtil.e(TAG, "科目四没有数据,保存数据到数据库-->>");
                 saveDataTask(Constant.SUBJECT_FOUR_TXT);
             } else {
+                queryData();
                 LogUtil.e(TAG, "科目四有数据-->>");
             }
         } catch (DbException e) {
@@ -57,7 +62,7 @@ public class SaveSubjectExcerciseTask {
     }
 
     private void saveDataTask(String subjectName) {
-        new AsyncTask<Void, Void, Void>() {
+        new AsyncTask<Void, Void, Boolean>() {
 
             @Override
             protected void onPreExecute() {
@@ -65,22 +70,24 @@ public class SaveSubjectExcerciseTask {
             }
 
             @Override
-            protected Void doInBackground(Void... params) {
-                saveData(subjectName);
-                return null;
+            protected Boolean doInBackground(Void... params) {
+                return saveData(subjectName);
             }
 
             @Override
-            protected void onPostExecute(Void aVoid) {
+            protected void onPostExecute(Boolean result) {
                 LogUtil.e(TAG, "完成保存练习题到数据库--->>");
-                queryData();
+                if (result) {
+                    spUtil.setSubjectStored(true);
+                    queryData();
+                }
             }
         }.execute();
     }
 
-    private void saveData(String subjectName) {
+    private boolean saveData(String subjectName) {
         if (StringUtil.equalsNull(subjectName)) {
-            return;
+            return false;
         }
         AssetManager asset = mContext.getAssets();
         try {
@@ -112,7 +119,9 @@ public class SaveSubjectExcerciseTask {
             // 获取解析出来的数据
         } catch (Throwable e) {
             e.printStackTrace();
+            return false;
         }
+        return true;
     }
 
     private void queryData() {

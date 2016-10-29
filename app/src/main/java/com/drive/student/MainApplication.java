@@ -8,6 +8,7 @@ import com.drive.student.bean.UserBean;
 import com.drive.student.bean.VersionBean;
 import com.drive.student.common.GlobalThreadPool;
 import com.drive.student.manager.NoticeManager;
+import com.drive.student.task.SaveSubjectExcerciseTask;
 import com.drive.student.util.FileUtil;
 import com.drive.student.util.LocationUtil;
 import com.drive.student.util.SharePreferenceUtil;
@@ -41,7 +42,7 @@ public class MainApplication extends Application {
         mainApplication = this;
         spUtil = new SharePreferenceUtil(getApplicationContext());
         LocationUtil.getUserLocation(getApplicationContext());
-         /** NOTE：正式版本需要把下面代码设置为false */
+        /** NOTE：正式版本需要把下面代码设置为false */
         MobclickAgent.setDebugMode(false);
         MobclickAgent.openActivityDurationTrack(false);
         /**NOTE: 初始化SoundUtil,点击键盘的时候加载语音数据会导致卡顿*/
