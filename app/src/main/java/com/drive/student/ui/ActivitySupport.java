@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StatFs;
@@ -186,6 +187,24 @@ public class ActivitySupport extends FragmentActivity implements IActivitySuppor
             }
         }
         return true;
+    }
+
+    /** 打电话 */
+    protected void callPhone(String phone) {
+        if (!StringUtil.equalsNull(phone)) {
+            try {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:" + phone));
+                startActivity(intent);
+            } catch (SecurityException e) {
+                showToastInThread("没有权限,无法拨打电话.");
+            } catch (Throwable t) {
+                t.printStackTrace();
+            }
+        } else {
+            showToastInThread("手机号为空,无法拨打电话!");
+        }
     }
 
     /** 网络错误 */

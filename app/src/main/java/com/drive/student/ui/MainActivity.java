@@ -20,6 +20,7 @@ import com.drive.student.R;
 import com.drive.student.callback.CommonHandlerCallback;
 import com.drive.student.common.CommonHandler;
 import com.drive.student.manager.NoticeManager;
+import com.drive.student.task.SaveSubjectExcerciseTask;
 import com.drive.student.ui.exam.ExamFrag;
 import com.drive.student.ui.home.HomeFrag;
 import com.drive.student.ui.teacher.TeacherFrag;
@@ -32,6 +33,8 @@ import java.util.ArrayList;
 
 /** 主菜单页面. */
 public class MainActivity extends ActivitySupport implements CommonHandlerCallback {
+    public static final String TAG = "MainActivity";
+
     /** 按返回键 */
     private static final int PRESS_KEY_BACK = 0x2;
     /** 按返回键2秒后更新isQuit状态 */
@@ -75,6 +78,8 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
         setContentView(R.layout.main);
         // 在状态栏显示系统,防止应用被kill
         NoticeManager.getInstance(getApplicationContext()).showGlobalNotification();
+        // 把练习题保存到数据库
+        new SaveSubjectExcerciseTask(this).saveSubjectExcerciseToDb();
         initJpush();
         /**清除临时图片缓存*/
         FileUtil.deleteTmpCameraFileInThread(spUtil.getCameraTempPath());

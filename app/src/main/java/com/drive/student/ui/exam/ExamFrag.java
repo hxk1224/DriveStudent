@@ -1,5 +1,6 @@
 package com.drive.student.ui.exam;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.drive.student.R;
+import com.drive.student.config.Constant;
 import com.drive.student.ui.BaseFragment;
 
 public class ExamFrag extends BaseFragment implements View.OnClickListener {
@@ -46,11 +48,20 @@ public class ExamFrag extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.subject_one_tv:
                 showToastInThread("科目一!");
+                openSubjectTrain(Constant.SUBJECT_ONE_TRAIN);
                 break;
             case R.id.subject_four_tv:
                 showToastInThread("科目四!");
+                openSubjectTrain(Constant.SUBJECT_THREE_TRAIN);
                 break;
         }
+    }
+
+    /** 打开科目一和科目三练习题页面 */
+    private void openSubjectTrain(String subjectType) {
+        Intent intent = new Intent(getActivity(), SubjectTrainActivity.class);
+        intent.putExtra("subjectType", subjectType);
+        getActivity().startActivity(intent);
     }
 
 }

@@ -21,6 +21,10 @@ public class TeacherDetailActivity extends ActivitySupport implements View.OnCli
         TextView header_tv_title = (TextView) header.findViewById(R.id.header_tv_title);
         header_tv_title.setText("教练信息");
         header.findViewById(R.id.header_tv_back).setOnClickListener(this);
+
+        findViewById(R.id.call_iv).setOnClickListener(this);
+        findViewById(R.id.subject_two_bt).setOnClickListener(this);
+        findViewById(R.id.subject_three_bt).setOnClickListener(this);
     }
 
     @Override
@@ -28,6 +32,15 @@ public class TeacherDetailActivity extends ActivitySupport implements View.OnCli
         switch (v.getId()) {
             case R.id.header_tv_back:
                 TeacherDetailActivity.this.finish();
+                break;
+            case R.id.call_iv:
+                callPhone("");
+                break;
+            case R.id.subject_two_bt:
+                // TODO 预约科目二
+                break;
+            case R.id.subject_three_bt:
+                // TODO 预约科目三
                 break;
         }
     }

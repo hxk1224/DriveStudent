@@ -2,6 +2,22 @@ package com.drive.student.config;
 
 /** 系统全局配置 */
 public interface Constant {
+    /******************** 数据库名称 *******************/
+    String DB_NAME = "drive_student.db";
+    /******************** 科目一/四练习题文件名称 *******************/
+    String SUBJECT_ONE_TXT = "subject_one.txt";
+    String SUBJECT_FOUR_TXT = "subject_four.txt";
+    /******************** 科目一/三练习题分类 *******************/
+    /** 科目一练习题 */
+    String SUBJECT_ONE_TRAIN = "subject_one_train";
+    String SUBJECT_THREE_TRAIN = "subject_three_train";
+    /** "0"-判断题 判断题只有answer_a和answei_b */
+    String SUBJECT_CHOICE_TYPE = "0";
+    /** "1"-选择题 */
+    String SUBJECT_JUDGE_TYPE = "1";
+    /** "2"-科目四多选题 */
+    String SUBJECT_MULTIPLE_CHOICE_TYPE = "2";
+
     /******************** 微信支付 *******************/
     /** 微信支付APP_ID */
     String WX_APP_ID = "wx4175596d6df0fc73";
