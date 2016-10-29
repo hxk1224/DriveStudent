@@ -33,6 +33,7 @@
     <uses-feature android:name="android.hardware.nfc.hce"/>
     <!-- 银联支付需要权限 end -->
 
+
     <!-- 打电话 -->
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <!-- 录音 -->
@@ -81,7 +82,6 @@
         android:persistent="true"
         android:supportsRtl="true"
         android:theme="@style/ThemeActivity">
-
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="API_VALUE"/>
@@ -137,6 +137,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden">
         </activity>
         <!-- alipay sdk end -->
+
 
         <!-- 剪裁界面 -->
         <activity
@@ -234,6 +235,7 @@
             android:theme="@style/DialogStyleBottom"/>
 
         <!-- ======================================== Activity End ========================================================= -->
+
 
         <!-- ======================================== Service Start========================================================= -->
         <!-- 安装包下载服务 -->
@@ -381,6 +383,8 @@
             android:value="JPUSH_APPVALUE"/>
         <!-- </>值来自开发者平台取得的AppKey -->
         <!-- ======================================== JPush end ========================================================= -->
+        <activity android:name=".ui.teacher.TeacherDetailActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.drive.student.ui.teacher;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -84,9 +85,10 @@ public class TeacherFrag extends BaseFragment implements OnClickListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TeacherBean bean = (TeacherBean) parent.getAdapter().getItem(position);
-                if(bean != null){
-//                    Intent intent = new Intent(getActivity(), TeacherDetailActivity.class);
-//                    getActivity().startActivity(intent);
+                if (bean != null) {
+                    Intent intent = new Intent(getActivity(), TeacherDetailActivity.class);
+                    intent.putExtra("teacherId", bean.teacherId);
+                    getActivity().startActivity(intent);
                 }
             }
         });

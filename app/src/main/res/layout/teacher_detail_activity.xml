@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.drive.student.ui.teacher.TeacherDetailActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom"
+        android:layout_below="@+id/header">
+
+        <com.scaleview.ScaleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dimen_20dp">
+
+            <com.scaleview.ScaleLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.scaleview.ScaleImageView
+                    android:id="@+id/header_icon_iv"
+                    android:layout_width="@dimen/dimen_80dp"
+                    android:layout_height="@dimen/dimen_80dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/image_default"/>
+
+                <com.scaleview.ScaleLinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_15dp"
+                    android:layout_marginRight="@dimen/dimen_15dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.scaleview.ScaleTextView
+                        android:id="@+id/name_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="教练姓名"
+                        android:textColor="@color/main_black_color"
+                        android:textSize="@dimen/dimen_32sp"/>
+
+                    <com.scaleview.ScaleTextView
+                        android:id="@+id/subject_price_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimen_10dp"
+                        android:text="科二: xx元/小时\n科三: xx元/小时"
+                        android:textColor="@color/main_gray_color"
+                        android:textSize="@dimen/dimen_28sp"/>
+                </com.scaleview.ScaleLinearLayout>
+
+                <com.scaleview.ScaleImageView
+                    android:id="@+id/call_iv"
+                    android:layout_width="@dimen/dimen_60dp"
+                    android:layout_height="@dimen/dimen_60dp"
+                    android:layout_marginRight="@dimen/dimen_10dp"
+                    android:layout_marginTop="@dimen/dimen_20dp"
+                    android:src="@drawable/call_icon"/>
+            </com.scaleview.ScaleLinearLayout>
+
+            <include layout="@layout/line_gray_1dp"/>
+
+            <com.scaleview.ScaleImageView
+                android:id="@+id/license_iv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_20dp"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_default"/>
+
+            <com.scaleview.ScaleTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="综合评分:xxxx"
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_32sp"/>
+
+        </com.scaleview.ScaleLinearLayout>
+    </com.scaleview.ScaleScrollView>
+
+    <com.scaleview.ScaleLinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/light_gray_color"
+        android:paddingLeft="@dimen/dimen_20dp"
+        android:paddingRight="@dimen/dimen_20dp">
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/subject_two_bt"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_blue_button_selector"
+            android:gravity="center"
+            android:text="预约科二"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/subject_three_bt"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginLeft="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_blue_button_selector"
+            android:gravity="center"
+            android:text="预约科三"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_32sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+</com.scaleview.ScaleRelativeLayout>
