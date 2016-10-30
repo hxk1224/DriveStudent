@@ -22,18 +22,18 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.scaleview.ScaleLinearLayout
+            <com.scaleview.ScaleRelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="@dimen/dimen_15dp">
+                android:padding="@dimen/dimen_10dp">
 
                 <com.scaleview.ScaleTextView
                     android:id="@+id/subject_type_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rect_blue_bg_normal"
-                    android:padding="@dimen/dimen_10dp"
+                    android:padding="@dimen/dimen_5dp"
                     android:text="xx题"
                     android:textColor="@color/main_blue_color"
                     android:textSize="@dimen/dimen_32sp"/>
@@ -43,10 +43,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dimen_20dp"
-                    android:text="TITLE:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-                    android:textColor="@color/main_gray_color"
-                    android:textSize="@dimen/dimen_30sp"/>
-            </com.scaleview.ScaleLinearLayout>
+                    android:layout_toRightOf="@+id/subject_type_tv"
+                    android:text="TITLE:testtesttesttesttesttesttesttest"
+                    android:textColor="@color/main_black_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+            </com.scaleview.ScaleRelativeLayout>
 
             <include layout="@layout/line_gray_2dp"/>
 
