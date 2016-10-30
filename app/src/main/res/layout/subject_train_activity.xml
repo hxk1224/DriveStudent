@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.drive.student.ui.exam.SubjectTrainActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_240dp"
+        android:layout_marginTop="@dimen/dimen_120dp">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/sequence_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/train_color1_bg"
+            android:gravity="center"
+            android:text="顺序练习"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_42sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/simulate_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_weight="1"
+            android:background="@drawable/train_color2_bg"
+            android:gravity="center"
+            android:text="模拟练习"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_42sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_240dp"
+        android:layout_marginTop="@dimen/dimen_12dp">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/random_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/train_color3_bg"
+            android:gravity="center"
+            android:text="随机练习"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_42sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/special_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_weight="1"
+            android:background="@drawable/train_color4_bg"
+            android:gravity="center"
+            android:text="专项练习"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_42sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_240dp"
+        android:layout_marginTop="@dimen/dimen_12dp">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/wrong_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/train_color5_bg"
+            android:gravity="center"
+            android:text="错题练习"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_42sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/collection_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:layout_weight="1"
+            android:background="@drawable/train_color6_bg"
+            android:gravity="center"
+            android:text="收藏练习"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_42sp"/>
+    </com.scaleview.ScaleLinearLayout>
+
+</com.scaleview.ScaleLinearLayout>

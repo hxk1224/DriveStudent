@@ -1,5 +1,6 @@
 package com.drive.student.ui.exam;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
@@ -24,10 +25,12 @@ public class SubjectTrainActivity extends ActivitySupport implements View.OnClic
     private static final String TRAIN_TYPE_WRONG = "wrong_type";
     private static final String TRAIN_TYPE_COLLECTION = "collection_type";
 
+    /** 科目一: Constant.SUBJECT_ONE_TRAIN 科目四: Constant.SUBJECT_FOUR_TRAIN */
     private String subjectType = "";
     private LoadingDialog loadingDialog;
     private CommonHandler mHandler = new CommonHandler(this);
     private String mTraiType;
+    private String mTrainTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +46,8 @@ public class SubjectTrainActivity extends ActivitySupport implements View.OnClic
         TextView header_tv_title = (TextView) header.findViewById(R.id.header_tv_title);
         if (Constant.SUBJECT_ONE_TRAIN.equalsIgnoreCase(subjectType)) {
             header_tv_title.setText("科目一");
-        } else if (Constant.SUBJECT_THREE_TRAIN.equalsIgnoreCase(subjectType)) {
-            header_tv_title.setText("科目三");
+        } else if (Constant.SUBJECT_FOUR_TRAIN.equalsIgnoreCase(subjectType)) {
+            header_tv_title.setText("科目四");
         }
         header.findViewById(R.id.header_tv_back).setOnClickListener(this);
         findViewById(R.id.sequence_tv).setOnClickListener(this);
@@ -64,30 +67,37 @@ public class SubjectTrainActivity extends ActivitySupport implements View.OnClic
             case R.id.sequence_tv:
                 // 顺序练习
                 mTraiType = TRAIN_TYPE_SEQUENCE;
+                mTrainTitle = "顺序练习";
                 openExerciseDetail();
                 break;
             case R.id.simulate_tv:
                 // 模拟练习
                 mTraiType = TRAIN_TYPE_SIMULATE;
+                mTrainTitle = "模拟练习";
                 openExerciseDetail();
                 break;
             case R.id.random_tv:
                 // 随机练习
                 mTraiType = TRAIN_TYPE_RANDOM;
+                mTrainTitle = "随机练习";
                 openExerciseDetail();
                 break;
             case R.id.special_tv:
                 // 专项练习
                 mTraiType = TRAIN_TYPE_SPECIAL;
+                mTrainTitle = "专项练习";
                 openExerciseDetail();
                 break;
             case R.id.wrong_tv:
                 // 错题练习
                 mTraiType = TRAIN_TYPE_WRONG;
+                mTrainTitle = "错题练习";
                 openExerciseDetail();
                 break;
             case R.id.collection_tv:
+                // 收藏练习
                 mTraiType = TRAIN_TYPE_COLLECTION;
+                mTrainTitle = "收藏练习";
                 openExerciseDetail();
                 break;
         }
@@ -97,23 +107,50 @@ public class SubjectTrainActivity extends ActivitySupport implements View.OnClic
     public void commonHandleMessage(Message msg) {
         switch (msg.what) {
             case REFRESH_DB_SUBJECT:
-                if (!spUtil.isSubjectStored()) {
-                    mHandler.sendEmptyMessageDelayed(REFRESH_DB_SUBJECT, REFRESH_DB_SUBJECT_DELAY);
-                } else if (!StringUtil.equalsNull(mTraiType)) {
-                    loadingDialog.dismiss();
-                    openExerciseDetail();
+                if (Constant.SUBJECT_ONE_TRAIN.equalsIgnoreCase(subjectType)) {
+                    if (spUtil.isSubjectOneStored()) {
+                        loadingDialog.dismiss();
+                        if (!StringUtil.equalsNull(mTraiType)) {
+                            openExerciseDetail();
+                        }
+                    } else {
+                        mHandler.sendEmptyMessageDelayed(REFRESH_DB_SUBJECT, REFRESH_DB_SUBJECT_DELAY);
+                    }
+                } else if (Constant.SUBJECT_FOUR_TRAIN.equalsIgnoreCase(subjectType)) {
+                    if (spUtil.isSubjectFourStored()) {
+                        loadingDialog.dismiss();
+                        if (!StringUtil.equalsNull(mTraiType)) {
+                            openExerciseDetail();
+                        }
+                    } else {
+                        mHandler.sendEmptyMessageDelayed(REFRESH_DB_SUBJECT, REFRESH_DB_SUBJECT_DELAY);
+                    }
                 }
                 break;
         }
     }
 
     private void openExerciseDetail() {
-        if (spUtil.isSubjectStored()) {
-//        Intent intent = new Intent(this, ExerciseActivity.class);
-//        startActivity(intent);
-        } else {
-            loadingDialog.show();
-            mHandler.sendEmptyMessageDelayed(REFRESH_DB_SUBJECT, REFRESH_DB_SUBJECT_DELAY);
+        if (Constant.SUBJECT_ONE_TRAIN.equalsIgnoreCase(subjectType)) {
+            if (spUtil.isSubjectOneStored()) {
+                Intent intent = new Intent(this, ExerciseOneActivity.class);
+                intent.putExtra("trainTitle", mTrainTitle);
+                intent.putExtra("traiType", mTraiType);
+                startActivity(intent);
+            } else {
+                loadingDialog.show();
+                mHandler.sendEmptyMessageDelayed(REFRESH_DB_SUBJECT, REFRESH_DB_SUBJECT_DELAY);
+            }
+        } else if (Constant.SUBJECT_FOUR_TRAIN.equalsIgnoreCase(subjectType)) {
+            if (spUtil.isSubjectFourStored()) {
+                Intent intent = new Intent(this, ExerciseFourActivity.class);
+                intent.putExtra("trainTitle", mTrainTitle);
+                intent.putExtra("traiType", mTraiType);
+                startActivity(intent);
+            } else {
+                loadingDialog.show();
+                mHandler.sendEmptyMessageDelayed(REFRESH_DB_SUBJECT, REFRESH_DB_SUBJECT_DELAY);
+            }
         }
     }
 
@@ -121,7 +158,6 @@ public class SubjectTrainActivity extends ActivitySupport implements View.OnClic
     public void onBackPressed() {
         if (loadingDialog.isShowing()) {
             loadingDialog.dismiss();
-            mTraiType = "";
         } else {
             super.onBackPressed();
         }

@@ -10,7 +10,8 @@ public interface Constant {
     /******************** 科目一/三练习题分类 *******************/
     /** 科目一练习题 */
     String SUBJECT_ONE_TRAIN = "subject_one_train";
-    String SUBJECT_THREE_TRAIN = "subject_three_train";
+    /** 科目四练习题 */
+    String SUBJECT_FOUR_TRAIN = "subject_four_train";
     /** "0"-判断题 判断题只有answer_a和answei_b */
     String SUBJECT_CHOICE_TYPE = "0";
     /** "1"-选择题 */

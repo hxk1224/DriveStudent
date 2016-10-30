@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.exam.ExerciseOneActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:padding="@dimen/dimen_10dp">
+
+        <com.scaleview.ScaleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.scaleview.ScaleLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimen_15dp">
+
+                <com.scaleview.ScaleTextView
+                    android:id="@+id/subject_type_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rect_blue_bg_normal"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="xx题"
+                    android:textColor="@color/main_blue_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+                <com.scaleview.ScaleTextView
+                    android:id="@+id/title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_20dp"
+                    android:text="TITLE:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                    android:textColor="@color/main_gray_color"
+                    android:textSize="@dimen/dimen_30sp"/>
+            </com.scaleview.ScaleLinearLayout>
+
+            <include layout="@layout/line_gray_2dp"/>
+
+            <com.scaleview.ScaleImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:padding="@dimen/dimen_10dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_default"/>
+
+            <com.scaleview.ScaleRadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_10dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:orientation="vertical"
+                android:padding="@dimen/dimen_10dp">
+
+                <com.scaleview.ScaleRadioButton
+                    android:id="@+id/subject_a_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="A"
+                    android:textColor="@color/main_black_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+                <com.scaleview.ScaleRadioButton
+                    android:id="@+id/subject_b_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="B"
+                    android:textColor="@color/main_black_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+                <com.scaleview.ScaleRadioButton
+                    android:id="@+id/subject_c_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="C:"
+                    android:textColor="@color/main_black_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+                <com.scaleview.ScaleRadioButton
+                    android:id="@+id/subject_d_rb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_10dp"
+                    android:padding="@dimen/dimen_10dp"
+                    android:text="D:"
+                    android:textColor="@color/main_black_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+            </com.scaleview.ScaleRadioGroup>
+
+            <include layout="@layout/line_gray_2dp"/>
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/descripe_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_20dp"
+                android:text="问题描述:xxxxxx"
+                android:textColor="@color/main_gray_color"
+                android:textSize="@dimen/dimen_30sp"/>
+        </com.scaleview.ScaleLinearLayout>
+    </com.scaleview.ScaleScrollView>
+
+    <com.scaleview.ScaleRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:background="@color/main_blue_color">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/previous_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:padding="@dimen/dimen_15dp"
+            android:text="上一题"
+            android:textColor="@drawable/white_text_selector"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/next_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimen_15dp"
+            android:padding="@dimen/dimen_15dp"
+            android:text="下一题"
+            android:textColor="@drawable/white_text_selector"
+            android:textSize="@dimen/dimen_32sp"/>
+    </com.scaleview.ScaleRelativeLayout>
+
+</com.scaleview.ScaleLinearLayout>

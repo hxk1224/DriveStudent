@@ -233,6 +233,22 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/DialogStyleBottom"/>
+        <activity
+            android:name=".ui.teacher.TeacherDetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.exam.SubjectTrainActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.exam.ExerciseOneActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.exam.ExerciseFourActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
 
         <!-- ======================================== Activity End ========================================================= -->
 
@@ -383,7 +399,9 @@
             android:value="JPUSH_APPVALUE"/>
         <!-- </>值来自开发者平台取得的AppKey -->
         <!-- ======================================== JPush end ========================================================= -->
-        <activity android:name=".ui.teacher.TeacherDetailActivity">
+        <activity
+            android:name=".ui.exam.MainActivity"
+            android:label="@string/title_activity_main">
         </activity>
     </application>
 

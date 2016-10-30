@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+       android:shape="rectangle"
+       android:useLevel="false">
+
+    <!-- 实心 -->
+    <solid android:color="#3dc4ae"/>
+
+    <!-- 渐变 -->
+    <gradient
+        android:endColor="#3dc4ae"
+        android:startColor="#3dc4ae"/>
+    <corners
+        android:bottomLeftRadius="@dimen/dimen_6dp"
+        android:bottomRightRadius="@dimen/dimen_6dp"
+        android:topLeftRadius="@dimen/dimen_6dp"
+        android:topRightRadius="@dimen/dimen_6dp"/>
+</shape>

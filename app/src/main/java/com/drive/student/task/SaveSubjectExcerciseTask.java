@@ -46,14 +46,14 @@ public class SaveSubjectExcerciseTask {
                 LogUtil.e(TAG, "科目一没有数据,保存数据到数据库-->>");
                 saveDataTask(Constant.SUBJECT_ONE_TXT);
             } else {
-                queryData();
+                spUtil.setSubjectOneStored(true);
                 LogUtil.e(TAG, "科目一有数据-->>");
             }
             if (!mDbUtils.tableIsExist(SubjectFourBean.class)) {
                 LogUtil.e(TAG, "科目四没有数据,保存数据到数据库-->>");
                 saveDataTask(Constant.SUBJECT_FOUR_TXT);
             } else {
-                queryData();
+                spUtil.setSubjectFourStored(true);
                 LogUtil.e(TAG, "科目四有数据-->>");
             }
         } catch (DbException e) {
@@ -78,8 +78,8 @@ public class SaveSubjectExcerciseTask {
             protected void onPostExecute(Boolean result) {
                 LogUtil.e(TAG, "完成保存练习题到数据库--->>");
                 if (result) {
-                    spUtil.setSubjectStored(true);
-                    queryData();
+                    spUtil.setSubjectOneStored(true);
+                    spUtil.setSubjectFourStored(true);
                 }
             }
         }.execute();

@@ -52,7 +52,7 @@ public class ExamFrag extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.subject_four_tv:
                 showToastInThread("科目四!");
-                openSubjectTrain(Constant.SUBJECT_THREE_TRAIN);
+                openSubjectTrain(Constant.SUBJECT_FOUR_TRAIN);
                 break;
         }
     }

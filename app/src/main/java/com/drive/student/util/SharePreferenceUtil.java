@@ -253,15 +253,26 @@ public class SharePreferenceUtil {
         return sp.getString("token", "");
     }
 
-    /** 设置练习题保存到数据库的状态 */
-    public void setSubjectStored(boolean bool) {
-        editor.putBoolean("subject_saved", bool);
+    /** 设置科目一练习题保存到数据库的状态 */
+    public void setSubjectOneStored(boolean bool) {
+        editor.putBoolean("subject_one_saved", bool);
         editor.commit();
     }
 
-    /** 练习题是否已保存到数据库 */
-    public boolean isSubjectStored() {
-        return sp.getBoolean("subject_saved", false);
+    /** 科目一练习题是否已保存到数据库 */
+    public boolean isSubjectOneStored() {
+        return sp.getBoolean("subject_one_saved", false);
+    }
+
+    /** 设置科目四练习题保存到数据库的状态 */
+    public void setSubjectFourStored(boolean bool) {
+        editor.putBoolean("subject_four_saved", bool);
+        editor.commit();
+    }
+
+    /** 科目四练习题是否已保存到数据库 */
+    public boolean isSubjectFourStored() {
+        return sp.getBoolean("subject_four_saved", false);
     }
 
 }
