@@ -24,7 +24,7 @@ public class SchoolDetailActivity extends ActivitySupport implements View.OnClic
 
         findViewById(R.id.call_kefu_layout).setOnClickListener(this);
         findViewById(R.id.sign_up_bt).setOnClickListener(this);
-        findViewById(R.id.subject_three_bt).setOnClickListener(this);
+        findViewById(R.id.call_bt).setOnClickListener(this);
     }
 
     @Override

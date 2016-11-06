@@ -21,6 +21,7 @@ import com.drive.student.config.Constant;
 import com.drive.student.ui.BaseFragment;
 import com.drive.student.ui.MainActivity;
 import com.drive.student.ui.SelectAreaActivity;
+import com.drive.student.ui.school.SchoolDetailActivity;
 import com.drive.student.ui.school.SchoolListActivity;
 import com.drive.student.util.SharePreferenceUtil;
 import com.drive.student.util.StringUtil;
@@ -143,6 +144,13 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
         for (int i = 0; i < 6; i++) {
             LayoutInflater inflater = LayoutInflater.from(getActivity());
             View item = inflater.inflate(R.layout.home_hot_school_item, null);
+            hot_school_ll.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), SchoolDetailActivity.class);
+                    getActivity().startActivity(intent);
+                }
+            });
             hot_school_ll.addView(item);
         }
     }
