@@ -144,7 +144,7 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
         for (int i = 0; i < 6; i++) {
             LayoutInflater inflater = LayoutInflater.from(getActivity());
             View item = inflater.inflate(R.layout.home_hot_school_item, null);
-            hot_school_ll.setOnClickListener(new View.OnClickListener() {
+            item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(), SchoolDetailActivity.class);
