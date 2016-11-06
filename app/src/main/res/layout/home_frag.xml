@@ -73,32 +73,6 @@
                     android:textColor="@color/main_blue_color"
                     android:textSize="@dimen/dimen_32sp"/>
 
-                <include layout="@layout/line_gray_1dp_vertical"/>
-
-                <com.scaleview.ScaleTextView
-                    android:id="@+id/subject_one_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/edittext_bg_selector"
-                    android:gravity="center"
-                    android:text="科目一"
-                    android:textColor="@color/main_blue_color"
-                    android:textSize="@dimen/dimen_32sp"/>
-
-                <include layout="@layout/line_gray_1dp_vertical"/>
-
-                <com.scaleview.ScaleTextView
-                    android:id="@+id/subject_four_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/edittext_bg_selector"
-                    android:gravity="center"
-                    android:text="科目四"
-                    android:textColor="@color/main_blue_color"
-                    android:textSize="@dimen/dimen_32sp"/>
-
             </com.scaleview.ScaleLinearLayout>
 
             <include layout="@layout/line_gray_1dp"/>

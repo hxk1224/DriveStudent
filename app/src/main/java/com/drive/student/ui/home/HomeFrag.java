@@ -79,10 +79,6 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
         sign_up_tv.setOnClickListener(this);
         TextView examination_tv = (TextView) mainView.findViewById(R.id.examination_tv);
         examination_tv.setOnClickListener(this);
-        TextView subject_one_tv = (TextView) mainView.findViewById(R.id.subject_one_tv);
-        subject_one_tv.setOnClickListener(this);
-        TextView subject_four_tv = (TextView) mainView.findViewById(R.id.subject_four_tv);
-        subject_four_tv.setOnClickListener(this);
 
         // 热门驾校
         hot_school_ll = (LinearLayout) mainView.findViewById(R.id.hot_school_ll);
@@ -151,12 +147,6 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
                 break;
             case R.id.examination_tv:
                 showToastInThread("约考试!");
-                break;
-            case R.id.subject_one_tv:
-                showToastInThread("科目一!");
-                break;
-            case R.id.subject_four_tv:
-                showToastInThread("科目四!");
                 break;
         }
     }

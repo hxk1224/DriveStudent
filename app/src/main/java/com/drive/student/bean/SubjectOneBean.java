@@ -35,6 +35,9 @@ public class SubjectOneBean implements Serializable {
      }
      */
 
+    /** 做题选中的答案 */
+    public String selectdAnswer;
+
     /** id */
     public String id;
     /** 题目计数 */

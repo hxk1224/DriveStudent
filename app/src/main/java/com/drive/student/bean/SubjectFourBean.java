@@ -1,6 +1,7 @@
 package com.drive.student.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 /** 科目一/科目四练习题 */
 public class SubjectFourBean implements Serializable {
@@ -34,7 +35,10 @@ public class SubjectFourBean implements Serializable {
      "subject_analysis" : "标准答案：ABD。违法行为一、以110公里\/小时的速度在城市道路行驶违法行为；二、与一辆机动车追尾后弃车逃离违法行为；三、林某血液中的酒精浓度为135.8毫克\/百毫升。  ",
      }
      */
-
+    /** 做题选中的答案List */
+    public List<String> selectdAnswers;
+    /** 多选题少选的答案 */
+    public List<String> lossAnswers;
     /** id */
     public String id;
     /** 题目计数 */

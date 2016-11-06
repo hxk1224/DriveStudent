@@ -13,9 +13,9 @@ public interface Constant {
     /** 科目四练习题 */
     String SUBJECT_FOUR_TRAIN = "subject_four_train";
     /** "0"-判断题 判断题只有answer_a和answei_b */
-    String SUBJECT_CHOICE_TYPE = "0";
+    String SUBJECT_JUDGE_TYPE = "0";
     /** "1"-选择题 */
-    String SUBJECT_JUDGE_TYPE = "1";
+    String SUBJECT_CHOICE_TYPE = "1";
     /** "2"-科目四多选题 */
     String SUBJECT_MULTIPLE_CHOICE_TYPE = "2";
 
