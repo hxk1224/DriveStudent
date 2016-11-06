@@ -8,7 +8,9 @@ import android.text.TextUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
+import com.baidu.location.BDLocation;
 import com.drive.student.R;
+import com.drive.student.bean.LocationBean;
 import com.drive.student.bean.UserBean;
 import com.drive.student.config.Constant;
 import com.drive.student.config.UrlConfig;
@@ -110,18 +112,17 @@ public class SharePreferenceUtil {
         return sp.getString(Constant.STORAGE_PATH, null);
     }
 
-    /**
-     * 自动定位用户位置
-     *
-     * @param longitude     经度
-     * @param latitude      纬度
-     * @param province      省
-     * @param city          市
-     * @param district      区县
-     * @param street        街道
-     * @param street_number 街道号
-     */
-    public void setUserLoc(String longitude, String latitude, String province, String city, String district, String street, String street_number) {
+    /** 自动定位用户位置 */
+    public void setUserLocation(BDLocation bdLocation) {
+
+        String longitude = bdLocation.getLongitude() + "";
+        String latitude = bdLocation.getLatitude() + "";
+        String province = bdLocation.getProvince();
+        String city = bdLocation.getCity();
+        String district = bdLocation.getDistrict();
+        String street = bdLocation.getStreet();
+        String streetNumber = bdLocation.getStreetNumber();
+
         if (!TextUtils.isEmpty(province) && province.contains("省")) {
             province = province.substring(0, province.lastIndexOf("省"));
         } else if (!TextUtils.isEmpty(province) && province.contains("市")) {
@@ -130,45 +131,48 @@ public class SharePreferenceUtil {
         if (!TextUtils.isEmpty(city) && city.contains("市")) {
             city = city.substring(0, city.lastIndexOf("市"));
         }
-        editor.putString(Constant.LONGITUDE_AUTO, longitude);
-        editor.putString(Constant.LATITUDE_AUTO, latitude);
-        editor.putString(Constant.STREET_NUMBER, street_number);
-        editor.putString(Constant.PROVINCE_S, province);
-        editor.putString(Constant.CITY_S, city);
-        editor.putString(Constant.DISTRICT, district);
-        editor.putString(Constant.STREET, street);
-        editor.putString(Constant.STREET_NUMBER, street_number);
+
+        LocationBean bean = new LocationBean();
+        bean.province = province;
+        bean.city = city;
+        bean.district = district;
+        bean.street = street;
+        bean.streetNumber = streetNumber;
+        // 经度
+        bean.longitude = longitude;
+        // 纬度
+        bean.latitude = latitude;
+        String json = JSON.toJSONString(bean);
+        editor.putString("user_location", json);
         editor.commit();
     }
 
-    public String getProvince() {
-        return sp.getString(Constant.PROVINCE_S, null);
+    public LocationBean getUserLocation(){
+        LocationBean bean = null;
+        String json = sp.getString("user_location", "");
+        if(!StringUtil.equalsNull(json)) {
+            bean = JSON.parseObject(json, new TypeReference<LocationBean>(){
+            });
+        }
+        return bean;
     }
 
-    public String getCity() {
-        return sp.getString(Constant.CITY_S, null);
+    public void setHomeLoaction(LocationBean location) {
+        String json = JSON.toJSONString(location);
+        editor.putString("home_location", json);
+        editor.commit();
     }
 
-    public String getDistrict() {
-        return sp.getString(Constant.DISTRICT, null);
-    }
-
-    public String getStreet() {
-        return sp.getString(Constant.STREET, null);
-    }
-
-    public String getStreetNumber() {
-        return sp.getString(Constant.STREET_NUMBER, null);
-    }
-
-    /** 经度 */
-    public String getLongitude() {
-        return sp.getString(Constant.LONGITUDE_AUTO, null);
-    }
-
-    /** 纬度 */
-    public String getLatitude() {
-        return sp.getString(Constant.LATITUDE_AUTO, null);
+    public LocationBean getHomeLoaction() {
+        LocationBean bean;
+        String json = sp.getString("home_location", "");
+        if (!StringUtil.equalsNull(json)) {
+            bean = JSON.parseObject(json, new TypeReference<LocationBean>() {
+            });
+        } else {
+            bean = getUserLocation();
+        }
+        return bean;
     }
 
     /** 是否第一次运行本应用. 默认是第一次登录 */

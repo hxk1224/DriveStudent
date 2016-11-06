@@ -1,5 +1,7 @@
 package com.drive.student.ui.home;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
@@ -12,10 +14,16 @@ import android.widget.TextView;
 
 import com.drive.student.R;
 import com.drive.student.adapter.ImagePagerAdapter;
+import com.drive.student.bean.LocationBean;
 import com.drive.student.callback.CommonHandlerCallback;
 import com.drive.student.common.CommonHandler;
+import com.drive.student.config.Constant;
 import com.drive.student.ui.BaseFragment;
+import com.drive.student.ui.MainActivity;
+import com.drive.student.ui.SelectAreaActivity;
+import com.drive.student.ui.school.SchoolListActivity;
 import com.drive.student.util.SharePreferenceUtil;
+import com.drive.student.util.StringUtil;
 import com.drive.student.view.ViewPagerScroller;
 
 import java.util.ArrayList;
@@ -68,7 +76,10 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
         LinearLayout location_ll = (LinearLayout) header.findViewById(R.id.location_ll);
         location_ll.setOnClickListener(this);
         location_tv = (TextView) header.findViewById(R.id.location_tv);
-        location_tv.setText(spUtil.getCity());
+        LocationBean location = spUtil.getHomeLoaction();
+        if (location != null) {
+            location_tv.setText(StringUtil.doEmpty(location.district));
+        }
         //广告
         vPager = (ViewPager) mainView.findViewById(R.id.vPager);
         vPager.setOnPageChangeListener(mOnPageChangeListener);
@@ -140,15 +151,25 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.location_ll:
-                showToastInThread("选择地区!");
+                selectAddress();
                 break;
             case R.id.sign_up_tv:
-                showToastInThread("去报名!");
+                openSignPage();
                 break;
             case R.id.examination_tv:
                 showToastInThread("约考试!");
                 break;
         }
+    }
+
+    private void openSignPage(){
+        Intent intent = new Intent(getActivity(), SchoolListActivity.class);
+        getActivity().startActivity(intent);
+    }
+
+    private void selectAddress() {
+        Intent shopIntent = new Intent(getActivity(), SelectAreaActivity.class);
+        getActivity().startActivityForResult(shopIntent, MainActivity.CHOSE_LOCATION);
     }
 
     private ViewPager.OnPageChangeListener mOnPageChangeListener = new ViewPager.OnPageChangeListener() {
@@ -184,4 +205,34 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
         super.onDestroyView();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case MainActivity.CHOSE_LOCATION:
+                    if (data != null) {
+                        String province = data.getStringExtra(Constant.SELECT_AREA_PROVINCE);
+                        String city = data.getStringExtra(Constant.SELECT_AREA_CITY);
+                        String district = data.getStringExtra(Constant.SELECT_AREA_DISTANCE);
+                        String provinceCode = data.getStringExtra(Constant.SELECT_AREA_PROVINCE_CODE);
+                        String cityCode = data.getStringExtra(Constant.SELECT_AREA_CITY_CODE);
+                        String districtCode = data.getStringExtra(Constant.SELECT_AREA_DISTANCE_CODE);
+
+                        LocationBean location = spUtil.getHomeLoaction();
+                        location.province = province;
+                        location.provinceCode = provinceCode;
+                        location.city = city;
+                        location.cityCode = cityCode;
+                        location.district = district;
+                        location.districtCode = districtCode;
+
+                        spUtil.setHomeLoaction(location);
+                        location_tv.setText(location.district);
+
+                        // TODO 更换地区刷新数据
+                    }
+                    break;
+            }
+        }
+    }
 }

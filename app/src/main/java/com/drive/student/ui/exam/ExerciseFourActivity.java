@@ -29,10 +29,6 @@ import java.util.List;
 
 import pl.droidsonroids.gif.GifImageView;
 
-interface GifDownloadCallback {
-    void callback(String gifPath);
-}
-
 public class ExerciseFourActivity extends ActivitySupport implements View.OnClickListener {
 
     private static final String TRAIN_TYPE_SEQUENCE = "sequence_type";
@@ -72,6 +68,10 @@ public class ExerciseFourActivity extends ActivitySupport implements View.OnClic
     private int currIndex;
     private Button mulchoice_submit_bt;
     private LoadingDialog loadingDialog;
+
+    interface GifDownloadCallback {
+        void callback(String gifPath);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

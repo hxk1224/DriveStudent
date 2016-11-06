@@ -1,5 +1,6 @@
 package com.drive.student.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
@@ -34,6 +35,9 @@ import java.util.ArrayList;
 /** 主菜单页面. */
 public class MainActivity extends ActivitySupport implements CommonHandlerCallback {
     public static final String TAG = "MainActivity";
+
+    /** 选择地区 */
+    public static final int CHOSE_LOCATION = 0x1;
 
     /** 按返回键 */
     private static final int PRESS_KEY_BACK = 0x2;
@@ -314,6 +318,17 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
 
         @Override
         public void onPageScrollStateChanged(int arg0) {
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case MainActivity.CHOSE_LOCATION:
+                    homeFrag.onActivityResult(requestCode, resultCode, data);
+                    break;
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.drive.student.R;
+import com.drive.student.bean.LocationBean;
 import com.drive.student.ui.BaseFragment;
 import com.drive.student.util.BitmapHelp;
 import com.drive.student.util.LogUtil;
@@ -54,14 +55,18 @@ public class UserFrag extends BaseFragment implements OnClickListener {
     public void onStart() {
         super.onStart();
         LogUtil.e("UserFrag", "onStart--->>");
-        // 我的位置
-        if (StringUtil.isBlank(spUtil.getCity())) {
-            user_home_tv.setText("");
-        } else {
-            user_home_tv.setText(String.format("当前位置：%s", spUtil.getCity()));
+        LocationBean location = spUtil.getUserLocation();
+        if(location == null){
+            location = spUtil.getHomeLoaction();
         }
-        // 用户名
-        user_name_tv.setText(mainApplication.getUserCode());
+        // 我的位置
+        if (location != null) {
+            user_home_tv.setText(String.format("%s %s %s", location.province, location.city, location.district));
+        } else {
+            user_home_tv.setText("当前位置：未定位到位置");
+        }
+        // TODO 用户名
+        // user_name_tv.setText(mainApplication.getUserCode());
         // 头像
         if (!StringUtil.isBlank(spUtil.getUserIcon())) {
             mBitmapUtils.display(user_icon_iv, spUtil.getUserIcon());

@@ -79,23 +79,6 @@ public interface Constant {
     int NET_ERR_CODE = 1;
     /***** 空数据,或者自定义错误 ****/
     int EMP_ERR_CODE = 2;
-    /*********************** 定位 *******************************/
-    /** 纬度 */
-    String LATITUDE = "latitude";
-    /** 经度 */
-    String LONGITUDE = "longitude";
-    String PROVINCE_S = "province";// 省
-    String CITY_S = "city";// 市
-    String CITY_S_CODE = "city_code";// 市
-    String DISTRICT = "district";// 区县
-    String DISTRICT_CODE = "district_code";// 区县
-    String STREET = "street";// 街道
-    String STREET_NUMBER = "streetNumber";// 街道号
-    String DETAIL_LOCATION = "detail_location";// 具体地址
-    /** 定位经度坐标 */
-    String LONGITUDE_AUTO = "longitude";
-    /** 定位纬度坐标 */
-    String LATITUDE_AUTO = "latitude";
     /************************ 系统设置 *******************/
     String IS_FIRST = "is_first";// 是否第一次运行
     String STORAGE_PATH = "storagepath";// 存储路径

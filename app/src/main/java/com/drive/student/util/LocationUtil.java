@@ -76,7 +76,7 @@ public class LocationUtil {
                 String location = "纬度：" + bdLocation.getAltitude() + ", 经度：" + bdLocation.getLongitude();
                 Log.e(TAG, "onReceiveLocation--》位置：" + msg + ", addrStr：" + addrStr + ", " + location);
                 SharePreferenceUtil spUtil = new SharePreferenceUtil(mContext);
-                spUtil.setUserLoc(bdLocation.getLongitude() + "", bdLocation.getLatitude() + "", bdLocation.getProvince(), bdLocation.getCity(), bdLocation.getDistrict(), bdLocation.getStreet(), bdLocation.getStreetNumber());
+                spUtil.setUserLocation(bdLocation);
             }
             closeLocListener(this);
         }

@@ -139,6 +139,11 @@
         <!-- alipay sdk end -->
 
 
+        <!-- 选择地区界面 -->
+        <activity
+            android:name=".ui.SelectAreaActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
         <!-- 剪裁界面 -->
         <activity
             android:name=".view.CropperView"
@@ -235,6 +240,14 @@
             android:theme="@style/DialogStyleBottom"/>
         <activity
             android:name=".ui.teacher.TeacherDetailActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.school.SchoolListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.school.SchoolDetailActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
         <activity
@@ -399,10 +412,6 @@
             android:value="JPUSH_APPVALUE"/>
         <!-- </>值来自开发者平台取得的AppKey -->
         <!-- ======================================== JPush end ========================================================= -->
-        <activity
-            android:name=".ui.exam.MainActivity"
-            android:label="@string/title_activity_main">
-        </activity>
     </application>
 
 </manifest>
