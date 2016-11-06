@@ -55,8 +55,6 @@ public class SchoolListActivity extends ActivitySupport implements OnClickListen
         sort_tv.setSelected(true);
         sort_bottom_line.setVisibility(View.VISIBLE);
 
-        findViewById(R.id.search_iv).setOnClickListener(this);
-
         sort_tv.setOnClickListener(this);
         show_tv.setOnClickListener(this);
 
@@ -112,7 +110,8 @@ public class SchoolListActivity extends ActivitySupport implements OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.search_iv:
+            case R.id.header_tv_back:
+                SchoolListActivity.this.finish();
                 break;
             case R.id.sort_tv:
                 // 排序
