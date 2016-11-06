@@ -41,6 +41,11 @@ public class SchoolListActivity extends ActivitySupport implements OnClickListen
     }
 
     private void initViews() {
+        View header = findViewById(R.id.header);
+        TextView header_tv_title = (TextView) header.findViewById(R.id.header_tv_title);
+        header_tv_title.setText("我要报名");
+        header.findViewById(R.id.header_tv_back).setOnClickListener(this);
+
         sort_tv = (TextView) findViewById(R.id.sort_tv);
         show_tv = (TextView) findViewById(R.id.show_tv);
 

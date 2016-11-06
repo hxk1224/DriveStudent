@@ -5,7 +5,9 @@
                                  android:background="@color/white"
                                  android:orientation="vertical">
 
-    <include layout="@layout/header_teacher"/>
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
 
     <com.scaleview.ScaleLinearLayout
         android:layout_width="match_parent"
