@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.drive.student.ui.teacher.TeacherDetailActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom"
+        android:layout_below="@+id/header"
+        android:orientation="vertical">
+
+        <com.scaleview.ScaleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_20dp"
+            android:orientation="vertical">
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/school_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_20dp"
+                android:gravity="center"
+                android:text="xxxxxxxx驾校-xxxxxx"
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_34sp"/>
+
+            <com.scaleview.ScaleTextView
+                android:id="@+id/school_area_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:gravity="center"
+                android:text="xxx省xxx市xxx区xxxxx路xx号"
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_30sp"/>
+        </com.scaleview.ScaleLinearLayout>
+
+        <include layout="@layout/line_gray_2dp"/>
+
+        <com.scaleview.ScaleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_80dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_20dp">
+
+            <com.scaleview.ScaleTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="真实姓名："
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_32sp"/>
+
+            <com.scaleview.ScaleEditText
+                android:id="@+id/real_name_et"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:hint="真实姓名"
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_32sp"/>
+        </com.scaleview.ScaleLinearLayout>
+
+        <include layout="@layout/line_gray_2dp"/>
+
+        <com.scaleview.ScaleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_80dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_20dp">
+
+            <com.scaleview.ScaleTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="身份证："
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_32sp"/>
+
+            <com.scaleview.ScaleEditText
+                android:id="@+id/id_et"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:hint="身份证"
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_32sp"/>
+        </com.scaleview.ScaleLinearLayout>
+
+        <include layout="@layout/line_gray_2dp"/>
+
+        <com.scaleview.ScaleLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_80dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/dimen_20dp">
+
+            <com.scaleview.ScaleTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="联系电话："
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_32sp"/>
+
+            <com.scaleview.ScaleEditText
+                android:id="@+id/phone_et"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_80dp"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:background="#00000000"
+                android:gravity="center_vertical"
+                android:hint="联系电话"
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_32sp"/>
+        </com.scaleview.ScaleLinearLayout>
+
+        <include layout="@layout/line_gray_2dp"/>
+
+    </com.scaleview.ScaleLinearLayout>
+
+    <com.scaleview.ScaleLinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_100dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/light_gray_color"
+        android:paddingLeft="@dimen/dimen_20dp"
+        android:paddingRight="@dimen/dimen_20dp">
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/confirm_bt"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_blue_button_selector"
+            android:gravity="center"
+            android:text="确认报名"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/call_bt"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginLeft="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rect_blue_button_selector"
+            android:gravity="center"
+            android:text="电话咨询"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_32sp"/>
+    </com.scaleview.ScaleLinearLayout>
+</com.scaleview.ScaleRelativeLayout>

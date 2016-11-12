@@ -68,13 +68,13 @@
 
     <include layout="@layout/line_gray_2dp"/>
 
-    <com.scaleview.ScaleListView
-        android:id="@+id/time_list_lv"
+    <com.drive.student.view.XListView
+        android:id="@+id/time_list_xlv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:divider="@color/light_gray_line_color"
-        android:dividerHeight="@dimen/dimen_2dp"
+        android:dividerHeight="@dimen/dimen_1dp"
         android:listSelector="@drawable/edittext_bg_selector"
         android:scrollbars="vertical"
         android:scrollingCache="false"/>

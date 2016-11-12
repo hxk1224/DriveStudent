@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">考驾照</string>
+    <string name="app_name">拽我学车</string>
     <string name="prompt">提示</string>
     <string name="exit_app_message">确定要退出吗?</string>
     <string name="hint_login">账号登录</string>

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.drive.student.R;
@@ -68,10 +67,12 @@ public class TeacherAppointmentActivity extends ActivitySupport implements View.
         next_tv.setOnClickListener(this);
 
         // 教练列表
-        ListView time_list_lv = (XListView) findViewById(R.id.time_list_lv);
+        XListView time_list_xlv = (XListView) findViewById(R.id.time_list_xlv);
         mAdapter = new TeacherTimeListAdapter(this);
-        time_list_lv.setAdapter(mAdapter);
-        time_list_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        time_list_xlv.setPullRefreshEnable(true);
+        time_list_xlv.setPullLoadEnable(false);
+        time_list_xlv.setAdapter(mAdapter);
+        time_list_xlv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TeacherTimeBean bean = (TeacherTimeBean) parent.getAdapter().getItem(position);
@@ -99,21 +100,7 @@ public class TeacherAppointmentActivity extends ActivitySupport implements View.
                 break;
             case R.id.time_tv:
                 // 选择时间
-                final Calendar calendar = Calendar.getInstance();
-                calendar.setTime(TimestampUtil.parseDate(time_tv.getText().toString().trim()));
-                DatePickerDialog dialog = new DatePickerDialog(
-                        TeacherAppointmentActivity.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                time_tv.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
-                                loadData();
-                            }
-                        },
-                        calendar.get(Calendar.YEAR),
-                        calendar.get(Calendar.MONTH),
-                        calendar.get(Calendar.DAY_OF_MONTH));
-                dialog.show();
+                choseTime();
                 break;
             case R.id.next_tv:
                 // 后一天
@@ -121,6 +108,24 @@ public class TeacherAppointmentActivity extends ActivitySupport implements View.
                 loadData();
                 break;
         }
+    }
+
+    private void choseTime(){
+        final Calendar calendar = Calendar.getInstance();
+        calendar.setTime(TimestampUtil.parseDate(time_tv.getText().toString().trim()));
+        DatePickerDialog dialog = new DatePickerDialog(
+                TeacherAppointmentActivity.this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        time_tv.setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+                        loadData();
+                    }
+                },
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH));
+        dialog.show();
     }
 
     private void loadData() {

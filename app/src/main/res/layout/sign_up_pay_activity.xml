@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.drive.student.ui.teacher.TeacherDetailActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dimen_15dp">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/sing_up_fee_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_100dp"
+            android:gravity="center"
+            android:text="报名费用：1000"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_34sp"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/ali_pay_bt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:background="@drawable/rect_blue_button_selector"
+            android:text="支付宝支付"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_42sp"/>
+
+        <com.scaleview.ScaleButton
+            android:id="@+id/wx_pay_bt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:background="@drawable/rect_blue_button_selector"
+            android:text="微信支付"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_42sp"/>
+
+    </com.scaleview.ScaleLinearLayout>
+</com.scaleview.ScaleLinearLayout>

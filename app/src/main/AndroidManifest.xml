@@ -255,6 +255,14 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".ui.school.SignUpActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.school.SignUpPayActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ui.exam.SubjectTrainActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
