@@ -368,7 +368,7 @@ public class ExerciseFourActivity extends ActivitySupport implements View.OnClic
                 SubjectFourBean four = mList.get(currIndex);
                 String trueAnswerArr[] = four.answer_true.split("/");
                 if (four.selectdAnswers == null || four.selectdAnswers.size() <= 0) {
-                    four.selectdAnswers = Arrays.asList(trueAnswerArr);
+                    four.selectdAnswers = new ArrayList<>(Arrays.asList(trueAnswerArr));
                 } else {
                     for (String trueAnswer : trueAnswerArr) {
                         boolean isExist = false;
