@@ -80,8 +80,6 @@ public class MainActivity extends ActivitySupport implements CommonHandlerCallba
         ((MainApplication) getApplication()).clearActivities();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        // 在状态栏显示系统,防止应用被kill
-        NoticeManager.getInstance(getApplicationContext()).showGlobalNotification();
         // 把练习题保存到数据库
         new SaveSubjectExcerciseTask(getApplicationContext()).saveSubjectExcerciseToDb();
         initJpush();

@@ -382,11 +382,11 @@ public class TimestampUtil {
 
     // 将长时间格式字符串转换为时间 yyyy-MM-dd HH:mm:ss
     public static Date strToDateLong(String strDate) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         ParsePosition pos = new ParsePosition(0);
         Date strtodate = formatter.parse(strDate, pos);
         if (strtodate == null) {
-            formatter = new SimpleDateFormat("yyyy-MM-dd");
+            formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
             strtodate = formatter.parse(strDate, pos);
         }
         return strtodate;
@@ -394,11 +394,11 @@ public class TimestampUtil {
 
     // 将 yyyy-MM-dd HH:mm 格式字符串转换为时间
     public static Date strToDateTime(String strDate) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
         ParsePosition pos = new ParsePosition(0);
         Date strtodate = formatter.parse(strDate, pos);
         if (strtodate == null) {
-            formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
             strtodate = formatter.parse(strDate, pos);
         }
         return strtodate;
@@ -450,7 +450,7 @@ public class TimestampUtil {
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(new Date());
         cal1.add(Calendar.MONTH, -month);
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         return formatter.format(cal1.getTime());
 
     }
@@ -462,7 +462,7 @@ public class TimestampUtil {
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(new Date());
         cal1.add(Calendar.DATE, -day);
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         return formatter.format(cal1.getTime());
 
     }
@@ -474,7 +474,7 @@ public class TimestampUtil {
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(new Date());
         cal1.add(Calendar.DATE, day);
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         return formatter.format(cal1.getTime());
 
     }
@@ -483,7 +483,7 @@ public class TimestampUtil {
         Calendar cal1 = Calendar.getInstance();
         cal1.setTime(new Date());
         cal1.add(Calendar.YEAR, -year);
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy", Locale.getDefault());
         return formatter.format(cal1.getTime()) + "年份";
     }
 

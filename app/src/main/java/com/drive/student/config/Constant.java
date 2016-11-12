@@ -4,8 +4,15 @@ package com.drive.student.config;
 public interface Constant {
     /******************** 数据库名称 *******************/
     String DB_NAME = "drive_student.db";
-    /******************** 科目一/四练习题文件名称 *******************/
+    /******************** 科目一到科目四 *******************/
+    String SUBJECT_ONE = "subject_one";
+    String SUBJECT_TWO = "subject_two";
+    String SUBJECT_THREE = "subject_three";
+    String SUBJECT_FOUR = "subject_four";
+
+    /** 科目一练习题文件 */
     String SUBJECT_ONE_TXT = "subject_one.txt";
+    /** 科目四练习题文件 */
     String SUBJECT_FOUR_TXT = "subject_four.txt";
     /******************** 科目一/三练习题分类 *******************/
     /** 科目一练习题 */

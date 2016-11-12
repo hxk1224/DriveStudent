@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:orientation="horizontal">
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginLeft="@dimen/dimen_15dp"
+            android:gravity="center"
+            android:text="8:00--9:00"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/price_tv"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="100"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <com.scaleview.ScaleImageView
+            android:id="@+id/check_iv"
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dimen_15dp"
+            android:src="@drawable/checked_image_selector"/>
+    </com.scaleview.ScaleLinearLayout>
+</com.scaleview.ScaleLinearLayout>

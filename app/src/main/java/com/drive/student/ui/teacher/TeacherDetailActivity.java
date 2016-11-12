@@ -1,10 +1,12 @@
 package com.drive.student.ui.teacher;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.drive.student.R;
+import com.drive.student.config.Constant;
 import com.drive.student.ui.ActivitySupport;
 
 public class TeacherDetailActivity extends ActivitySupport implements View.OnClickListener {
@@ -37,11 +39,19 @@ public class TeacherDetailActivity extends ActivitySupport implements View.OnCli
                 callPhone("");
                 break;
             case R.id.subject_two_bt:
-                // TODO 预约科目二
+                // 预约科目二
+                appointTeacher(Constant.SUBJECT_TWO);
                 break;
             case R.id.subject_three_bt:
-                // TODO 预约科目三
+                // 预约科目三
+                appointTeacher(Constant.SUBJECT_THREE);
                 break;
         }
+    }
+
+    private void appointTeacher(String subjectType){
+        Intent intent = new Intent(this, TeacherAppointmentActivity.class);
+        intent.putExtra("subjectType", subjectType);
+        startActivity(intent);
     }
 }

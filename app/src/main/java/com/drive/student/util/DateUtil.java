@@ -6,12 +6,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
-/**
- * 日期操作工具类.
- *
- * @author 韩新凯
- */
+/** 日期操作工具类 */
 
 public class DateUtil {
 
@@ -20,14 +17,14 @@ public class DateUtil {
     private final static ThreadLocal<SimpleDateFormat> dateFormater = new ThreadLocal<SimpleDateFormat>() {
         @Override
         protected SimpleDateFormat initialValue() {
-            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         }
     };
 
     private final static ThreadLocal<SimpleDateFormat> dateFormater2 = new ThreadLocal<SimpleDateFormat>() {
         @Override
         protected SimpleDateFormat initialValue() {
-            return new SimpleDateFormat("yyyy-MM-dd");
+            return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         }
     };
 
@@ -44,7 +41,7 @@ public class DateUtil {
         }
         Date date = null;
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat(format);
+            SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.getDefault());
             date = sdf.parse(str);
 
         } catch (Exception e) {
@@ -94,7 +91,7 @@ public class DateUtil {
         if (format == null || format.length() == 0) {
             format = FORMAT;
         }
-        SimpleDateFormat sdf = new SimpleDateFormat(format);
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.getDefault());
         String s = sdf.format(d);
         return s;
     }
@@ -105,12 +102,7 @@ public class DateUtil {
         return c.get(Calendar.YEAR) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.DAY_OF_MONTH) + "-" + c.get(Calendar.HOUR_OF_DAY) + ":" + c.get(Calendar.MINUTE) + ":" + c.get(Calendar.SECOND);
     }
 
-    /**
-     * 获得当前日期的字符串格式
-     *
-     * @param format
-     * @return
-     */
+    /** 获得当前日期的字符串格式 */
     public static String getCurDateStr(String format) {
         Calendar c = Calendar.getInstance();
         return date2Str(c, format);
@@ -119,32 +111,25 @@ public class DateUtil {
     // 格式到秒
     public static String getMillon(long time) {
 
-        return new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(time);
+        return new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.getDefault()).format(time);
 
     }
 
     // 格式到天
     public static String getDay(long time) {
 
-        return new SimpleDateFormat("yyyy-MM-dd").format(time);
+        return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(time);
 
     }
 
     // 格式到毫秒
     public static String getSMillon(long time) {
 
-        return new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS").format(time);
+        return new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS", Locale.getDefault()).format(time);
 
     }
 
-    /***
-     * 将字符串转位日期类型
-     *
-     * @param sdate
-     * @return
-     * @author 韩新凯
-     * @update 2014-5-29 下午3:57:44
-     */
+    /** 将字符串转位日期类型 */
     public static Date toDate(String sdate) {
         try {
             return dateFormater.get().parse(sdate);
@@ -153,14 +138,7 @@ public class DateUtil {
         }
     }
 
-    /***
-     * 以友好的方式显示时间
-     *
-     * @param sdate
-     * @return
-     * @author 韩新凯
-     * @update 2014-5-29 下午3:57:53
-     */
+    /*** 以友好的方式显示时间 */
     public static String friendly_time(String sdate) {
         Date time = toDate(sdate);
         if (time == null) {
@@ -202,14 +180,7 @@ public class DateUtil {
         return ftime;
     }
 
-    /**
-     * 将如2014-06-10 02:02:37 格式的日期转换成long类型
-     *
-     * @param time
-     * @return
-     * @author 韩新凯
-     * @update 2014-6-10 下午5:11:49
-     */
+    /** 将如2014-06-10 02:02:37 格式的日期转换成long类型 */
     @SuppressLint("SimpleDateFormat")
     public static long getTimestamp(String time) {
         long rand = 0;

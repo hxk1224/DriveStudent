@@ -243,6 +243,10 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".ui.teacher.TeacherAppointmentActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ui.school.SchoolListActivity"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>

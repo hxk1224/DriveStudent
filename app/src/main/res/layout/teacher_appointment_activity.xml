@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.drive.student.ui.teacher.TeacherDetailActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <com.scaleview.ScaleLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_90dp"
+        android:orientation="horizontal">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/previous_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/product_tab_bg_selector"
+            android:gravity="center"
+            android:text="前一天"
+            android:textColor="@color/main_blue_color"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <View
+            android:layout_width="@dimen/dimen_1dp"
+            android:layout_height="@dimen/dimen_70dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/light_gray_line_color"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/time_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/product_tab_bg_selector"
+            android:gravity="center"
+            android:text="2016-11-12"
+            android:textColor="@color/main_blue_color"
+            android:textSize="@dimen/dimen_32sp"/>
+
+        <View
+            android:layout_width="@dimen/dimen_1dp"
+            android:layout_height="@dimen/dimen_70dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/light_gray_line_color"/>
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/next_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@drawable/product_tab_bg_selector"
+            android:gravity="center"
+            android:text="后一天"
+            android:textColor="@color/main_blue_color"
+            android:textSize="@dimen/dimen_32sp"/>
+
+    </com.scaleview.ScaleLinearLayout>
+
+    <include layout="@layout/line_gray_2dp"/>
+
+    <com.scaleview.ScaleListView
+        android:id="@+id/time_list_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:divider="@color/light_gray_line_color"
+        android:dividerHeight="@dimen/dimen_2dp"
+        android:listSelector="@drawable/edittext_bg_selector"
+        android:scrollbars="vertical"
+        android:scrollingCache="false"/>
+
+</com.scaleview.ScaleLinearLayout>
