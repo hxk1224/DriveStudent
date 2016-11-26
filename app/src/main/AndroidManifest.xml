@@ -421,7 +421,7 @@
             android:value="drive.student"/>
         <meta-data
             android:name="JPUSH_APPKEY"
-            android:value="JPUSH_APPVALUE"/>
+            android:value="e4b348cba46b2e80529015b8"/>
         <!-- </>值来自开发者平台取得的AppKey -->
         <!-- ======================================== JPush end ========================================================= -->
     </application>

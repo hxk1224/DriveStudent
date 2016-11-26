@@ -72,7 +72,7 @@
             <com.scaleview.ScaleImageView
                 android:id="@+id/iv_exam"
                 style="@style/main_tab_img"
-                android:src="@drawable/teacher_item"/>
+                android:src="@drawable/exam_item"/>
 
             <com.scaleview.ScaleTextView
                 android:id="@+id/tv_exam"

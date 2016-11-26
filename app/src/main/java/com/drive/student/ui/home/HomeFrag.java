@@ -22,7 +22,6 @@ import com.drive.student.ui.BaseFragment;
 import com.drive.student.ui.MainActivity;
 import com.drive.student.ui.SelectAreaActivity;
 import com.drive.student.ui.school.SchoolDetailActivity;
-import com.drive.student.ui.school.SchoolListActivity;
 import com.drive.student.util.SharePreferenceUtil;
 import com.drive.student.util.StringUtil;
 import com.drive.student.view.ViewPagerScroller;
@@ -85,12 +84,6 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
         vPager = (ViewPager) mainView.findViewById(R.id.vPager);
         vPager.setOnPageChangeListener(mOnPageChangeListener);
         dot_ll = (LinearLayout) mainView.findViewById(R.id.dot_ll);
-
-        // 报名 约考 科目一科目四练习
-        TextView sign_up_tv = (TextView) mainView.findViewById(R.id.sign_up_tv);
-        sign_up_tv.setOnClickListener(this);
-        TextView examination_tv = (TextView) mainView.findViewById(R.id.examination_tv);
-        examination_tv.setOnClickListener(this);
 
         // 热门驾校
         hot_school_ll = (LinearLayout) mainView.findViewById(R.id.hot_school_ll);
@@ -161,18 +154,7 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
             case R.id.location_ll:
                 selectAddress();
                 break;
-            case R.id.sign_up_tv:
-                openSignPage();
-                break;
-            case R.id.examination_tv:
-                showToastInThread("约考试!");
-                break;
         }
-    }
-
-    private void openSignPage(){
-        Intent intent = new Intent(getActivity(), SchoolListActivity.class);
-        getActivity().startActivity(intent);
     }
 
     private void selectAddress() {

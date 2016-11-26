@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.drive.student.R;
 import com.drive.student.config.Constant;
 import com.drive.student.ui.BaseFragment;
+import com.drive.student.ui.school.SchoolListActivity;
 
 public class ExamFrag extends BaseFragment implements View.OnClickListener {
     public static final int CHANGE_AD_PIC = 6;
@@ -41,7 +42,7 @@ public class ExamFrag extends BaseFragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_up_tv:
-                showToastInThread("去报名!");
+                openSignPage();
                 break;
             case R.id.examination_tv:
                 showToastInThread("约考试!");
@@ -55,6 +56,11 @@ public class ExamFrag extends BaseFragment implements View.OnClickListener {
                 openSubjectTrain(Constant.SUBJECT_FOUR_TRAIN);
                 break;
         }
+    }
+
+    private void openSignPage(){
+        Intent intent = new Intent(getActivity(), SchoolListActivity.class);
+        getActivity().startActivity(intent);
     }
 
     /** 打开科目一和科目三练习题页面 */
