@@ -1,115 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.scaleview.ScaleRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                   android:layout_width="match_parent"
-                                   android:layout_height="wrap_content"
-                                   android:padding="@dimen/dimen_10dp">
+<com.scaleview.ScaleLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:background="@drawable/edittext_bg_selector"
+                                 android:orientation="vertical">
 
-    <com.scaleview.ScaleImageView
-        android:id="@+id/header_iv"
-        android:layout_width="@dimen/dimen_120dp"
-        android:layout_height="@dimen/dimen_120dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/image_default"/>
-
-    <com.scaleview.ScaleLinearLayout
+    <com.scaleview.ScaleRelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dimen_15dp"
-        android:layout_toRightOf="@+id/header_iv"
-        android:orientation="vertical">
+        android:padding="@dimen/dimen_15dp">
 
-        <com.scaleview.ScaleLinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <com.scaleview.ScaleTextView
-                android:id="@+id/name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="教练姓名"
-                android:textColor="@color/main_black_color"
-                android:textSize="@dimen/dimen_34sp"/>
-
-            <com.scaleview.ScaleTextView
-                android:id="@+id/sex_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_20dp"
-                android:text="男"
-                android:textColor="@color/main_gray_color"
-                android:textSize="@dimen/dimen_30sp"/>
-
-            <com.scaleview.ScaleTextView
-                android:id="@+id/license_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_20dp"
-                android:text="C1"
-                android:textColor="@color/main_gray_color"
-                android:textSize="@dimen/dimen_30sp"/>
-
-            <com.scaleview.ScaleTextView
-                android:id="@+id/score_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_20dp"
-                android:text="8.8分"
-                android:textColor="@color/red_color"
-                android:textSize="@dimen/dimen_30sp"
-                android:textStyle="italic"/>
-        </com.scaleview.ScaleLinearLayout>
+        <com.scaleview.ScaleImageView
+            android:id="@+id/school_icon_iv"
+            android:layout_width="@dimen/dimen_120dp"
+            android:layout_height="@dimen/dimen_120dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_default"/>
 
         <com.scaleview.ScaleLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_6dp"
-            android:orientation="horizontal">
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_toLeftOf="@+id/school_location_tv"
+            android:layout_toRightOf="@+id/school_icon_iv"
+            android:orientation="vertical">
 
             <com.scaleview.ScaleTextView
-                android:id="@+id/distance_tv"
-                android:layout_width="wrap_content"
+                android:id="@+id/school_name_tv"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="100km"
-                android:textColor="@color/red_color"
-                android:textSize="@dimen/dimen_30sp"/>
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:singleLine="true"
+                android:text="XXXXX驾校-xxxxxx校区"
+                android:textColor="@color/main_black_color"
+                android:textSize="@dimen/dimen_32sp"/>
 
             <com.scaleview.ScaleTextView
                 android:id="@+id/service_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimen_30dp"
-                android:text="xkm内免费接送"
-                android:textColor="@color/main_gray_color"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:singleLine="true"
+                android:text="一对一学车/考试包接送"
+                android:textColor="@color/main_gray_dark"
                 android:textSize="@dimen/dimen_28sp"/>
 
+            <com.scaleview.ScaleTextView
+                android:id="@+id/cost_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:singleLine="true"
+                android:text="报名费:xxxx, xx人报名"
+                android:textColor="@color/main_gray_dark"
+                android:textSize="@dimen/dimen_28sp"/>
         </com.scaleview.ScaleLinearLayout>
 
         <com.scaleview.ScaleTextView
-            android:id="@+id/subject_price_tv"
+            android:id="@+id/distance_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_6dp"
-            android:text="科二: xx元/小时    科三: xx元/小时"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:text="00.00km"
             android:textColor="@color/main_gray_color"
             android:textSize="@dimen/dimen_28sp"/>
+    </com.scaleview.ScaleRelativeLayout>
 
-        <com.scaleview.ScaleTextView
-            android:id="@+id/car_info_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_6dp"
-            android:text="比亚迪, 桑塔纳"
-            android:textColor="@color/main_gray_color"
-            android:textSize="@dimen/dimen_28sp"/>
-
-        <com.scaleview.ScaleTextView
-            android:id="@+id/address_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimen_6dp"
-            android:text="xxxx区xxxx路xxxx号xxxxxx"
-            android:textColor="@color/main_gray_color"
-            android:textSize="@dimen/dimen_28sp"/>
-    </com.scaleview.ScaleLinearLayout>
-</com.scaleview.ScaleRelativeLayout>
+    <include layout="@layout/line_gray_2dp"/>
+</com.scaleview.ScaleLinearLayout>
