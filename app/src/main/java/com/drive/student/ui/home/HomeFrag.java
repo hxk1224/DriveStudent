@@ -22,6 +22,7 @@ import com.drive.student.ui.BaseFragment;
 import com.drive.student.ui.MainActivity;
 import com.drive.student.ui.SelectAreaActivity;
 import com.drive.student.ui.school.SchoolDetailActivity;
+import com.drive.student.ui.school.SchoolListActivity;
 import com.drive.student.util.SharePreferenceUtil;
 import com.drive.student.util.StringUtil;
 import com.drive.student.view.ViewPagerScroller;
@@ -84,6 +85,15 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
         vPager = (ViewPager) mainView.findViewById(R.id.vPager);
         vPager.setOnPageChangeListener(mOnPageChangeListener);
         dot_ll = (LinearLayout) mainView.findViewById(R.id.dot_ll);
+
+        mainView.findViewById(R.id.sign_notice_tv).setOnClickListener(this);
+        mainView.findViewById(R.id.tijian_tv).setOnClickListener(this);
+        mainView.findViewById(R.id.xueche_tv).setOnClickListener(this);
+        mainView.findViewById(R.id.sign_up_tv).setOnClickListener(this);
+        mainView.findViewById(R.id.server_tv).setOnClickListener(this);
+        mainView.findViewById(R.id.exam_tv).setOnClickListener(this);
+        mainView.findViewById(R.id.question_tv).setOnClickListener(this);
+        mainView.findViewById(R.id.benifit_tv).setOnClickListener(this);
 
         // 热门驾校
         hot_school_ll = (LinearLayout) mainView.findViewById(R.id.hot_school_ll);
@@ -154,7 +164,67 @@ public class HomeFrag extends BaseFragment implements View.OnClickListener, Comm
             case R.id.location_ll:
                 selectAddress();
                 break;
+            case R.id.sign_notice_tv:
+                openSignNoticePage();
+                break;
+            case R.id.tijian_tv:
+                openTijianNoticePage();
+                break;
+            case R.id.xueche_tv:
+                openXuecheNoticePage();
+                break;
+            case R.id.sign_up_tv:
+                openSignPage();
+                break;
+            case R.id.server_tv:
+                openServerNoticePage();
+                break;
+            case R.id.exam_tv:
+                showToastInThread("约考试-->");
+                break;
+            case R.id.question_tv:
+                openCommonProblemPage();
+                break;
+            case R.id.benifit_tv:
+                openBenifitPage();
+                break;
+
         }
+    }
+
+    private void openSignNoticePage() {
+        Intent intent = new Intent(getActivity(), SignNoticeActivity.class);
+        getActivity().startActivity(intent);
+    }
+
+    private void openTijianNoticePage() {
+        Intent intent = new Intent(getActivity(), TijianNoticeActivity.class);
+        getActivity().startActivity(intent);
+    }
+
+    private void openXuecheNoticePage() {
+        Intent intent = new Intent(getActivity(), XuecheNoticeActivity.class);
+        getActivity().startActivity(intent);
+    }
+
+    private void openServerNoticePage() {
+        Intent intent = new Intent(getActivity(), ServerNoticeActivity.class);
+        getActivity().startActivity(intent);
+    }
+
+    private void openCommonProblemPage() {
+        Intent intent = new Intent(getActivity(), CommonProblemActivity.class);
+        getActivity().startActivity(intent);
+    }
+
+    private void openBenifitPage() {
+        Intent intent = new Intent(getActivity(), BenifitActivity.class);
+        getActivity().startActivity(intent);
+    }
+
+    private void openSignPage() {
+        Intent intent = new Intent(getActivity(), SchoolListActivity.class);
+        getActivity().startActivity(intent);
     }
 
     private void selectAddress() {

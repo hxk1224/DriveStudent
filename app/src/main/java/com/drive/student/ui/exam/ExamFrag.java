@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.drive.student.R;
 import com.drive.student.config.Constant;
 import com.drive.student.ui.BaseFragment;
-import com.drive.student.ui.school.SchoolListActivity;
 
 public class ExamFrag extends BaseFragment implements View.OnClickListener {
     public static final int CHANGE_AD_PIC = 6;
@@ -27,11 +26,7 @@ public class ExamFrag extends BaseFragment implements View.OnClickListener {
     }
 
     private void initViews() {
-        // 报名 约考 科目一科目四练习
-        TextView sign_up_tv = (TextView) mainView.findViewById(R.id.sign_up_tv);
-        sign_up_tv.setOnClickListener(this);
-        TextView examination_tv = (TextView) mainView.findViewById(R.id.examination_tv);
-        examination_tv.setOnClickListener(this);
+        // 科目一科目四练习
         TextView subject_one_tv = (TextView) mainView.findViewById(R.id.subject_one_tv);
         subject_one_tv.setOnClickListener(this);
         TextView subject_four_tv = (TextView) mainView.findViewById(R.id.subject_four_tv);
@@ -41,12 +36,6 @@ public class ExamFrag extends BaseFragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.sign_up_tv:
-                openSignPage();
-                break;
-            case R.id.examination_tv:
-                showToastInThread("约考试!");
-                break;
             case R.id.subject_one_tv:
                 showToastInThread("科目一!");
                 openSubjectTrain(Constant.SUBJECT_ONE_TRAIN);
@@ -56,11 +45,6 @@ public class ExamFrag extends BaseFragment implements View.OnClickListener {
                 openSubjectTrain(Constant.SUBJECT_FOUR_TRAIN);
                 break;
         }
-    }
-
-    private void openSignPage(){
-        Intent intent = new Intent(getActivity(), SchoolListActivity.class);
-        getActivity().startActivity(intent);
     }
 
     /** 打开科目一和科目三练习题页面 */

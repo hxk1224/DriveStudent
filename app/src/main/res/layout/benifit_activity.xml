@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scaleview.ScaleLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.drive.student.ui.home.SignNoticeActivity">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.scaleview.ScaleTextView
+            android:id="@+id/sign_notice_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top|left"
+            android:padding="@dimen/dimen_10dp"
+            android:text="优惠活动：xxxxxxx"
+            android:textColor="@color/main_black_color"
+            android:textSize="@dimen/dimen_32sp"/>
+    </ScrollView>
+
+</com.scaleview.ScaleLinearLayout>

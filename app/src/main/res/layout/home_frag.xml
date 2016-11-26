@@ -44,6 +44,122 @@
 
             <include layout="@layout/line_gray_1dp"/>
 
+            <com.scaleview.ScaleLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.scaleview.ScaleTextView
+                    android:id="@+id/sign_notice_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg_selector"
+                    android:gravity="center"
+                    android:text="报名\n须知"
+                    android:textColor="@color/main_blue_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+                <include layout="@layout/line_gray_1dp_vertical"/>
+
+                <com.scaleview.ScaleTextView
+                    android:id="@+id/tijian_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg_selector"
+                    android:gravity="center"
+                    android:text="体检\n须知"
+                    android:textColor="@color/main_blue_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+                <include layout="@layout/line_gray_1dp_vertical"/>
+
+                <com.scaleview.ScaleTextView
+                    android:id="@+id/xueche_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg_selector"
+                    android:gravity="center"
+                    android:text="学车\n流程"
+                    android:textColor="@color/main_blue_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+                <include layout="@layout/line_gray_1dp_vertical"/>
+
+                <com.scaleview.ScaleTextView
+                    android:id="@+id/sign_up_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg_selector"
+                    android:gravity="center"
+                    android:text="去报\n名"
+                    android:textColor="@color/main_blue_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+            </com.scaleview.ScaleLinearLayout>
+
+            <include layout="@layout/line_gray_1dp"/>
+
+            <com.scaleview.ScaleLinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <com.scaleview.ScaleTextView
+                    android:id="@+id/server_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg_selector"
+                    android:gravity="center"
+                    android:text="服务\n保障"
+                    android:textColor="@color/main_blue_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+                <include layout="@layout/line_gray_1dp_vertical"/>
+
+                <com.scaleview.ScaleTextView
+                    android:id="@+id/exam_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg_selector"
+                    android:gravity="center"
+                    android:text="约考\n试"
+                    android:textColor="@color/main_blue_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+                <include layout="@layout/line_gray_1dp_vertical"/>
+
+                <com.scaleview.ScaleTextView
+                    android:id="@+id/question_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg_selector"
+                    android:gravity="center"
+                    android:text="常见\n问题"
+                    android:textColor="@color/main_blue_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+
+                <include layout="@layout/line_gray_1dp_vertical"/>
+
+                <com.scaleview.ScaleTextView
+                    android:id="@+id/benifit_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dimen_100dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_bg_selector"
+                    android:gravity="center"
+                    android:text="优惠\n活动"
+                    android:textColor="@color/main_blue_color"
+                    android:textSize="@dimen/dimen_32sp"/>
+            </com.scaleview.ScaleLinearLayout>
+
+            <include layout="@layout/line_gray_1dp"/>
+
             <com.scaleview.ScaleTextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_80dp"
